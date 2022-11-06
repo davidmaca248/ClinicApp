@@ -4,13 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_481ProjectPart2"
+        xmlns:userControls="clr-namespace:_481ProjectPart2.Views"
         mc:Ignorable="d"
-        Top="0"
-        Left="0"
         Style="{StaticResource MainWindowStyle}">
     <Grid>
-        <Border Background="Aqua">
-            <TextBlock Text="Test"/>
+        <Border Background="Blue">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="400"/>
+                </Grid.ColumnDefinitions>
+
+                <userControls:NavbarUC Grid.ColumnSpan="2"/>
+                <userControls:RightbarUC Grid.Column="1" Grid.Row="1"/>
+                
+            </Grid>
         </Border>
     </Grid>
 </Window>

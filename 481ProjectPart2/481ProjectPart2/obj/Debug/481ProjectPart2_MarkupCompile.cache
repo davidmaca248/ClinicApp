@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\david\Documents\UofC\CPSC481\ProjectPart2\481ProjectPart2\481ProjectPart2\App.xaml
-2-1186984087
+4-2006766061
 
-51579654133
+7-420646221
 13-38814620
-MainWindow.xaml;Styles\ResourceDictionary.xaml;
+MainWindow.xaml;Styles\ResourceDictionary.xaml;Views\NavbarUC.xaml;Views\SidebarUC.xaml;
 
 False
 
