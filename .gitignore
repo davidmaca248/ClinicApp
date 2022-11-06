@@ -1,7 +1,9 @@
 ### VS Code ###
 .vscode/
+.vs/
 *.suo
 *.user
+
 Debug/
 Release/
 bin/
