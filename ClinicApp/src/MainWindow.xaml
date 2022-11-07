@@ -13,7 +13,7 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
     
-    <Border Background="Blue">
+    <Border Background="White">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>

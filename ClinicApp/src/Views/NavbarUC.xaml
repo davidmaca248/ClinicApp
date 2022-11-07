@@ -9,7 +9,7 @@
              d:DesignHeight="100" d:DesignWidth="{x:Static SystemParameters.PrimaryScreenWidth}"
              >
     <Grid>
-        <Border Background="Green">
+        <Border Margin="10" CornerRadius="30" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -28,10 +28,11 @@
                              Command="{Binding HomeViewCommand}"/>
 
                 <TextBlock Grid.Column="1" 
+                           FontFamily="{StaticResource StandardFont}"
                            Text="Clinic App"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           FontSize="20"/>
+                           FontSize="30"/>
                 
                 <RadioButton Grid.Column="2"
                              Content="Calendar"

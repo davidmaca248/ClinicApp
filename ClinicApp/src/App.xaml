@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="Styles/ResourceDictionary.xaml"/>
                 <ResourceDictionary Source="Styles/UserControlDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-
+            
             <!--Assigning the views to the ViewModels-->
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeContentUC/>
