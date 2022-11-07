@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ClinicApp.Views
 {
     /// <summary>
-    /// Interaction logic for RightbarUC.xaml
+    /// Interaction logic for SideBarUC.xaml
     /// </summary>
-    public partial class RightbarUC : UserControl
+    public partial class SideBarUC : UserControl
     {
-        public RightbarUC()
+        public SideBarUC()
         {
             InitializeComponent();
         }

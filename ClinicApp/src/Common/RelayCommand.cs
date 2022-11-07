@@ -4,7 +4,7 @@ using System.Windows.Input;
 namespace ClinicApp.Common
 {
     /// <summary>
-    /// Implement ICommand in order to modify what actions to be executed on command
+    /// Implement ICommand in order to assign what actions to be executed on command
     /// </summary>
     public class RelayCommand : ICommand
     {
