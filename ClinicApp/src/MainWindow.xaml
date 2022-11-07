@@ -9,7 +9,6 @@
         mc:Ignorable="d"
         Style="{StaticResource MainWindowStyle}">
 
-
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -26,7 +25,7 @@
             </Grid.ColumnDefinitions>
 
             <view:NavbarUC Grid.ColumnSpan="2"/>
-            <view:RightbarUC Grid.Column="1" Grid.Row="1"/>
+            <view:RightbarUC Grid.Column="1" Grid.Row="1" Margin="10"/>
             
             <ContentControl Grid.Row="1"
                             Grid.Column="0"

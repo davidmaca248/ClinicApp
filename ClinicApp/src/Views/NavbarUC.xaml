@@ -39,8 +39,7 @@
 
                 <RadioButton Grid.Column="3"
                              Content="Doctors"
-                             Style="{StaticResource NavbarButtonStyle}"
-                             Command="{Binding DoctorViewCommand}"/>
+                             Style="{StaticResource NavbarButtonStyle}"/>
 
                 <RadioButton Grid.Column="4"
                              Content="Clients"
@@ -52,7 +51,8 @@
                 
                 <RadioButton Grid.Column="6"
                              Content="Account"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding TestContentViewCommand}"/>
             </Grid>
         </Border>
     </Grid>

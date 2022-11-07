@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ClinicApp.Views"
              mc:Ignorable="d" 
              >
-    <Grid Background="Orange">
+    <Border CornerRadius="30" Background="Orange">
             
-    </Grid>
+    </Border>
 </UserControl>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignWidth="400">
     <Grid>
-        <Border CornerRadius="50" Background="Red">
+        <Border CornerRadius="30" Background="Red">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>

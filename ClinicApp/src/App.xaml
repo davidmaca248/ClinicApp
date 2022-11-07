@@ -17,8 +17,8 @@
                 <view:HomeContentUC/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:DoctorsViewModel}">
-                <view:DoctorsContent/>
+            <DataTemplate DataType="{x:Type viewModel:TestContentViewModel}">
+                <view:TestContentUC/>
             </DataTemplate>
 
 

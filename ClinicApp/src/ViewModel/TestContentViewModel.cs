@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClinicApp.ViewModel
 {
-    internal class DoctorsViewModel : BaseViewModel
+    internal class TestContentViewModel : BaseViewModel
     {
     }
 }

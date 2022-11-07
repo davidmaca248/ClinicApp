@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ClinicApp.Views
 {
     /// <summary>
-    /// Interaction logic for DoctorsContent.xaml
+    /// Interaction logic for TestContentUC.xaml
     /// </summary>
-    public partial class DoctorsContent : UserControl
+    public partial class TestContentUC : UserControl
     {
-        public DoctorsContent()
+        public TestContentUC()
         {
             InitializeComponent();
         }
