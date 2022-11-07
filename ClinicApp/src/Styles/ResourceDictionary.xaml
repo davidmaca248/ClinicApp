@@ -12,7 +12,6 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Height" Value="{x:Static SystemParameters.PrimaryScreenHeight}"/>
         <Setter Property="Width" Value="{x:Static SystemParameters.PrimaryScreenWidth}"/>
-        <Setter Property="Background" Value="Transparent"/>
     </Style>
 
 </ResourceDictionary>

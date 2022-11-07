@@ -7,22 +7,37 @@
              mc:Ignorable="d" 
              d:DesignWidth="400">
     <Grid>
-        <Border CornerRadius="30" Background="LightGray">
+        <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
                 <!--Add Buttons Panel-->
-                <StackPanel Orientation="Vertical">
-
-                </StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Content="Add Appointment" Style="{StaticResource AddButtonStyle}"/>
+                    <Button Grid.Row="1" Content="Add Client" Style="{StaticResource AddButtonStyle}"/>
+                    <Button Grid.Row="2" Content="Add Doctor" Style="{StaticResource AddButtonStyle}"/>
+                </Grid>
                 
                 <!--Upcoming Panel-->
-                <StackPanel Grid.Row="1" Orientation="Vertical">
-                    
-                </StackPanel>
+                <Grid Grid.Row="1">
+                    <TextBlock Text="Upcoming Appointments" 
+                               FontFamily="{StaticResource StandardFont}"
+                               FontSize="25"
+                               Margin="30"
+                               Foreground="DarkOrchid"
+                               HorizontalAlignment="Center"/>
+                    <StackPanel>
+                        
+                    </StackPanel>
+                </Grid>
             </Grid>
         </Border>
     </Grid>

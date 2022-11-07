@@ -12,26 +12,57 @@
                               Background="{TemplateBinding Background}">
 
                             <TextBlock Text="{TemplateBinding Property=Content}"
-                                       Foreground="DarkOrchid"
+                                       Foreground="{TemplateBinding Foreground}"
                                        FontFamily="{StaticResource StandardFont}"
                                        FontSize="25"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
-
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
             <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="DarkOrchid"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
 
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="Gray"/>
+                <Setter Property="Foreground" Value="Orchid"/>
             </Trigger>
         </Style.Triggers>
         
+    </Style>
+
+    <Style x:Key="AddButtonStyle" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Background" Value="DarkOrchid"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="30"
+                                Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="25"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+        
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Orchid"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
