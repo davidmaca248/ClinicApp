@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _481ProjectPart2.Views
+namespace ClinicApp.Views
 {
     /// <summary>
     /// Interaction logic for NavbarUC.xaml

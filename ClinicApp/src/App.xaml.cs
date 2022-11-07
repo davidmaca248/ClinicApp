@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace _481ProjectPart2
+namespace ClinicApp
 {
     /// <summary>
     /// Interaction logic for App.xaml
