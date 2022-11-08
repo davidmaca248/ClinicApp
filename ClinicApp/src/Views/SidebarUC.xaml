@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ClinicApp.Views"
+             xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
+             xmlns:properties="clr-namespace:ClinicApp.Properties"
              mc:Ignorable="d" 
              d:DesignWidth="400">
+
+    <UserControl.DataContext>
+        <viewModel:SideBarViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>
@@ -28,15 +35,44 @@
                 
                 <!--Upcoming Panel-->
                 <Grid Grid.Row="1">
-                    <TextBlock Text="Upcoming Appointments" 
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Rectangle Height="2" Width="330" Fill="{StaticResource PrimaryColour}"/>
+                    <TextBlock Grid.Row="1"
+                               Text="Upcoming Appointments" 
                                FontFamily="{StaticResource StandardFont}"
-                               FontSize="25"
-                               Margin="30"
+                               FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                               Margin="0,10,0,0"
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
-                    <StackPanel>
-                        
-                    </StackPanel>
+                    <Border Grid.Row="2" CornerRadius="30" Background="LightGray">
+                        <ListView ItemsSource="{Binding AppointmentList}"
+                                  Margin="10,0,10,10"
+                                  Background="LightGray">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Time}"
+                                               Style="{StaticResource ListItemTextStyle}"/>
+                                        <TextBlock Text="{Binding Name}"
+                                               Style="{StaticResource ListItemTextStyle}"/>
+                                        <TextBlock Text="{Binding Description}"
+                                               Style="{StaticResource ListItemTextStyle}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Margin" Value="10"/>
+                                    <Setter Property="Background" Value="White"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+
+                    </Border>
                 </Grid>
             </Grid>
         </Border>

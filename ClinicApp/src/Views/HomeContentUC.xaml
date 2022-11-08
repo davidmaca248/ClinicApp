@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:properties="clr-namespace:ClinicApp.Properties"
              mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -11,7 +12,43 @@
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="30" Margin="10" Background="LightGray">
-
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="160"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.ColumnSpan="2" 
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Content="Prev"
+                            Style="{StaticResource DayNavButtonStyle}"/>
+                    <TextBlock HorizontalAlignment="Center" 
+                           Text="Sept 13, 2022 (Today)"
+                           Style="{StaticResource HeaderTextStyle}"/>
+                    <Button Content="Next"
+                            Style="{StaticResource DayNavButtonStyle}"/>
+                </StackPanel>
+                <TextBlock Grid.Row="1" 
+                           Text="Notes:" 
+                           Style="{StaticResource HeaderTextStyle}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" 
+                           Text="To-Do:"
+                           Style="{StaticResource HeaderTextStyle}"/>
+                <Rectangle Grid.Row="2" Fill="DarkOrchid"/>
+                <Rectangle Grid.Row="2" Grid.Column="1" Fill="Green"/>
+                <TextBlock Grid.Row="3" 
+                           Text="Appointments"
+                           Style="{StaticResource HeaderTextStyle}"/>
+                <Rectangle Grid.Row="4" Grid.ColumnSpan="2"  Fill="Blue"/>
+                
+            </Grid>
         </Border>
         <view:SideBarUC Grid.Column="1" Margin="10"/>
     </Grid>

@@ -1,5 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:properties="clr-namespace:ClinicApp.Properties">
+
+    <SolidColorBrush x:Key="PrimaryColour" Color="DarkOrchid"/>
+    <SolidColorBrush x:Key="SecondaryColour" Color="Orchid"/>
+
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
            x:Key="NavbarButtonStyle" TargetType="{x:Type RadioButton}">
         <Style.Setters>
@@ -14,7 +19,7 @@
                             <TextBlock Text="{TemplateBinding Property=Content}"
                                        Foreground="{TemplateBinding Foreground}"
                                        FontFamily="{StaticResource StandardFont}"
-                                       FontSize="25"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
                         </Border>
@@ -22,14 +27,14 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="DarkOrchid"/>
+            <Setter Property="Foreground" Value="{StaticResource PrimaryColour}"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
 
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="Gray"/>
-                <Setter Property="Foreground" Value="Orchid"/>
+                <Setter Property="Foreground" Value="{StaticResource SecondaryColour}"/>
             </Trigger>
         </Style.Triggers>
         
@@ -37,7 +42,7 @@
 
     <Style x:Key="AddButtonStyle" TargetType="{x:Type Button}">
         <Style.Setters>
-            <Setter Property="Background" Value="DarkOrchid"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryColour}"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Template">
@@ -45,12 +50,12 @@
                     <ControlTemplate TargetType="Button">
                         <Border VerticalAlignment="Stretch"
                                 HorizontalAlignment="Stretch"
-                                CornerRadius="30"
+                                CornerRadius="20"
                                 Background="{TemplateBinding Background}">
                             <TextBlock Text="{TemplateBinding Property=Content}"
                                        Foreground="{TemplateBinding Foreground}"
                                        FontFamily="{StaticResource StandardFont}"
-                                       FontSize="25"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"/>
                         </Border>

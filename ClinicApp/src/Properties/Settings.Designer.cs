@@ -22,5 +22,14 @@ namespace ClinicApp.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        public int DefaultFontSize {
+            get {
+                return ((int)(this["DefaultFontSize"]));
+            }
+        }
     }
 }
