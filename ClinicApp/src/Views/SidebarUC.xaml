@@ -61,6 +61,8 @@
                                                Style="{StaticResource ListItemTextStyle}"/>
                                         <TextBlock Text="{Binding Description}"
                                                Style="{StaticResource ListItemTextStyle}"/>
+                                        <TextBlock Text="{Binding DoctorName}"
+                                               Style="{StaticResource ListItemTextStyle}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

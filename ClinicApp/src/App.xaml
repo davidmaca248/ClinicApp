@@ -20,7 +20,7 @@
             <DataTemplate DataType="{x:Type viewModel:TestContentViewModel}">
                 <view:TestContentUC/>
             </DataTemplate>
-
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

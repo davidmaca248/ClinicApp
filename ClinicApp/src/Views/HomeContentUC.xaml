@@ -4,8 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
              xmlns:properties="clr-namespace:ClinicApp.Properties"
              mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModel:HomeViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -37,16 +43,69 @@
                 </StackPanel>
                 <TextBlock Grid.Row="1" 
                            Text="Notes:" 
-                           Style="{StaticResource HeaderTextStyle}"/>
+                           Style="{StaticResource HeaderTextStyle}"
+                           Padding="10,0,0,0"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" 
                            Text="To-Do:"
                            Style="{StaticResource HeaderTextStyle}"/>
-                <Rectangle Grid.Row="2" Fill="DarkOrchid"/>
-                <Rectangle Grid.Row="2" Grid.Column="1" Fill="Green"/>
+                <Border Grid.Row="2" 
+                        CornerRadius="30" 
+                        Background="LightGray" 
+                        Padding="10,0,0,0">
+                    <ListView ItemsSource="{Binding NotesList}"
+                                  Margin="10,0,10,10"
+                                  Background="White">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Margin" Value="5"/>
+                                <Setter Property="Background" Value="White"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1" 
+                        CornerRadius="30" 
+                        Background="LightGray" 
+                        Padding="0,0,10,0">
+                    <ListView ItemsSource="{Binding TodoList}"
+                                  Margin="10,0,10,10"
+                                  Background="White">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="Margin" Value="5"/>
+                                <Setter Property="Background" Value="White"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+
+                </Border>
                 <TextBlock Grid.Row="3" 
                            Text="Appointments"
-                           Style="{StaticResource HeaderTextStyle}"/>
-                <Rectangle Grid.Row="4" Grid.ColumnSpan="2"  Fill="Blue"/>
+                           Style="{StaticResource HeaderTextStyle}"
+                           Padding="10,0,0,0"/>
+                <Border Grid.Row="4" Grid.ColumnSpan="2" 
+                        CornerRadius="30" 
+                        Padding="20">
+                    <DataGrid ItemsSource="{Binding AppointmentList}" 
+                              AutoGenerateColumns="False"
+                              CellStyle="{StaticResource DataGridCellStyle}"
+                              CanUserReorderColumns="False"
+                              CanUserSortColumns="False">
+                       
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Time" Width="0.5*" Binding="{Binding Time}"/>
+                            <DataGridTextColumn Header="Clients" Width="*" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Doctor" Width="*" Binding="{Binding DoctorName}"/>
+                            <DataGridTextColumn Header="Information" Width="2*" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                        <!--<DataGrid.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock/>
+                            </DataTemplate>
+                        </DataGrid.ItemTemplate>-->
+                    </DataGrid>
+                </Border>
                 
             </Grid>
         </Border>
