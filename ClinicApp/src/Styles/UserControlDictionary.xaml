@@ -70,7 +70,151 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
+
+    <!--Temporary Non-selected Page button-->
+    <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+           x:Key="AppointmentPageUnselected" TargetType="{x:Type RadioButton}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border VerticalAlignment="Stretch"
+                              HorizontalAlignment="Stretch"
+                              CornerRadius="30"
+                              Background="{TemplateBinding Background}">
+
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="DarkOrchid"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="Gray"/>
+                <Setter Property="Foreground" Value="{StaticResource SecondaryColour}"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+    <!--Appointment Page Select-->
+    <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
+           x:Key="AppointmentPageSelect" TargetType="{x:Type RadioButton}">
+        <Style.Setters>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border VerticalAlignment="Stretch"
+                              HorizontalAlignment="Stretch"
+                              CornerRadius="30"
+                                BorderThickness="5"
+                                BorderBrush="DarkOrchid"
+                              Background="{TemplateBinding Background}">
+
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="{StaticResource PrimaryColour}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Background" Value="Gray"/>
+                <Setter Property="Foreground" Value="{StaticResource SecondaryColour}"/>
+            </Trigger>
+        </Style.Triggers>
+
+    </Style>
+
+
+    <!--Appointment Booking Button-->
+    <Style x:Key="AppointmentBookingButton" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="DarkOrchid"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="60"
+                                BorderThickness="1"
+                                BorderBrush="Orchid"
+                                Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="48"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Orchid"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="PrevNextButton" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Background" Value="{StaticResource PrimaryColour}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Orchid"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+
     <!--Datagrid Style-->
     <Style x:Key="DataGridCellStyle" TargetType="{x:Type DataGridCell}">
         <!--<Setter Property="Background" Value="BlueViolet"/>-->
