@@ -60,16 +60,20 @@
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel\CalendarViewModel.cs" />
+    <Compile Include="ViewModel\DayViewModel.cs" />
     <Compile Include="ViewModel\SideBarViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TestContentViewModel.cs" />
-    <Compile Include="Views\CalendarUC.xaml.cs">
+    <Compile Include="Views\Calendar\CalendarUC.xaml.cs">
       <DependentUpon>CalendarUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AccountUC.xaml.cs">
       <DependentUpon>AccountUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calendar\DayViewUC.xaml.cs">
+      <DependentUpon>DayViewUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ClientUC.xaml.cs">
       <DependentUpon>ClientUC.xaml</DependentUpon>
@@ -161,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Calendar\DayViewUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ClientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,7 +177,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CalendarUC.xaml">
+    <Page Include="Views\Calendar\CalendarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

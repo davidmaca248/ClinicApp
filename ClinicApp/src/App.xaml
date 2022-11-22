@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:ClinicApp"
              xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
              xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:calendarView="clr-namespace:ClinicApp.Views.Calendar"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -20,11 +21,15 @@
             <DataTemplate DataType="{x:Type viewModel:TestContentViewModel}">
                 <view:TestContentUC/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:CalendarViewModel}">
-                <view:CalendarUC/>
-            </DataTemplate>
-           
             
+            <!--Calendar Tab-->
+            <DataTemplate DataType="{x:Type viewModel:CalendarViewModel}">
+                <calendarView:CalendarUC/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DayViewModel}">
+                <calendarView:DayViewUC/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

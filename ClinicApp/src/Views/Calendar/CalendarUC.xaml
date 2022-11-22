@@ -1,36 +1,50 @@
-﻿<UserControl x:Class="ClinicApp.Views.CalendarUC"
+﻿<UserControl x:Class="ClinicApp.Views.Calendar.CalendarUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:view="clr-namespace:ClinicApp.Views">
-   
+             xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:viewModel="clr-namespace:ClinicApp.ViewModel">
+    <UserControl.DataContext>
+        <viewModel:CalendarViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
+        
+        <view:SideBarUC Grid.Column="1" Margin="10"/>
+        
         <Border CornerRadius="30" Margin="10" Background="LightGray">
 
-            <!--Calendar View-->
-            <!--<Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="10*"/>
-                    <ColumnDefinition Width="10*"/>
-                </Grid.ColumnDefinitions>
-                <Viewbox Width="600" Height="560" Stretch="UniformToFill" Margin="120,-5,0,0" Grid.Row ="1" Grid.RowSpan="5" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left">
+            <ContentControl Grid.Column="1"
+                            Grid.Row="0"
+                            Margin="10"
+                            Content="{Binding CurrentContent}"/>
+            
+            <!--Calendar View--><!--
+            <Grid>
+
+                <Viewbox Grid.Row ="0" Grid.Column="0" 
+                         Width="600" 
+                         Height="560" 
+                         Stretch="UniformToFill" 
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center">
                     <Calendar SelectionMode="SingleRange"  
                         Name="MonthlyCalendar"   
-                        SelectedDatesChanged="MonthlyCalendar_SelectedDatesChanged" 
                         HorizontalAlignment="Center"  
                         VerticalAlignment="Stretch"  
                         Background="White" >
+                        --><!--SelectedDatesChanged="MonthlyCalendar_SelectedDatesChanged"--><!-- 
+
                     </Calendar>
                 </Viewbox>
             </Grid>-->
 
-            <!--Day view-->
+            <!--Day view--><!--
             <Grid Margin="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50"/>
@@ -85,13 +99,9 @@
                     
 
                 </DataGrid>
-            </Grid>
-
-
-
-
+            </Grid>-->
 
         </Border>
-        <view:SideBarUC Grid.Column="1" Margin="10"/>
+        
     </Grid>
 </UserControl>

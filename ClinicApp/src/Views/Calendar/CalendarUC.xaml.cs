@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClinicApp.Views
+namespace ClinicApp.Views.Calendar
 {
     /// <summary>
     /// Interaction logic for CalendarUC.xaml
@@ -38,7 +38,7 @@ namespace ClinicApp.Views
             timeslot.Add(new User() { Time = "17:00", DrJohnstone = "", DrKeith = "Wanda V", DrStevenson = "", DrLawson = "", DrPhil = "", DrLeon = "Frank A" });
             timeslot.Add(new User() { Time = "18:00", DrJohnstone = "", DrKeith = "", DrStevenson = "Simran S", DrLawson = "Jill K", DrPhil = "Viggo W", DrLeon = "Joshua M" });
 
-            dgSimple.ItemsSource = timeslot;
+            //dgSimple.ItemsSource = timeslot;
         }
 
         public class User
@@ -53,6 +53,11 @@ namespace ClinicApp.Views
             public string DrLeon { get; set; }
 
 
+
+        }
+
+        private void MonthlyCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 
