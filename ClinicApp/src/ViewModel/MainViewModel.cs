@@ -13,7 +13,7 @@ namespace ClinicApp.ViewModel
 
 		private HomeViewModel HomeVM;
 		private TestContentViewModel TestContentVM;
-		private CalendarViewModel CalendarVM;
+		private CalendarTabViewModel CalendarVM;
 		// Navigation Commands
 		public RelayCommand HomeViewCommand { get; set; }
 		public RelayCommand TestContentViewCommand { get; set; }
@@ -36,7 +36,7 @@ namespace ClinicApp.ViewModel
 		{
 			HomeVM = new HomeViewModel();
 			TestContentVM = new TestContentViewModel();
-			CalendarVM = new CalendarViewModel();
+			CalendarVM = new CalendarTabViewModel();
 			CurrentView = HomeVM;
 
 			HomeViewCommand = new RelayCommand(o =>

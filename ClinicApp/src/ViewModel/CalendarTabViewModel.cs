@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ClinicApp.ViewModel
 {
-    internal class CalendarViewModel : BaseViewModel
+    internal class CalendarTabViewModel : BaseViewModel
     {
         #region Propeties
-
+        private CalendarContentViewModel CalendarContentVM;
         private DayViewModel DayVM;
 
         // Navigation Commands
@@ -29,10 +29,11 @@ namespace ClinicApp.ViewModel
             }
         }
 
-        public CalendarViewModel()
+        public CalendarTabViewModel()
         {
+            CalendarContentVM = new CalendarContentViewModel();
             DayVM = new DayViewModel();
-            CurrentContent = DayVM;
+            CurrentContent = CalendarContentVM;
 
             //HomeViewCommand = new RelayCommand(o =>
             //{

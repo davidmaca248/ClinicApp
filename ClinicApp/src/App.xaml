@@ -23,8 +23,11 @@
             </DataTemplate>
             
             <!--Calendar Tab-->
-            <DataTemplate DataType="{x:Type viewModel:CalendarViewModel}">
-                <calendarView:CalendarUC/>
+            <DataTemplate DataType="{x:Type viewModel:CalendarTabViewModel}">
+                <calendarView:CalendarTabUC/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:CalendarContentViewModel}">
+                <calendarView:CalendarContentUC/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewModel:DayViewModel}">
                 <calendarView:DayViewUC/>
