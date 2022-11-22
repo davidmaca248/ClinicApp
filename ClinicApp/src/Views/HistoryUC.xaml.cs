@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace ClinicApp.Views
 {
     /// <summary>
-    /// Interaction logic for NavbarUC.xaml
+    /// Interaction logic for HistoryUC.xaml
     /// </summary>
-    public partial class NavbarUC : UserControl
+    public partial class HistoryUC : UserControl
     {
-        public NavbarUC()
+        public HistoryUC()
         {
             InitializeComponent();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            //profile.Show();
         }
     }
 }

@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="ClinicApp.Views.AccountUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
+             xmlns:properties="clr-namespace:ClinicApp.Properties"
+             mc:Ignorable="d">
+
+    <UserControl.DataContext>
+        <viewModel:HomeViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="30" Margin="10" Background="LightGray">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="800"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Row="1"  Grid.Column="0"
+                        Background="LightGray" 
+                        Padding="0,0,10,0">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" Margin="60,20">
+                            <Ellipse Height="400" Width="400" Stroke="DarkOrchid" StrokeThickness="6">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="C:\Users\Joshua\Desktop\Fall 2022\CPSC 481\horizontal prototype\b3b67fb060a4aa772504cd6df018941d.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <StackPanel Background="DarkOrchid" Margin="180,30,180,30">
+                                <TextBlock Grid.Column="1" Margin="30,0,30,0" FontSize="35"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">John Doe</TextBlock>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </StackPanel>
+
+                </Border>
+                <Grid Grid.Row="1"  Grid.Column="1">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,60,30,30" Background="DarkOrchid">
+                            <TextBlock  Margin="50,0,163,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name:</TextBlock>
+                            <TextBlock  Margin="170,0,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">John Doe</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
+                            <TextBlock  Margin="50,0,163,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Role:</TextBlock>
+                            <TextBlock  Margin="180,0,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Receptionist</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
+                            <TextBlock  Margin="50,0,163,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
+                            <TextBlock  Margin="160,0,0,0" FontSize="20"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
+                            <TextBlock  Margin="50,0,163,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone:</TextBlock>
+                            <TextBlock  Margin="150,0,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-123-4567</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
+                            <TextBlock  Margin="50,0,163,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Current Shift:</TextBlock>
+                            <TextBlock  Margin="30,0,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">4.5 hrs</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Button Margin="1200,600,-700,130" Grid.Column="1" Content="Logout" Style="{StaticResource AddButtonStyle}" Background="DarkRed"/>
+                </Grid>
+
+            </Grid>
+        </Border>
+        <view:SideBarUC Grid.Column="1" Margin="10"/>
+    </Grid>
+</UserControl>
+

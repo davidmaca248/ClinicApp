@@ -68,11 +68,29 @@
     <Compile Include="Views\CalendarUC.xaml.cs">
       <DependentUpon>CalendarUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AccountUC.xaml.cs">
+      <DependentUpon>AccountUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClientUC.xaml.cs">
+      <DependentUpon>ClientUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DoctorUC.xaml.cs">
+      <DependentUpon>DoctorUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeContentUC.xaml.cs">
       <DependentUpon>HomeContentUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NavbarUC.xaml.cs">
       <DependentUpon>NavbarUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\30minPopup.xaml.cs">
+      <DependentUpon>30minPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\60minPopup.xaml.cs">
+      <DependentUpon>60minPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\90minPopup.xaml.cs">
+      <DependentUpon>90minPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\AddClientPopup.xaml.cs">
       <DependentUpon>AddClientPopup.xaml</DependentUpon>
@@ -82,6 +100,9 @@
     </Compile>
     <Compile Include="Views\Popups\AppointmentDetailsPopup.xaml.cs">
       <DependentUpon>AppointmentDetailsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\ClientAppointmentListPopup.xaml.cs">
+      <DependentUpon>ClientAppointmentListPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\ClientDetailsPopup.xaml.cs">
       <DependentUpon>ClientDetailsPopup.xaml</DependentUpon>
@@ -100,6 +121,12 @@
     </Compile>
     <Compile Include="Views\Popups\EditDoctor.xaml.cs">
       <DependentUpon>EditDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\EnterPinPopup.xaml.cs">
+      <DependentUpon>EnterPinPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\FindClientPopup.xaml.cs">
+      <DependentUpon>FindClientPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\SaveChangesPopup.xaml.cs">
       <DependentUpon>SaveChangesPopup.xaml</DependentUpon>
@@ -130,6 +157,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AccountUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ClientUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DoctorUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CalendarUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +181,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Popups\30minPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\60minPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\90minPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Popups\AddClientPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Popups\AppointmentDetailsPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\ClientAppointmentListPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -175,6 +230,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Popups\EditDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\EnterPinPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\FindClientPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

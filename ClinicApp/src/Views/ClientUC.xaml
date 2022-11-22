@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="ClinicApp.Views.ClientUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ClinicApp.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="400"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="30" Margin="10,10,10,10" Background="LightGray">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="120"/>
+                    <RowDefinition Height="800"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Button Margin="47,25,0,25" Content="Find Client" Style="{StaticResource AddButtonStyle}" Background="DarkOrchid" RenderTransformOrigin="-1.726,-1.814" HorizontalAlignment="Left" Width="313"/>
+                </Grid>
+                <Border Grid.Row="1" 
+                        Background="LightGray" 
+                        Padding="30,0,0,0" HorizontalAlignment="Left" Width="1331">
+                    <ListView Background="LightGray" Margin="10,10,0,100">
+                        <StackPanel Orientation="Horizontal">
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <Border CornerRadius="30" Height="202" Width="221" Background="DarkOrchid" Margin="30,50, 0, 0" RenderTransformOrigin="0.769,-0.75">
+                                <StackPanel>
+                                    <TextBlock Grid.Column="1" Margin="30,30,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone #</TextBlock>
+                                    <TextBlock Grid.Column="1" Margin="30,10,0,0" FontSize="30"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email</TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ListView>
+
+
+                </Border>
+
+            </Grid>
+        </Border>
+        <!--<view:SideBarUC Grid.Column="1" Margin="10"/>-->
+    </Grid>
+</UserControl>

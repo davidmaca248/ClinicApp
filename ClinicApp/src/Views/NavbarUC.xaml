@@ -56,8 +56,9 @@
 
                 <RadioButton Grid.Column="7"
                              Content="Account"
+                             IsChecked="True"
                              Style="{StaticResource NavbarButtonStyle}"
-                             Command="{Binding TestContentViewCommand}"/>
+                             Command="" Checked="RadioButton_Checked"/>
             </Grid>
         </Border>
     </Grid>

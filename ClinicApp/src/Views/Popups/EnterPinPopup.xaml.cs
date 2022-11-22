@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ClinicApp.Views
+namespace ClinicApp.Views.Popups
 {
     /// <summary>
-    /// Interaction logic for NavbarUC.xaml
+    /// Interaction logic for EnterPinPopup.xaml
     /// </summary>
-    public partial class NavbarUC : UserControl
+    public partial class EnterPinPopup : Window
     {
-        public NavbarUC()
+        public EnterPinPopup()
         {
             InitializeComponent();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            //profile.Show();
         }
     }
 }

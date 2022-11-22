@@ -11,7 +11,7 @@
     <UserControl.DataContext>
         <viewModel:HomeViewModel/>
     </UserControl.DataContext>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -92,21 +92,21 @@
                               CellStyle="{StaticResource DataGridCellStyle}"
                               CanUserReorderColumns="False"
                               CanUserSortColumns="False">
-                       
+
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Time" Width="0.5*" Binding="{Binding Time}"/>
                             <DataGridTextColumn Header="Clients" Width="*" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Doctor" Width="*" Binding="{Binding DoctorName}"/>
                             <DataGridTextColumn Header="Information" Width="2*" Binding="{Binding Description}"/>
                         </DataGrid.Columns>
-                        <!--<DataGrid.ItemTemplate>
+                        <DataGrid.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock/>
                             </DataTemplate>
-                        </DataGrid.ItemTemplate>-->
+                        </DataGrid.ItemTemplate>
                     </DataGrid>
                 </Border>
-                
+
             </Grid>
         </Border>
         <view:SideBarUC Grid.Column="1" Margin="10"/>
