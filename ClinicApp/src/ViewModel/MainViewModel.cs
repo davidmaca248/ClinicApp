@@ -13,10 +13,14 @@ namespace ClinicApp.ViewModel
 
         private HomeViewModel HomeVM;
 		private TestContentViewModel TestContentVM;
+        private AppointmentViewModel AppointmentBookVM;
+        private CalendarViewModel CalendarVM;
 
-		// Navigation Commands
+        // Navigation Commands
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand TestContentViewCommand { get; set; }
+        public RelayCommand AppointmentViewCommand { get; set; }
+        public RelayCommand CalendarViewCommand{ get; set; }
 
         #endregion
 
@@ -36,6 +40,9 @@ namespace ClinicApp.ViewModel
 		{
 			HomeVM = new HomeViewModel();
 			TestContentVM = new TestContentViewModel();
+			AppointmentBookVM = new AppointmentViewModel();
+			CalendarVM = new CalendarViewModel();
+
 			CurrentView = HomeVM;
 
 			HomeViewCommand = new RelayCommand(o =>
@@ -47,6 +54,16 @@ namespace ClinicApp.ViewModel
 			{
 				CurrentView = TestContentVM;
 			});
-		}
+
+            AppointmentViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = AppointmentBookVM;
+            });
+
+            CalendarViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = CalendarVM;
+            });
+        }
 	}
 }
