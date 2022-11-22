@@ -13,7 +13,7 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
     
-    <Border Background="White">
+    <Border x:Name="Splash" Background="White">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
