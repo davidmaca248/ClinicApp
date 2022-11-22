@@ -12,13 +12,14 @@
         <Border Margin="10" CornerRadius="30" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="38*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition Width="45*"/>
                 </Grid.ColumnDefinitions>
 
                 <RadioButton Grid.Column="0"
@@ -33,24 +34,27 @@
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="30"/>
-                
+
                 <RadioButton Grid.Column="2"
                              Content="Calendar"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             IsChecked="False"
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding CalendarViewCommand}"/>
+
 
                 <RadioButton Grid.Column="3"
                              Content="Doctors"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             Style="{StaticResource NavbarButtonStyle}" Grid.ColumnSpan="2"/>
 
-                <RadioButton Grid.Column="4"
+                <RadioButton Grid.Column="5"
                              Content="Clients"
                              Style="{StaticResource NavbarButtonStyle}"/>
 
-                <RadioButton Grid.Column="5"
+                <RadioButton Grid.Column="6"
                              Content="History"
                              Style="{StaticResource NavbarButtonStyle}"/>
-                
-                <RadioButton Grid.Column="6"
+
+                <RadioButton Grid.Column="7"
                              Content="Account"
                              Style="{StaticResource NavbarButtonStyle}"
                              Command="{Binding TestContentViewCommand}"/>

@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <view:NavbarUC Grid.ColumnSpan="2"/>
+            <view:NavbarUC Grid.ColumnSpan="2" Loaded="NavbarUC_Loaded"/>
 
             <ContentControl Grid.Row="1"
                             Grid.Column="0"
