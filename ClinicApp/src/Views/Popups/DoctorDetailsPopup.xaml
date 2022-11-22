@@ -74,6 +74,7 @@
                                 <TextBlock Grid.Column="1" Margin="70,0,49,5" FontSize="18"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">yes</TextBlock>
                             </StackPanel>
+                            <Button Margin="10,0,360,0" Height="40" Content="Appointments" Style="{StaticResource AddButtonStyle}" Background="#622082"/>
                         </StackPanel>
                     </Border>
                 </Grid>
