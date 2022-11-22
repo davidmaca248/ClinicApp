@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ClinicApp.Views
 {
     /// <summary>
-    /// Interaction logic for AppointmentBookingClient.xaml
+    /// Interaction logic for AppointmentTest.xaml
     /// </summary>
-    public partial class AppointmentBookingClient : UserControl
+    public partial class AppointmentTest : UserControl
     {
-        public AppointmentBookingClient()
+        public AppointmentTest()
         {
             InitializeComponent();
         }
