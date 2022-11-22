@@ -34,7 +34,7 @@
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="Gray"/>
-                <Setter Property="Foreground" Value="{StaticResource SecondaryColour}"/>
+                <Setter Property="Foreground" Value="{StaticResource PrimaryColour}"/>
             </Trigger>
         </Style.Triggers>
         
@@ -151,8 +151,8 @@
     <!--Appointment Booking Button-->
     <Style x:Key="AppointmentBookingButton" TargetType="{x:Type Button}">
         <Style.Setters>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="DarkOrchid"/>
+            <Setter Property="Background" Value="DarkOrchid"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="Margin" Value="15"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -160,8 +160,8 @@
                         <Border VerticalAlignment="Stretch"
                                 HorizontalAlignment="Stretch"
                                 CornerRadius="60"
-                                BorderThickness="1"
-                                BorderBrush="Orchid"
+                                BorderThickness="0"
+                                BorderBrush="DarkOrchid"
                                 Background="{TemplateBinding Background}">
                             <TextBlock Text="{TemplateBinding Property=Content}"
                                        Foreground="{TemplateBinding Foreground}"
