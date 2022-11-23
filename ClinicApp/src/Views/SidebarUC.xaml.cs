@@ -9,11 +9,9 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ClinicApp.Views.Popups;
 
 namespace ClinicApp.Views
 {
@@ -27,16 +25,9 @@ namespace ClinicApp.Views
             InitializeComponent();
         }
 
-        private void addClientModal(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddClientPopup modal = new AddClientPopup();
-            modal.ShowDialog();
-        }
 
-        private void addDoctorModal(object sender, RoutedEventArgs e)
-        {
-            AddDoctorPopup modal = new AddDoctorPopup();
-            modal.ShowDialog();
         }
     }
 }
