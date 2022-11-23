@@ -61,6 +61,7 @@
     <Compile Include="Globals\GlobalAppointmentDataBase.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="ViewModel\AppointmentViewModel.cs" />
     <Compile Include="ViewModel\CalendarContentViewModel.cs" />
     <Compile Include="ViewModel\CalendarTabViewModel.cs" />
     <Compile Include="ViewModel\DayViewModel.cs" />
@@ -69,6 +70,9 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TestContentViewModel.cs" />
+    <Compile Include="Views\AppointmentTest.xaml.cs">
+      <DependentUpon>AppointmentTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Calendar\CalendarTabUC.cs">
       <DependentUpon>CalendarTabUC.xaml</DependentUpon>
     </Compile>
@@ -168,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AccountUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AppointmentTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
