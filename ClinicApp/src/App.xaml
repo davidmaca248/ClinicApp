@@ -12,27 +12,6 @@
                 <ResourceDictionary Source="Styles/ResourceDictionary.xaml"/>
                 <ResourceDictionary Source="Styles/UserControlDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
-            <!--Assigning the views to the ViewModels-->
-            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-                <view:HomeContentUC/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type viewModel:TestContentViewModel}">
-                <view:TestContentUC/>
-            </DataTemplate>
-            
-            <!--Calendar Tab-->
-            <DataTemplate DataType="{x:Type viewModel:CalendarTabViewModel}">
-                <calendarView:CalendarTabUC/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:CalendarContentViewModel}">
-                <calendarView:CalendarContentUC/>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModel:DayViewModel}">
-                <calendarView:DayViewUC/>
-            </DataTemplate>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

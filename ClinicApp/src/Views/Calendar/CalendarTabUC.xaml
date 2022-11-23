@@ -5,9 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:view="clr-namespace:ClinicApp.Views"
              xmlns:viewModel="clr-namespace:ClinicApp.ViewModel">
-    <UserControl.DataContext>
-        <viewModel:CalendarTabViewModel/>
-    </UserControl.DataContext>
     
     <Grid>
         <Grid.ColumnDefinitions>

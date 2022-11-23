@@ -11,15 +11,21 @@ namespace ClinicApp.Model
         public string Name { get; set; }
 
         public string Description { get; set; }
-        public string Time { get; set; }
 
+        public DateTime Datetime { get; set;}
+
+        public string Date { get; set; }   
+
+        public string Time { get; set; }    
         public string DoctorName { get; set; }
 
-        public Appointment(string name, string description, string time, string doctorName)
+        public Appointment(string name, string description, DateTime dateTime, string doctorName)
         {
             Name = name;
             Description = description;
-            Time = time;
+            Datetime = dateTime;
+            Time = Datetime.ToString("h:mm tt");
+            Date = Datetime.Date.ToShortDateString();
             DoctorName = doctorName;
         }
     }

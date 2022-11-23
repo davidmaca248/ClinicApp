@@ -8,10 +8,6 @@
              xmlns:properties="clr-namespace:ClinicApp.Properties"
              mc:Ignorable="d">
 
-    <UserControl.DataContext>
-        <viewModel:HomeViewModel/>
-    </UserControl.DataContext>
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -34,12 +30,14 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
                     <Button Content="Prev"
-                            Style="{StaticResource DayNavButtonStyle}"/>
+                            Style="{StaticResource DayNavButtonStyle}" 
+                            Click="PrevButtonClick"/>
                     <TextBlock HorizontalAlignment="Center" 
-                           Text="Sept 13, 2022 (Today)"
+                           Text="{Binding DisplayedDayString}"
                            Style="{StaticResource HeaderTextStyle}"/>
                     <Button Content="Next"
-                            Style="{StaticResource DayNavButtonStyle}"/>
+                            Style="{StaticResource DayNavButtonStyle}" 
+                            Click="NextButtonClick"/>
                 </StackPanel>
                 <TextBlock Grid.Row="1" 
                            Text="Notes:" 
@@ -84,29 +82,38 @@
                            Text="Appointments"
                            Style="{StaticResource HeaderTextStyle}"
                            Padding="10,0,0,0"/>
+                
+                <!--DataGrid-->
                 <Border Grid.Row="4" Grid.ColumnSpan="2" 
                         CornerRadius="30" 
                         Padding="20">
-                    <DataGrid ItemsSource="{Binding AppointmentList}" 
+                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle}" 
+                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                              x:Name="HomeDataGrid"
+                              ItemsSource="{Binding AppointmentList}" 
+                              IsReadOnly="True"
                               AutoGenerateColumns="False"
                               CellStyle="{StaticResource DataGridCellStyle}"
                               CanUserReorderColumns="False"
-                              CanUserSortColumns="False">
+                              CanUserSortColumns="False"
+                              Style="{StaticResource DataGridStyle1}">
 
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Time" Width="0.5*" Binding="{Binding Time}"/>
-                            <DataGridTextColumn Header="Clients" Width="*" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Doctor" Width="*" Binding="{Binding DoctorName}"/>
-                            <DataGridTextColumn Header="Information" Width="2*" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Time" 
+                                                Width="0.5*" 
+                                                Binding="{Binding Time}"/>
+                            <DataGridTextColumn Header="Clients" 
+                                                Width="*" 
+                                                Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Doctor" 
+                                                Width="*" 
+                                                Binding="{Binding DoctorName}"/>
+                            <DataGridTextColumn Header="Information" 
+                                                Width="2*" 
+                                                Binding="{Binding Description}"/>
                         </DataGrid.Columns>
-                        <DataGrid.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock/>
-                            </DataTemplate>
-                        </DataGrid.ItemTemplate>
                     </DataGrid>
                 </Border>
-
             </Grid>
         </Border>
         <view:SideBarUC Grid.Column="1" Margin="10"/>

@@ -21,10 +21,26 @@ namespace ClinicApp.Views
     /// </summary>
     public partial class HomeContentUC : UserControl
     {
+        private HomeViewModel _viewModel;
         public HomeContentUC()
         {
+            _viewModel = new HomeViewModel();
+            DataContext = _viewModel;
+
             InitializeComponent();
 
         }
+
+        private void PrevButtonClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.DisplayedDay = _viewModel.DisplayedDay.AddDays(-1);
+        }
+
+        private void NextButtonClick(object sender, RoutedEventArgs e)
+        {
+            _viewModel.DisplayedDay = _viewModel.DisplayedDay.AddDays(1);
+        }
+
+
     }
 }

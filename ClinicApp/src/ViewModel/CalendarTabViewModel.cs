@@ -1,4 +1,5 @@
 ﻿using ClinicApp.Common;
+using ClinicApp.Views.Calendar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,35 +11,29 @@ namespace ClinicApp.ViewModel
     internal class CalendarTabViewModel : BaseViewModel
     {
         #region Propeties
-        private CalendarContentViewModel CalendarContentVM;
-        private DayViewModel DayVM;
-
-        // Navigation Commands
-
-        #endregion
-
-        private object _currentContent;
-
         public object CurrentContent
         {
             get => _currentContent;
             set
             {
-                _currentContent= value;
+                _currentContent = value;
                 OnPropertyChanged();
             }
         }
+        #endregion
+
+        #region Members
+        private object _currentContent;
+        private CalendarContentUC _CalendarContentView;
+        private DayViewUC _DayView;
+        #endregion
 
         public CalendarTabViewModel()
         {
-            CalendarContentVM = new CalendarContentViewModel();
-            DayVM = new DayViewModel();
-            CurrentContent = CalendarContentVM;
+            _CalendarContentView = new CalendarContentUC();
+            _DayView = new DayViewUC();
 
-            //HomeViewCommand = new RelayCommand(o =>
-            //{
-            //    CurrentView = HomeVM;
-            //});
+            CurrentContent = _CalendarContentView;
 
 
         }

@@ -51,7 +51,8 @@
                     <Border Grid.Row="2" CornerRadius="30" Background="LightGray">
                         <ListView ItemsSource="{Binding AppointmentList}"
                                   Margin="10,0,10,10"
-                                  Background="LightGray">
+                                  Background="LightGray"
+                                  ScrollViewer.CanContentScroll="false">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel>

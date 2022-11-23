@@ -21,11 +21,11 @@
                  Stretch="UniformToFill" 
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center">
-            <Calendar SelectionMode="SingleRange"  
-                        Name="MonthlyCalendar"   
-                        HorizontalAlignment="Center"  
-                        VerticalAlignment="Stretch"  
-                        Background="White" >
+            <Calendar Name="MonthlyCalendar"
+                      SelectionMode="SingleDate"
+                      HorizontalAlignment="Center"  
+                      VerticalAlignment="Stretch"  
+                      Background="White">
             </Calendar>
         </Viewbox>
     </Grid>

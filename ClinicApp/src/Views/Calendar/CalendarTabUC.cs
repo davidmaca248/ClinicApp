@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,12 @@ namespace ClinicApp.Views.Calendar
     /// </summary>
     public partial class CalendarTabUC : UserControl
     {
+        private CalendarTabViewModel _viewModel;
         public CalendarTabUC()
         {
+            _viewModel = new CalendarTabViewModel();
+            DataContext = _viewModel;
+
             InitializeComponent();
 
   

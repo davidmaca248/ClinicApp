@@ -1,4 +1,5 @@
-﻿using ClinicApp.Model;
+﻿using ClinicApp.Globals;
+using ClinicApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,33 @@ namespace ClinicApp.ViewModel
         public List<string> NotesList { get; set; }
         public List<string> TodoList { get; set; }
 
-        public ObservableCollection<Appointment> AppointmentList { get; set; }
+        public List<Appointment> AppointmentList { get; set; }
+
+
+        public DateTime DisplayedDay { 
+            get => _displayedDay; 
+            set
+            {
+                _displayedDay = value;
+                DisplayedDayString = _displayedDay.ToString("MMMM dd, yyyy");
+                OnPropertyChanged();
+            } 
+        }
+
+        public string DisplayedDayString {
+            get => _displayedDayString;
+            set
+            {
+                _displayedDayString = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private DateTime _displayedDay;
+
+        private string _displayedDayString;
+
         public HomeViewModel()
         {
             NotesList = new List<string>()
@@ -31,16 +58,9 @@ namespace ClinicApp.ViewModel
                 "Let manager know that Dan cannot make it to work today"
             };
 
-            AppointmentList = new ObservableCollection<Appointment>()
-            {
-                new Appointment("David Maca", "Checkup", "11:00 AM", "Dr. Farquad"),
-                new Appointment("Alden John", "Checkup and xRay", "1:30 PM", "Dr. Drake"),
-                new Appointment("Josh Richards", "Checkup and consultation", "4:15 PM", "Dr. Wade"),
-                new Appointment("Arhum Gambino", "Checkup", "4:30 PM", "Dr. Tate"),
-                new Appointment("Frank Garfield", "Consultation", "5:15 PM", "Dr. Shaw"),
-            };
+            AppointmentList = GlobalAppointmentDataBase.AppointmentList;
 
-            
+            DisplayedDay = DateTime.Now;
         }
 
     }
