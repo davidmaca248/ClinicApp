@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClinicApp.Views.Popups;
+using ClinicApp.Model;
 
 namespace ClinicApp.Views
 {
@@ -37,10 +38,6 @@ namespace ClinicApp.Views
         {
             AddDoctorPopup modal = new AddDoctorPopup();
             modal.ShowDialog();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

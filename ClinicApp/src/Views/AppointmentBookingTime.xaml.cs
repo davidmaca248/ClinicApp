@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClinicApp.Globals;
 
 namespace ClinicApp.Views
 {
@@ -23,6 +24,11 @@ namespace ClinicApp.Views
         public AppointmentBookingTime()
         {
             InitializeComponent();
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new AppointmentBookingClient());
         }
     }
 }

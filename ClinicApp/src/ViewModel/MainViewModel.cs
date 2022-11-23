@@ -16,6 +16,7 @@ namespace ClinicApp.ViewModel
 		public RelayCommand HomeViewCommand { get; set; }
 		public RelayCommand CalendarViewCommand { get; set; }
 		public RelayCommand AppointmentViewCommand { get; set; }
+        public RelayCommand AppointmentTypeViewCommand { get; set; }
 
         public object CurrentView
         {
@@ -32,16 +33,22 @@ namespace ClinicApp.ViewModel
 		private object _currentView;
         private HomeContentUC _HomeView;
         private CalendarTabUC _CalendarTabView;
+		private AppointmentBookingClient _AppointmentBookingClientView;
+        private AppointmentBookingTime _AppointmentBookingTypeView;
+        private AppointmentBookingDate _AppointmentBookingDateView;
 
-		private AppointmentViewModel AppointmentBookVM;
+        private AppointmentViewModel AppointmentBookVM;
         #endregion
 
         public MainViewModel()
 		{
 			_HomeView = new HomeContentUC();
-			_CalendarTabView = new CalendarTabUC();	
+			_CalendarTabView = new CalendarTabUC();
+            _AppointmentBookingClientView = new AppointmentBookingClient();
+            _AppointmentBookingTypeView = new AppointmentBookingTime();
+            _AppointmentBookingDateView = new AppointmentBookingDate();
 
-			AppointmentBookVM = new AppointmentViewModel();
+            AppointmentBookVM = new AppointmentViewModel();
 
 			CurrentView = _HomeView;
 
@@ -57,8 +64,13 @@ namespace ClinicApp.ViewModel
 
 			AppointmentViewCommand = new RelayCommand(o =>
 			{
-				CurrentView = AppointmentBookVM;
-			});
-		}
+                CurrentView = _AppointmentBookingClientView;		
+            });
+
+            AppointmentTypeViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = _HomeView;
+            });
+        }
 	}
 }

@@ -44,6 +44,17 @@
                    FontFamily="{StaticResource StandardFont}" 
                    FontSize="32"/>
 
+            <Button Grid.Column="0" 
+                   Content="Cancel"
+                   Padding="150,50,1,1" 
+                   Grid.Row="2" 
+                   VerticalAlignment="Top" 
+                   Height="70" 
+                   Width="175"
+                   Style="{StaticResource PrevNextButton}" 
+                   FontSize="32" Margin="272,650,33,0"
+                   Click="CancelBooking" RenderTransformOrigin="0.306,0.568"/>
+
             <Button Content="New Client"
                         
                     HorizontalAlignment="Left" 
@@ -137,10 +148,7 @@
                     Grid.ColumnSpan="2" 
                     Height="70" 
                     Width="175"
-                    Style="{StaticResource PrevNextButton}"/>
-
-
-
+                    Style="{StaticResource PrevNextButton}" Click="NextPage" />
         </Grid>
 
     </Border>
