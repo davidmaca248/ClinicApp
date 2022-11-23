@@ -57,9 +57,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Globals\GlobalHomePageListDatabase.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Globals\GlobalAppointmentDataBase.cs" />
     <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\NoteListItem.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel\AppointmentViewModel.cs" />
     <Compile Include="ViewModel\CalendarContentViewModel.cs" />

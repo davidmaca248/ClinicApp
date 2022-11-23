@@ -11,11 +11,33 @@ namespace ClinicApp.ViewModel
 {
     public class HomeViewModel : BaseViewModel
     {
-        public List<string> NotesList { get; set; }
-        public List<string> TodoList { get; set; }
+        public List<NoteListItem> NotesList 
+        {
+            get => _notesList;
+            set
+            {
+                _notesList = value;
+                OnPropertyChanged();
+            }
+        }
+        public List<NoteListItem> TodoList 
+        {
+            get => _todoList;
+            set
+            {
+                _todoList = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public List<Appointment> AppointmentList { get; set; }
-
+        public List<Appointment> AppointmentList {
+            get => _appointmentList;
+            set
+            {
+                _appointmentList = value;
+                OnPropertyChanged();
+            }
+        }
 
         public DateTime DisplayedDay { 
             get => _displayedDay; 
@@ -23,6 +45,7 @@ namespace ClinicApp.ViewModel
             {
                 _displayedDay = value;
                 DisplayedDayString = _displayedDay.ToString("MMMM dd, yyyy");
+                updateContent();
                 OnPropertyChanged();
             } 
         }
@@ -37,31 +60,26 @@ namespace ClinicApp.ViewModel
         }
 
 
+        private List<Appointment> _appointmentList;
+        private List<NoteListItem> _notesList;
+        private List<NoteListItem> _todoList;
         private DateTime _displayedDay;
-
         private string _displayedDayString;
 
         public HomeViewModel()
         {
-            NotesList = new List<string>()
-            {
-                "Arhum's test results came in last night",
-                "Alden Hoffman canceled appointment",
-                "Dan called in sick"
-            };
-
-            TodoList = new List<string>()
-            {
-                "Call David Maca to confirm appointment",
-                "Let Dr. Frank know about Arhum's test results",
-                "Let Dr. Josh know about Alden Hoffman's cancellation",
-                "Let manager know that Dan cannot make it to work today"
-            };
-
-            AppointmentList = GlobalAppointmentDataBase.AppointmentList;
-
             DisplayedDay = DateTime.Now;
         }
 
+
+        /// <summary>
+        /// Updates Todo, Notes, and Appointment Table based on the displayed date
+        /// </summary>
+        private void updateContent()
+        {
+            AppointmentList = GlobalAppointmentDataBase.AppointmentList.Where(x => x.Datetime.Date == DisplayedDay.Date).ToList();
+            TodoList = GlobalHomePageListDatabase.TodoList.Where(x => x.Date.Date == DisplayedDay.Date).ToList();
+            NotesList = GlobalHomePageListDatabase.NotesList.Where(x => x.Date.Date == DisplayedDay.Date).ToList();
+        }
     }
 }
