@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClinicApp.ViewModel
 {
-    internal class CalendarViewModel : BaseViewModel
+    internal class CalendarContentViewModel : BaseViewModel
     {
     }
 }

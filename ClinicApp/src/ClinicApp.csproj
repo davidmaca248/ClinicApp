@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework.Aero2" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -57,19 +58,32 @@
     </ApplicationDefinition>
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Globals\GlobalAppointmentDataBase.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Person.cs" />
-    <Compile Include="ViewModel\CalendarViewModel.cs" />
+    <Compile Include="ViewModel\AppointmentViewModel.cs" />
+    <Compile Include="ViewModel\CalendarContentViewModel.cs" />
+    <Compile Include="ViewModel\CalendarTabViewModel.cs" />
+    <Compile Include="ViewModel\DayViewModel.cs" />
     <Compile Include="ViewModel\SideBarViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TestContentViewModel.cs" />
-    <Compile Include="Views\CalendarUC.xaml.cs">
-      <DependentUpon>CalendarUC.xaml</DependentUpon>
+    <Compile Include="Views\AppointmentTest.xaml.cs">
+      <DependentUpon>AppointmentTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calendar\CalendarTabUC.cs">
+      <DependentUpon>CalendarTabUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AccountUC.xaml.cs">
       <DependentUpon>AccountUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calendar\CalendarContentUC.cs">
+      <DependentUpon>CalendarContentUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calendar\DayViewUC.xaml.cs">
+      <DependentUpon>DayViewUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ClientUC.xaml.cs">
       <DependentUpon>ClientUC.xaml</DependentUpon>
@@ -161,6 +175,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AppointmentTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calendar\CalendarContentUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calendar\DayViewUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ClientUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CalendarUC.xaml">
+    <Page Include="Views\Calendar\CalendarTabUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -12,24 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static ClinicApp.Views.Calendar.CalendarTabUC;
 
-namespace ClinicApp.Views
+namespace ClinicApp.Views.Calendar
 {
     /// <summary>
-    /// Interaction logic for CalendarUC.xaml
+    /// Interaction logic for DayViewUC.xaml
     /// </summary>
-    public partial class CalendarUC : UserControl
+    public partial class DayViewUC : UserControl
     {
-        public CalendarUC()
+        public DayViewUC()
         {
             InitializeComponent();
 
             List<User> timeslot = new List<User>();
-            timeslot.Add(new User() { Time = "07:00", DrJohnstone = "", DrKeith = "Xavier Z", DrStevenson = "", DrLawson = "Walter W", DrPhil = "Aspen M", DrLeon="" });
-            timeslot.Add(new User() { Time = "08:00", DrJohnstone = "Sandra W", DrKeith = "", DrStevenson = "", DrLawson = "Amanda L", DrPhil = "Quinnten C", DrLeon="Gary V" });
-            timeslot.Add(new User() { Time = "09:00", DrJohnstone = "Joshua K", DrKeith = "", DrStevenson = "Chris R", DrLawson = "", DrPhil = "Sandra W", DrLeon="" });
+            timeslot.Add(new User() { Time = "07:00", DrJohnstone = "", DrKeith = "Xavier Z", DrStevenson = "", DrLawson = "Walter W", DrPhil = "Aspen M", DrLeon = "" });
+            timeslot.Add(new User() { Time = "08:00", DrJohnstone = "Sandra W", DrKeith = "", DrStevenson = "", DrLawson = "Amanda L", DrPhil = "Quinnten C", DrLeon = "Gary V" });
+            timeslot.Add(new User() { Time = "09:00", DrJohnstone = "Joshua K", DrKeith = "", DrStevenson = "Chris R", DrLawson = "", DrPhil = "Sandra W", DrLeon = "" });
             timeslot.Add(new User() { Time = "10:00", DrJohnstone = "", DrKeith = "", DrStevenson = "Simran S", DrLawson = "", DrPhil = "Greg A", DrLeon = "Kim K" });
-            timeslot.Add(new User() { Time = "11:00", DrJohnstone = "", DrKeith = "", DrStevenson = "", DrLawson = "", DrPhil = "" , DrLeon = "" });
+            timeslot.Add(new User() { Time = "11:00", DrJohnstone = "", DrKeith = "", DrStevenson = "", DrLawson = "", DrPhil = "", DrLeon = "" });
             timeslot.Add(new User() { Time = "12:00", DrJohnstone = "John C", DrKeith = "", DrStevenson = "Jonah A", DrLawson = "", DrPhil = "Baasil C", DrLeon = "" });
             timeslot.Add(new User() { Time = "13:00", DrJohnstone = "", DrKeith = "Gus B", DrStevenson = "Emily Z", DrLawson = "", DrPhil = "Joe M", DrLeon = "" });
             timeslot.Add(new User() { Time = "14:00", DrJohnstone = "", DrKeith = "", DrStevenson = "", DrLawson = "", DrPhil = "", DrLeon = "" });
@@ -40,7 +41,6 @@ namespace ClinicApp.Views
 
             dgSimple.ItemsSource = timeslot;
         }
-
         public class User
         {
 
@@ -56,14 +56,9 @@ namespace ClinicApp.Views
 
         }
 
+        private void MonthlyCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-
-        //private void MonthlyCalendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    var temp = MonthlyCalendar.SelectedDate.ToString();
-        //    temp = temp.Substring(0, temp.Length - 12);
-        //}
-
-
+        }
     }
 }

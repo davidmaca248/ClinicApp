@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:ClinicApp"
              xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
              xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:calendarView="clr-namespace:ClinicApp.Views.Calendar"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -11,24 +12,10 @@
                 <ResourceDictionary Source="Styles/ResourceDictionary.xaml"/>
                 <ResourceDictionary Source="Styles/UserControlDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
-            <!--Assigning the views to the ViewModels-->
-            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-                <view:HomeContentUC/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type viewModel:TestContentViewModel}">
-                <view:TestContentUC/>
-            </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:AppointmentViewModel}">
                 <view:AppointmentTest/>
             </DataTemplate>
-
-            <DataTemplate DataType="{x:Type viewModel:CalendarViewModel}">
-                <view:CalendarUC/>
-            </DataTemplate>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

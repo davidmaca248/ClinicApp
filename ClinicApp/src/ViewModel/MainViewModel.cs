@@ -1,4 +1,6 @@
-﻿using ClinicApp.Common;
+using ClinicApp.Common;
+using ClinicApp.Views;
+using ClinicApp.Views.Calendar;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,64 +11,54 @@ namespace ClinicApp.ViewModel
 {
 	internal class MainViewModel : BaseViewModel
 	{
-		#region Propeties
+        #region Propeties
+		// Navigation Commands
+		public RelayCommand HomeViewCommand { get; set; }
+		public RelayCommand CalendarViewCommand { get; set; }
+		public RelayCommand AppointmentViewCommand { get; set; }
 
+        public object CurrentView
+        {
+            get => _currentView;
+            set
+            {
+                _currentView = value;
+                OnPropertyChanged();
+            }
+        }
+		#endregion
 
-    private HomeViewModel HomeVM;
-		private TestContentViewModel TestContentVM;
-    private AppointmentViewModel AppointmentBookVM;
-    private CalendarViewModel CalendarVM;
+		#region Members
+		private object _currentView;
+        private HomeContentUC _HomeView;
+        private CalendarTabUC _CalendarTabView;
 
-        // Navigation Commands
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand TestContentViewCommand { get; set; }
-        public RelayCommand AppointmentViewCommand { get; set; }
-        public RelayCommand CalendarViewCommand{ get; set; }
+		private AppointmentViewModel AppointmentBookVM;
+        #endregion
 
-        private object _currentView;
-
-		public object CurrentView
+        public MainViewModel()
 		{
-			get  => _currentView;
-			set 
-			{ 
-				_currentView = value; 
-				OnPropertyChanged();
-			}
-		}
+			_HomeView = new HomeContentUC();
+			_CalendarTabView = new CalendarTabUC();	
 
-		public MainViewModel()
-		{
-			HomeVM = new HomeViewModel();
-			TestContentVM = new TestContentViewModel();
 			AppointmentBookVM = new AppointmentViewModel();
-			CalendarVM = new CalendarViewModel();
 
-			CurrentView = HomeVM;
+			CurrentView = _HomeView;
 
 			HomeViewCommand = new RelayCommand(o =>
 			{
-				CurrentView = HomeVM;
+				CurrentView = _HomeView;
 			});
 
-			TestContentViewCommand = new RelayCommand(o =>
-			{
-				CurrentView = TestContentVM;
-			});
-
-            AppointmentViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = AppointmentBookVM;
-            });
-
-        }
-			});
 			CalendarViewCommand = new RelayCommand(o =>
 			{
-				CurrentView = CalendarVM;
+				CurrentView = _CalendarTabView;
 			});
 
-
+			AppointmentViewCommand = new RelayCommand(o =>
+			{
+				CurrentView = AppointmentBookVM;
+			});
 		}
 	}
 }
