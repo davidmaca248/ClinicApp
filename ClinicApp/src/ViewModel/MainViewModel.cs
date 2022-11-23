@@ -1,4 +1,4 @@
-﻿using ClinicApp.Common;
+using ClinicApp.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,25 +12,25 @@ namespace ClinicApp.ViewModel
 		#region Propeties
 
 
-    private HomeViewModel HomeVM;
+		private HomeViewModel HomeVM;
 		private TestContentViewModel TestContentVM;
-    private AppointmentViewModel AppointmentBookVM;
-    private CalendarViewModel CalendarVM;
+		private AppointmentViewModel AppointmentBookVM;
+		private CalendarViewModel CalendarVM;
 
-        // Navigation Commands
-        public RelayCommand HomeViewCommand { get; set; }
-        public RelayCommand TestContentViewCommand { get; set; }
-        public RelayCommand AppointmentViewCommand { get; set; }
-        public RelayCommand CalendarViewCommand{ get; set; }
+		// Navigation Commands
+		public RelayCommand HomeViewCommand { get; set; }
+		public RelayCommand TestContentViewCommand { get; set; }
+		public RelayCommand AppointmentViewCommand { get; set; }
+		public RelayCommand CalendarViewCommand { get; set; }
 
-        private object _currentView;
+		private object _currentView;
 
 		public object CurrentView
 		{
-			get  => _currentView;
-			set 
-			{ 
-				_currentView = value; 
+			get => _currentView;
+			set
+			{
+				_currentView = value;
 				OnPropertyChanged();
 			}
 		}
@@ -54,19 +54,15 @@ namespace ClinicApp.ViewModel
 				CurrentView = TestContentVM;
 			});
 
-            AppointmentViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = AppointmentBookVM;
-            });
-
-        }
+			AppointmentViewCommand = new RelayCommand(o =>
+			{
+				CurrentView = AppointmentBookVM;
 			});
+
 			CalendarViewCommand = new RelayCommand(o =>
 			{
 				CurrentView = CalendarVM;
 			});
-
-
 		}
 	}
 }
