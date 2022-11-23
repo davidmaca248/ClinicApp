@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClinicApp.Model
 {
-    internal class Doctor : Person
+    public class Doctor : Person
     {
-        public int EmployeeId { get; set; }
+        public int PractionerId { get; set; }
 
-
+        // Only assigned yes or no depending on a dropdown menu
+        public string AcceptingPatients { get; set; }
     }
 }

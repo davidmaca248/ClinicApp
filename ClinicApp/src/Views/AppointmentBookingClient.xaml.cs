@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ClinicApp.Globals;
 
 namespace ClinicApp.Views
 {
@@ -23,6 +24,18 @@ namespace ClinicApp.Views
         public AppointmentBookingClient()
         {
             InitializeComponent();
+        }
+
+        private void NextPage(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new AppointmentBookingTime());
+        }
+
+        private void CancelBooking(object sender, RoutedEventArgs e)
+        {
+            GlobalAppointmentDataBase.AppointmentClient = null;
+            GlobalAppointmentDataBase.NewAppointment = null;
+            Switcher.Switch(new HomeContentUC());
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClinicApp.Globals;
 
 namespace ClinicApp.Model
 {
@@ -18,6 +19,8 @@ namespace ClinicApp.Model
 
         public string Time { get; set; }    
         public string DoctorName { get; set; }
+        public Doctor Doctor { get; set; }
+        public Client Client { get; set; }
 
         public Appointment(string name, string description, DateTime dateTime, string doctorName)
         {

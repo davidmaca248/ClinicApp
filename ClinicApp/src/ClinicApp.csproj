@@ -57,8 +57,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Globals\Switcher.cs" />
     <Compile Include="Model\Appointment.cs" />
     <Compile Include="Globals\GlobalAppointmentDataBase.cs" />
+    <Compile Include="Model\Client.cs" />
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel\AppointmentViewModel.cs" />
@@ -70,6 +72,15 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TestContentViewModel.cs" />
+    <Compile Include="Views\AppointmentBookingClient.xaml.cs">
+      <DependentUpon>AppointmentBookingClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppointmentBookingDate.xaml.cs">
+      <DependentUpon>AppointmentBookingDate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AppointmentBookingTime.xaml.cs">
+      <DependentUpon>AppointmentBookingTime.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AppointmentTest.xaml.cs">
       <DependentUpon>AppointmentTest.xaml</DependentUpon>
     </Compile>
@@ -90,6 +101,9 @@
     </Compile>
     <Compile Include="Views\DoctorUC.xaml.cs">
       <DependentUpon>DoctorUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HistoryUC.xaml.cs">
+      <DependentUpon>HistoryUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeContentUC.xaml.cs">
       <DependentUpon>HomeContentUC.xaml</DependentUpon>
@@ -175,6 +189,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AppointmentBookingClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AppointmentBookingDate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AppointmentBookingTime.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\AppointmentTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,6 +224,10 @@
     <Page Include="Views\Calendar\CalendarTabUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistoryUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\HomeContentUC.xaml">
       <SubType>Designer</SubType>

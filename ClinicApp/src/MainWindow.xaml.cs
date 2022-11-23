@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClinicApp.Globals;
+using ClinicApp.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +25,17 @@ namespace ClinicApp
         public MainWindow()
         {
             InitializeComponent();
-
+            Switcher.pageSwitcher = this;
         }
 
         private void NavbarUC_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        public void Navigate(UserControl nextPage)
+        {
+            (this.FindName("mainContent") as ContentControl).Content = nextPage;
         }
     }
 }

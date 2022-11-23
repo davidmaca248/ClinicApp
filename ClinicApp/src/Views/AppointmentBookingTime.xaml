@@ -97,7 +97,7 @@
                     Grid.ColumnSpan="2" 
                     Height="75" 
                     Width="200" 
-                    Style="{StaticResource AppointmentPageUnselected}"/>
+                    Style="{StaticResource AppointmentPageUnselected}" Checked="RadioButton_Checked"/>
 
             <Label Grid.Column="2" 
                    Opacity="0.5"
