@@ -22,6 +22,8 @@ namespace ClinicApp.ViewModel
 		public RelayCommand TestContentViewCommand { get; set; }
 		public RelayCommand AppointmentViewCommand { get; set; }
 		public RelayCommand CalendarViewCommand { get; set; }
+		
+		#endregion
 
 		private object _currentView;
 
