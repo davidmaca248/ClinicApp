@@ -12,6 +12,10 @@
                 <ResourceDictionary Source="Styles/ResourceDictionary.xaml"/>
                 <ResourceDictionary Source="Styles/UserControlDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:AppointmentViewModel}">
+                <view:AppointmentTest/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
