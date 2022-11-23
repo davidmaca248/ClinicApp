@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace ClinicApp.ViewModel
 {
-    internal class MainViewModel : BaseViewModel
-    {
-        #region Propeties
+	internal class MainViewModel : BaseViewModel
+	{
+		#region Propeties
 
-        private HomeViewModel HomeVM;
+
+    private HomeViewModel HomeVM;
 		private TestContentViewModel TestContentVM;
-        private AppointmentViewModel AppointmentBookVM;
+    private AppointmentViewModel AppointmentBookVM;
+    private CalendarViewModel CalendarVM;
 
         // Navigation Commands
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand TestContentViewCommand { get; set; }
         public RelayCommand AppointmentViewCommand { get; set; }
         public RelayCommand CalendarViewCommand{ get; set; }
-
-        #endregion
 
         private object _currentView;
 
@@ -40,6 +40,7 @@ namespace ClinicApp.ViewModel
 			HomeVM = new HomeViewModel();
 			TestContentVM = new TestContentViewModel();
 			AppointmentBookVM = new AppointmentViewModel();
+			CalendarVM = new CalendarViewModel();
 
 			CurrentView = HomeVM;
 
@@ -59,5 +60,13 @@ namespace ClinicApp.ViewModel
             });
 
         }
+			});
+			CalendarViewCommand = new RelayCommand(o =>
+			{
+				CurrentView = CalendarVM;
+			});
+
+
+		}
 	}
 }

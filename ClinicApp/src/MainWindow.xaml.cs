@@ -25,5 +25,10 @@ namespace ClinicApp
             InitializeComponent();
 
         }
+
+        private void NavbarUC_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
