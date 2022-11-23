@@ -20,11 +20,15 @@
             <DataTemplate DataType="{x:Type viewModel:TestContentViewModel}">
                 <view:TestContentUC/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AppointmentViewModel}">
+                <view:AppointmentTest/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewModel:CalendarViewModel}">
                 <view:CalendarUC/>
             </DataTemplate>
-           
-            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>
