@@ -21,7 +21,7 @@ namespace ClinicApp.Views.Calendar
     /// </summary>
     public partial class CalendarContentUC : UserControl
     {
-        private CalendarTabViewModel _parentViewModel;
+        private readonly CalendarTabViewModel _parentViewModel;
         public CalendarContentUC(CalendarTabViewModel parentViewModel)
         {
             _parentViewModel = parentViewModel;

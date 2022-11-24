@@ -31,7 +31,7 @@ namespace ClinicApp.ViewModel
         public CalendarTabViewModel()
         {
             _CalendarContentView = new CalendarContentUC(this);
-            _DayView = new DayViewUC();
+            _DayView = new DayViewUC(this);
 
             CurrentContent = _CalendarContentView;
         }
@@ -41,6 +41,13 @@ namespace ClinicApp.ViewModel
             _DayView.ViewModel.DisplayedDay = day;
 
             CurrentContent = _DayView;
+        }
+
+        public void BackClicked()
+        {
+            _DayView.ViewModel.DisplayedDay = DateTime.Now;
+
+            CurrentContent = _CalendarContentView;
         }
     }
 }

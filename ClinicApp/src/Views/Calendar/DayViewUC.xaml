@@ -19,7 +19,8 @@
                     Content="Back" 
                     Style="{StaticResource DayNavButtonStyle}" 
                     HorizontalAlignment="Left" 
-                    Margin="10"/>
+                    Margin="10"
+                    Click="BackButtonClick"/>
 
             <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                         Orientation="Horizontal"

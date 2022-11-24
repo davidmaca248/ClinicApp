@@ -23,9 +23,11 @@ namespace ClinicApp.Views.Calendar
     public partial class DayViewUC : UserControl
     {
         public DayViewModel ViewModel;
+        private readonly CalendarTabViewModel _parentViewModel;
 
-        public DayViewUC()
+        public DayViewUC(CalendarTabViewModel parentViewModel)
         { 
+            _parentViewModel = parentViewModel;
             ViewModel = new DayViewModel();
             DataContext = ViewModel;
 
@@ -69,6 +71,10 @@ namespace ClinicApp.Views.Calendar
         private void NextButtonClick(object sender, RoutedEventArgs e)
         {
             ViewModel.DisplayedDay = ViewModel.DisplayedDay.AddDays(1);
+        }
+        private void BackButtonClick(object sender, RoutedEventArgs e)
+        {
+            _parentViewModel.BackClicked();
         }
     }
 }
