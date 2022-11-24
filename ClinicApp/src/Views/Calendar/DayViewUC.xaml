@@ -16,7 +16,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Grid.Row="0" Grid.Column="0" 
-                    Content="Back" 
+                    Content="Calendar" 
                     Style="{StaticResource DayNavButtonStyle}" 
                     HorizontalAlignment="Left" 
                     Margin="10"
@@ -44,16 +44,15 @@
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     CornerRadius="30" 
                     Margin="10">
-                <DataGrid RowStyle="{DynamicResource DataGridRowStyle}" 
-                              ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
-                              x:Name="HomeDataGrid"
-                              ItemsSource="{Binding AppointmentList}" 
-                              IsReadOnly="True"
-                              AutoGenerateColumns="False"
-                              CellStyle="{StaticResource DataGridCellStyle}"
-                              CanUserReorderColumns="False"
-                              CanUserSortColumns="False"
-                              Style="{StaticResource DataGridStyle1}">
+                <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                          x:Name="HomeDataGrid"
+                          ItemsSource="{Binding AppointmentList}" 
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          CellStyle="{StaticResource DataGridCellStyle}"
+                          CanUserReorderColumns="False"
+                          CanUserSortColumns="False"
+                          Style="{StaticResource DataGridStyle1}">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Time" 
@@ -69,6 +68,11 @@
                                                 Width="2*" 
                                                 Binding="{Binding Description}"/>
                     </DataGrid.Columns>
+                    <DataGrid.ItemContainerStyle>
+                        <Style TargetType="DataGridRow">
+                            <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                        </Style>
+                    </DataGrid.ItemContainerStyle>
                 </DataGrid>
             </Border>
             <!--<DataGrid Name="dgSimple" 

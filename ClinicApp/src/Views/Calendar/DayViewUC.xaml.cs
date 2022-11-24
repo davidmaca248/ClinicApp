@@ -1,4 +1,5 @@
-﻿using ClinicApp.ViewModel;
+﻿using ClinicApp.Model;
+using ClinicApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,6 +76,15 @@ namespace ClinicApp.Views.Calendar
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             _parentViewModel.BackClicked();
+        }
+
+        // on click of an appointment
+        private void RowDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // execute some code
+            DataGridRow row = (DataGridRow)sender;
+            Appointment selected = (Appointment)row.Item;
+
         }
     }
 }
