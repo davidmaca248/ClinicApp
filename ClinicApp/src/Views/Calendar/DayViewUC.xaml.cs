@@ -78,10 +78,8 @@ namespace ClinicApp.Views.Calendar
             _parentViewModel.BackClicked();
         }
 
-        // on click of an appointment
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            // execute some code
             DataGridRow row = (DataGridRow)sender;
             Appointment selected = (Appointment)row.Item;
 

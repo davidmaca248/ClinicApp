@@ -112,6 +112,11 @@
                                                 Width="2*" 
                                                 Binding="{Binding Description}"/>
                         </DataGrid.Columns>
+                        <DataGrid.ItemContainerStyle>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                            </Style>
+                        </DataGrid.ItemContainerStyle>
                     </DataGrid>
                 </Border>
             </Grid>
