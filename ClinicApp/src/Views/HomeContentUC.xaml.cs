@@ -1,4 +1,5 @@
-﻿using ClinicApp.ViewModel;
+﻿using ClinicApp.Model;
+using ClinicApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,12 @@ namespace ClinicApp.Views
             _viewModel.DisplayedDay = _viewModel.DisplayedDay.AddDays(1);
         }
 
+        private void RowDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = (DataGridRow)sender;
+            Appointment selected = (Appointment)row.Item;
+
+        }
 
     }
 }

@@ -25,7 +25,8 @@
                       SelectionMode="SingleDate"
                       HorizontalAlignment="Center"  
                       VerticalAlignment="Stretch"  
-                      Background="White">
+                      Background="White"
+                      MouseDoubleClick="MonthlyCalendar_MouseDoubleClick">
             </Calendar>
         </Viewbox>
     </Grid>

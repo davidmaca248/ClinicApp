@@ -27,12 +27,7 @@ namespace ClinicApp
             InitializeComponent();
             Switcher.pageSwitcher = this;
         }
-
-        private void NavbarUC_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         public void Navigate(UserControl nextPage)
         {
             (this.FindName("mainContent") as ContentControl).Content = nextPage;

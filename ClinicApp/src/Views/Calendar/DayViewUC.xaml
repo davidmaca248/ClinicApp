@@ -8,43 +8,89 @@
         <!--Day view-->
         <Grid Margin="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="160"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Content="Back" Style="{StaticResource DayNavButtonStyle}" Grid.Column="0" HorizontalAlignment="Left" Margin="12, -20, 0,0">
+            <Button Grid.Row="0" Grid.Column="0" 
+                    Content="Calendar" 
+                    Style="{StaticResource DayNavButtonStyle}" 
+                    HorizontalAlignment="Left" 
+                    Margin="10"
+                    Click="BackButtonClick"/>
 
-            </Button>
-
-            <StackPanel Grid.ColumnSpan="2" 
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" 
                         Orientation="Horizontal"
-                        HorizontalAlignment="Center" Margin="0, -10, 0,0">
+                        HorizontalAlignment="Center" 
+                        Margin="10">
 
                 <Button Content="Prev"
                         Style="{StaticResource DayNavButtonStyle}"
-                        Margin="0, -10, 0,0"/>
+                        Margin="10"
+                        Click="PrevButtonClick"/>
                 <TextBlock HorizontalAlignment="Center" 
-                        Text="Sept 13, 2022 (Today)"
-                        Style="{StaticResource HeaderTextStyle}"/>
+                           VerticalAlignment="Center"
+                           Text="{Binding DisplayedDayString}"
+                           Style="{StaticResource HeaderTextStyle}"/>
                 <Button Content="Next"
                         Style="{StaticResource DayNavButtonStyle}"
-                        Margin="0, -10, 0,0"/>
+                        Margin="10"
+                        Click="NextButtonClick"/>
             </StackPanel>
-            <DataGrid Name="dgSimple" AlternatingRowBackground = "LightGray"  
-                        AlternationCount = "2" Height="415"  HeadersVisibility="All" 
-                        IsReadOnly="True" HorizontalAlignment="Center" VerticalAlignment="Stretch" 
-                        HorizontalScrollBarVisibility="Visible"
-                        VerticalScrollBarVisibility="Hidden"
-                        Grid.Row="2" Grid.ColumnSpan="5"
-                        Grid.Column="0" Grid.RowSpan="5"
-                        MinWidth="200" FontStretch="Expanded" FontSize="20"
-                        Margin="0, -80, 0,0">
+            <!--DataGrid-->
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                    CornerRadius="30" 
+                    Margin="10">
+                <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                          x:Name="HomeDataGrid"
+                          ItemsSource="{Binding AppointmentList}" 
+                          IsReadOnly="True"
+                          AutoGenerateColumns="False"
+                          CellStyle="{StaticResource DataGridCellStyle}"
+                          CanUserReorderColumns="False"
+                          CanUserSortColumns="False"
+                          Style="{StaticResource DataGridStyle1}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Time" 
+                                                Width="0.5*" 
+                                                Binding="{Binding Time}"/>
+                        <DataGridTextColumn Header="Clients" 
+                                                Width="*" 
+                                                Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Doctor" 
+                                                Width="*" 
+                                                Binding="{Binding DoctorName}"/>
+                        <DataGridTextColumn Header="Information" 
+                                                Width="2*" 
+                                                Binding="{Binding Description}"/>
+                    </DataGrid.Columns>
+                    <DataGrid.ItemContainerStyle>
+                        <Style TargetType="DataGridRow">
+                            <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                        </Style>
+                    </DataGrid.ItemContainerStyle>
+                </DataGrid>
+            </Border>
+            <!--<DataGrid Name="dgSimple" 
+                      Grid.Row="2" Grid.ColumnSpan="5"
+                      Grid.Column="0" Grid.RowSpan="5"
+                      AlternatingRowBackground = "LightGray"  
+                      AlternationCount = "2" 
+                      Height="415"  
+                      HeadersVisibility="All" 
+                      IsReadOnly="True" 
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Stretch" 
+                      HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Hidden"
+                      MinWidth="200" 
+                      FontStretch="Expanded" 
+                      FontSize="20"
+                      Margin="0, -80, 0,0">
                 <DataGrid.ColumnHeaderStyle>
                     <Style TargetType="{x:Type DataGridColumnHeader}">
                         <Setter Property="FontWeight" Value="Bold"/>
@@ -55,11 +101,7 @@
                     </Style>
 
                 </DataGrid.ColumnHeaderStyle>
-
-
-
-
-            </DataGrid>
+            </DataGrid>-->
         </Grid>
     </Border>
 </UserControl>

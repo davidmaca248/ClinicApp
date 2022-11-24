@@ -50,9 +50,10 @@
                         CornerRadius="30" 
                         Background="LightGray" 
                         Padding="10,0,0,0">
-                    <ListView ItemsSource="{Binding NotesList}"
-                                  Margin="10,0,10,10"
-                                  Background="White">
+                    <ListView ItemsSource="{Binding NotesList}" 
+                             DisplayMemberPath="Info"
+                             Margin="10,0,10,10"
+                             Background="White">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Margin" Value="5"/>
@@ -60,15 +61,15 @@
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>
-
                 </Border>
                 <Border Grid.Row="2" Grid.Column="1" 
                         CornerRadius="30" 
                         Background="LightGray" 
                         Padding="0,0,10,0">
-                    <ListView ItemsSource="{Binding TodoList}"
-                                  Margin="10,0,10,10"
-                                  Background="White">
+                    <ListView ItemsSource="{Binding TodoList}" 
+                             DisplayMemberPath="Info"
+                             Margin="10,0,10,10"
+                             Background="White">
                         <ListView.ItemContainerStyle>
                             <Style TargetType="ListViewItem">
                                 <Setter Property="Margin" Value="5"/>
@@ -76,7 +77,6 @@
                             </Style>
                         </ListView.ItemContainerStyle>
                     </ListView>
-
                 </Border>
                 <TextBlock Grid.Row="3" 
                            Text="Appointments"
@@ -87,7 +87,7 @@
                 <Border Grid.Row="4" Grid.ColumnSpan="2" 
                         CornerRadius="30" 
                         Padding="20">
-                    <DataGrid RowStyle="{DynamicResource DataGridRowStyle}" 
+                    <DataGrid  
                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                               x:Name="HomeDataGrid"
                               ItemsSource="{Binding AppointmentList}" 
@@ -112,6 +112,11 @@
                                                 Width="2*" 
                                                 Binding="{Binding Description}"/>
                         </DataGrid.Columns>
+                        <DataGrid.ItemContainerStyle>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                            </Style>
+                        </DataGrid.ItemContainerStyle>
                     </DataGrid>
                 </Border>
             </Grid>
