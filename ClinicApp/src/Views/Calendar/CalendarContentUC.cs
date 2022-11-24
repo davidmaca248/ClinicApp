@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,22 @@ namespace ClinicApp.Views.Calendar
     /// </summary>
     public partial class CalendarContentUC : UserControl
     {
-        public CalendarContentUC()
+        private CalendarTabViewModel _parentViewModel;
+        public CalendarContentUC(CalendarTabViewModel parentViewModel)
         {
+            _parentViewModel = parentViewModel;
             InitializeComponent();
+        }
+
+        private void MonthlyCalendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.Calendar calendar = (System.Windows.Controls.Calendar)sender;
+
+            if (calendar.SelectedDate != null)
+            {
+                DateTime day = (DateTime)calendar.SelectedDate;
+                _parentViewModel.DayClicked(day);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClinicApp.ViewModel
 {
-    internal class CalendarTabViewModel : BaseViewModel
+    public class CalendarTabViewModel : BaseViewModel
     {
         #region Propeties
         public object CurrentContent
@@ -30,12 +30,17 @@ namespace ClinicApp.ViewModel
 
         public CalendarTabViewModel()
         {
-            _CalendarContentView = new CalendarContentUC();
+            _CalendarContentView = new CalendarContentUC(this);
             _DayView = new DayViewUC();
 
             CurrentContent = _CalendarContentView;
+        }
 
+        public void DayClicked(DateTime day)
+        {
+            _DayView.ViewModel.DisplayedDay = day;
 
+            CurrentContent = _DayView;
         }
     }
 }

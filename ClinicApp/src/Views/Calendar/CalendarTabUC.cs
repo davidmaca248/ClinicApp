@@ -25,6 +25,7 @@ namespace ClinicApp.Views.Calendar
         public CalendarTabUC()
         {
             _viewModel = new CalendarTabViewModel();
+            // pass the view Model the 
             DataContext = _viewModel;
 
             InitializeComponent();
