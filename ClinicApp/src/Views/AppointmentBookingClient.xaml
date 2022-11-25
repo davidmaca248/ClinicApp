@@ -39,47 +39,89 @@
             <Label Grid.Column="0" 
                    Padding="150,50,1,1" 
                    Grid.Row="2" 
-                   Grid.ColumnSpan="2" 
+                   Grid.ColumnSpan="3" 
                    Content="Select Client Type" 
                    FontFamily="{StaticResource StandardFont}" 
-                   FontSize="32"/>
+                   FontSize="32" Margin="55,0,425,0"/>
 
             <Button Grid.Column="0" 
                    Content="Cancel"
                    Padding="150,50,1,1" 
                    Grid.Row="2" 
                    VerticalAlignment="Top" 
-                   Height="70" 
-                   Width="175"
+                   Height="70"
                    Style="{StaticResource PrevNextButton}" 
-                   FontSize="32" Margin="272,650,33,0"
+                   FontSize="32" Margin="240,650,65,0"
                    Click="CancelBooking" RenderTransformOrigin="0.306,0.568"/>
 
-            <Button Content="New Client"
-                        
-                    HorizontalAlignment="Left" 
-                    Grid.Column="1" 
+            <Border  Grid.Column="0" Margin="383,138,79,147" Grid.Row="2" Background="DarkOrchid" RenderTransformOrigin="0.532,0.466" 
+                     CornerRadius="30" Grid.ColumnSpan="2">
+                <StackPanel>
+                    <Label Grid.Column="0" 
                     Grid.Row="2" 
-                    VerticalAlignment="Top" 
                     Grid.ColumnSpan="2" 
-                    Margin="35,120"
-                    Height="500" 
-                    Width="400" 
-                    FontSize="48" 
-                    Style="{StaticResource AppointmentBookingButton}">
+                    Content="New Client" 
+                    Foreground="MintCream"
+                    Margin="20,20,10,0"
+                    FontFamily="{StaticResource StandardFont}" 
+                    FontSize="44"/>
+                    <Label Grid.Column="0" 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="2" 
+                    Content="First Name" 
+                    Foreground="MintCream"
+                    Margin="40,10,10,0"
+                    FontFamily="{StaticResource StandardFont}" 
+                    FontSize="32"/>
+                    <TextBox x:Name="Fname" Width="450" FontSize="32" Margin="45, 10, 35, 0" Background="White"
+                                              Grid.Column="1" FontFamily="{StaticResource StandardFont}"/>
+                    <Label Grid.Column="0" 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="2" 
+                    Content="Last Name" 
+                    Foreground="MintCream"
+                    Margin="40,20,10,0"
+                    FontFamily="{StaticResource StandardFont}" 
+                    FontSize="32"/>
+                    <TextBox x:Name="Lname" Width="450" FontSize="32" Margin="45, 10, 35, 0" Background="White"
+                                              Grid.Column="1" FontFamily="{StaticResource StandardFont}"/>
+                    <Label Grid.Column="0" 
+                    Grid.Row="2" 
+                    Grid.ColumnSpan="2" 
+                    Content="Phone # or Email" 
+                    Foreground="MintCream"
+                    Margin="40,20,10,0"
+                    FontFamily="{StaticResource StandardFont}" 
+                    FontSize="32"/>
+                    <TextBox x:Name="ContactInfo" Width="450" FontSize="32" Margin="45, 10, 35, 0" Background="White"
+                                              Grid.Column="1" FontFamily="{StaticResource StandardFont}"/>
+                </StackPanel>
 
-            </Button>
+            </Border>
+            <Border Grid.Row="2" Grid.Column="2" CornerRadius="8" Background="DarkOrchid" Margin="22,50,443,450">
+                
+            </Border>
+            <Label Grid.Column="2" 
+                    Grid.Row="2" 
+                    Content="or" 
+                    Margin="0,340,420,338"
+                    FontFamily="{StaticResource StandardFont}" 
+                    FontSize="32" RenderTransformOrigin="0.29,0.53"/>
+            <Border Grid.Row="2" Grid.Column="2" CornerRadius="8" Background="DarkOrchid" Margin="22,420,443,100">
+
+            </Border>
 
             <Button Content="Existing Client"                 
                     HorizontalAlignment="Left" 
                     Grid.Column="2" 
                     Grid.Row="2" 
-                    VerticalAlignment="Top" 
+                    VerticalAlignment="Center" 
                     Grid.ColumnSpan="2" 
-                    Margin="35,120"
+                    Margin="135,0,0,0"
                     Height="500" 
                     Width="400" 
                     FontSize="48"
+                    Click="ExistingClient"
                     Style="{StaticResource AppointmentBookingButton}">
 
             </Button>

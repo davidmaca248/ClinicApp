@@ -1,4 +1,5 @@
-﻿using ClinicApp.Globals;
+﻿using ClinicApp.Common;
+using ClinicApp.Globals;
 using ClinicApp.Model;
 using ClinicApp.Views;
 using ClinicApp.Views.Calendar;
@@ -13,28 +14,12 @@ namespace ClinicApp.ViewModel
 {
     internal class AppointmentViewModel : BaseViewModel
     {
-        #region Propeties
-        public object CurrentContent
-        {
-            get => _currentContent;
-            set
-            {
-                _currentContent = value;
-                OnPropertyChanged();
-            }
-        }
-        #endregion
-
-        #region Members
-        private object _currentContent;
-        private AppointmentBookingTime _AppointmentView;
-        #endregion
+        public List<Client> Clients { get; set; }
 
         public AppointmentViewModel()
         {
-            _AppointmentView = new AppointmentBookingTime();
-
-            CurrentContent = _AppointmentView;
+            Clients = GlobalAppointmentDataBase.Clients;
+            OnPropertyChanged();
         }
     }
 }
