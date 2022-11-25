@@ -14,8 +14,8 @@ namespace ClinicApp.Globals
         public static List<Doctor> Doctors { get; set; }
         public static List<Client> Clients { get; set; }
         public static List<Appointment> AppointmentList { get; set; }
-        public static Appointment NewAppointment { get; set; }
-        public static Client AppointmentClient { get; set; }
+        public static Appointment NewAppointment { get; set; } = null;
+        public static Client AppointmentClient { get; set; } = null;
 
         static GlobalAppointmentDataBase()
         {
@@ -28,6 +28,20 @@ namespace ClinicApp.Globals
                 new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,05,09,16,30,0), "Dr. Tate"),
                 new Appointment("Frank Garfield", "Consultation", new DateTime(2022,05,09,18,00,0), "Dr. Shaw"),
             };
+
+            Doctors = new List<Doctor>()
+            {
+                // Dummy Doctors
+                new Doctor("Steven", "Strange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10))
+            };
+
+            Clients = new List<Client>()
+            {
+                // Dummy Clients
+                new Client("Josh", "Richards", "jrichards@email.com", "403-123-1234", 12345678, Doctors[0], new DateTime(1990, 10, 10), 1),
+                new Client("David", "Maca", "Dmaca@email.com", "403-123-1234", 12345678, Doctors[0], new DateTime(1992, 10, 10), 2)
+            };
+
         }
     }
 }
