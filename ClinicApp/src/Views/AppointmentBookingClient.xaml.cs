@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClinicApp.Globals;
+using ClinicApp.Model;
+using ClinicApp.Views.Popups;
 
 namespace ClinicApp.Views
 {
@@ -21,14 +23,37 @@ namespace ClinicApp.Views
     /// </summary>
     public partial class AppointmentBookingClient : UserControl
     {
+        bool existingClient = false;
+        string FirstName = null, LastName = null, Contact = null;
         public AppointmentBookingClient()
         {
             InitializeComponent();
         }
 
+        private void ExistingClient(object sender, RoutedEventArgs e)
+        {
+            FindClientPopup modal = new FindClientPopup();
+            modal.ShowDialog();
+        }
+
         private void NextPage(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new AppointmentBookingTime());
+            FirstName = (this.FindName("Fname") as TextBox).Text;
+            LastName = (this.FindName("Lname") as TextBox).Text;
+            Contact = (this.FindName("ContactInfo") as TextBox).Text;
+            if (FirstName != string.Empty && LastName != string.Empty && Contact != string.Empty && !existingClient)
+            {
+                GlobalAppointmentDataBase.AppointmentClient = new Client(FirstName, LastName, Contact);
+                // Do this as part of the last step with adding appointment to client
+                //GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
+            }
+            if (GlobalAppointmentDataBase.AppointmentClient != null)
+                Switcher.Switch(new AppointmentBookingTime());
+            else
+            {
+                // For future: Popup error msg
+                Console.WriteLine("Need to select or create new client to continue");
+            }
         }
 
         private void CancelBooking(object sender, RoutedEventArgs e)

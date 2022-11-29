@@ -10,8 +10,8 @@
             <ColumnDefinition />
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
-        <Border CornerRadius="30" Margin="10" Background="MediumOrchid">
-
+        <Border CornerRadius="30" Margin="10" Background="LightGray">
+            
         </Border>
         <view:SideBarUC Grid.Column="1" Margin="10"/>
     </Grid>
