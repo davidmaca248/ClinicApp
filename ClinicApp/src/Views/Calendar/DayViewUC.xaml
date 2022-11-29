@@ -44,7 +44,8 @@
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     CornerRadius="30" 
                     Margin="10">
-                <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                <DataGrid RowStyle="{StaticResource AppointmentRowStyle}"
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                           x:Name="HomeDataGrid"
                           ItemsSource="{Binding AppointmentList}" 
                           IsReadOnly="True"

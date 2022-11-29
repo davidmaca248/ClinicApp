@@ -58,7 +58,7 @@ namespace ClinicApp.ViewModel
         /// </summary>
         private void UpdateContent()
         {
-            AppointmentList = GlobalAppointmentDataBase.AppointmentList.Where(x => x.getDateTime().Date == DisplayedDay.Date).ToList();
+            AppointmentList = GlobalAppointmentDataBase.AppointmentList.Where(x => x.Datetime.Date == DisplayedDay.Date).ToList();
         }
     }
 }

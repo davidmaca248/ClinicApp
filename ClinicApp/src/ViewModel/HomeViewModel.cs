@@ -77,7 +77,7 @@ namespace ClinicApp.ViewModel
         /// </summary>
         private void updateContent()
         {
-            AppointmentList = GlobalAppointmentDataBase.AppointmentList.Where(x => x.getDateTime().Date == DisplayedDay.Date).ToList();
+            AppointmentList = GlobalAppointmentDataBase.AppointmentList.Where(x => x.Datetime.Date == DisplayedDay.Date).ToList();
             TodoList = GlobalHomePageListDatabase.TodoList.Where(x => x.Date.Date == DisplayedDay.Date).ToList();
             NotesList = GlobalHomePageListDatabase.NotesList.Where(x => x.Date.Date == DisplayedDay.Date).ToList();
         }

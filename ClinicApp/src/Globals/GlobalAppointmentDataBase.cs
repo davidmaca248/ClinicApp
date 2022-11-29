@@ -22,12 +22,12 @@ namespace ClinicApp.Globals
             AppointmentList = new List<Appointment>()
             {
                 // Dummy Appointments
-                new Appointment("David Maca", "Checkup", new DateTime(2022,11,28,9,15,0),  new DateTime(2022,11,28,9,30,0),"Dr. Far"),
-                new Appointment("Alden John", "X-Ray", new DateTime(2022,11,28,13,30,0),  new DateTime(2022,11,28,14,00,0),"Dr. Drake"),
-                new Appointment("Abe Jay", "Checkup and X-Ray", new DateTime(2022,11,28,13,30,0),  new DateTime(2022,11,28,13,45,0),"Dr. Guy"),
-                new Appointment("Josh Richards", "Checkup and consultation", new DateTime(2022,11,29,16,15,0),  new DateTime(2022,11,29,16,45,0),"Dr. Wade"),
-                new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,11,27,16,30,0),  new DateTime(2022,11,27,17,00,0),"Dr. James"),
-                new Appointment("Frank Garfield", "Consultation", new DateTime(2022,11,29,18,00,0), new DateTime(2022, 11, 29, 18, 15, 0), "Dr. Shaw"),
+                new Appointment("David Maca", "Checkup", new DateTime(2022,11,28,9,15,0), 30,"Dr. Far"),
+                new Appointment("Alden John", "X-Ray", new DateTime(2022,11,28,13,30,0), 15,"Dr. Drake"),
+                new Appointment("Abe Jay", "Checkup and X-Ray", new DateTime(2022,11,28,13,30,0), 30,"Dr. Guy"),
+                new Appointment("Josh Richards", "Checkup and consultation", new DateTime(2022,11,29,16,15,0), 45,"Dr. Wade"),
+                new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,11,27,16,30,0), 30,"Dr. James"),
+                new Appointment("Frank Garfield", "Consultation", new DateTime(2022,11,29,18,00,0), 15, "Dr. Shaw"),
             };
 
             Doctors = new List<Doctor>()
