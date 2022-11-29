@@ -102,6 +102,9 @@
                             <DataGridTextColumn Header="Time" 
                                                 Width="0.5*" 
                                                 Binding="{Binding Time}"/>
+                            <DataGridTextColumn Header="Duration" 
+                                                Width="*" 
+                                                Binding="{Binding DurationStr}"/>
                             <DataGridTextColumn Header="Clients" 
                                                 Width="*" 
                                                 Binding="{Binding Name}"/>

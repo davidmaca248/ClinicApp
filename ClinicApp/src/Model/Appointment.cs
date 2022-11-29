@@ -13,23 +13,45 @@ namespace ClinicApp.Model
 
         public string Description { get; set; }
 
-        public DateTime Datetime { get; set;}
+        private DateTime Datetime;
 
-        public string Date { get; set; }   
-
+        private DateTime EndTime;
+        public string DurationStr { get; set; }
         public string Time { get; set; }    
         public string DoctorName { get; set; }
         public Doctor Doctor { get; set; }
         public Client Client { get; set; }
 
-        public Appointment(string name, string description, DateTime dateTime, string doctorName)
+
+        public Appointment(string name, string description, DateTime dateTime, DateTime endTime, string doctorName)
         {
             Name = name;
             Description = description;
             Datetime = dateTime;
+            EndTime = endTime;
+            DurationStr = (EndTime - Datetime).TotalMinutes.ToString() + " Min";
             Time = Datetime.ToString("h:mm tt");
-            Date = Datetime.Date.ToShortDateString();
             DoctorName = doctorName;
+        }
+
+        public DateTime getDateTime()
+        {
+            return Datetime;
+        }
+
+        public DateTime getEndTime()
+        {
+            return EndTime;
+        }
+        public void setDateTime(DateTime dateTime)
+        {
+            Datetime = dateTime;
+            DurationStr = (EndTime - Datetime).TotalMinutes.ToString() + " Min";
+        }
+        public void setEndTime(DateTime endTime)
+        {
+            EndTime = endTime;
+            DurationStr = (EndTime - Datetime).TotalMinutes.ToString() + " Min";
         }
     }
 }
