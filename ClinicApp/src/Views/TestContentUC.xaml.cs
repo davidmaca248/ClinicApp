@@ -20,9 +20,14 @@ namespace ClinicApp.Views
     /// </summary>
     public partial class TestContentUC : UserControl
     {
+        public UserControl AccountLogUC { get; set; }
+
         public TestContentUC()
         {
             InitializeComponent();
         }
+
+
+
     }
 }

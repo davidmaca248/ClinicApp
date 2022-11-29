@@ -18,73 +18,87 @@
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="30" Margin="10" Background="LightGray">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="120"/>
-                    <RowDefinition Height="800"/>
-                </Grid.RowDefinitions>
+            <Grid x:Name ="contentgrid">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width ="90"/>
+                    <ColumnDefinition Width ="150"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="135"/>
+                    <RowDefinition Height="100"/>
 
-                <Border Grid.Row="1"  Grid.Column="0"
-                        Background="LightGray" 
-                        Padding="0,0,10,0">
-                    <StackPanel Orientation="Horizontal">
-                        <StackPanel Orientation="Vertical" Margin="60,20">
-                            <Ellipse Height="400" Width="400" Stroke="DarkOrchid" StrokeThickness="6">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="C:\Users\Joshua\Desktop\Fall 2022\CPSC 481\horizontal prototype\b3b67fb060a4aa772504cd6df018941d.png"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                            <StackPanel Background="DarkOrchid" Margin="180,30,180,30">
-                                <TextBlock Grid.Column="1" Margin="30,0,30,0" FontSize="35"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">John Doe</TextBlock>
-                            </StackPanel>
+                    <RowDefinition Height="*"/>
 
-                        </StackPanel>
-                    </StackPanel>
+                </Grid.RowDefinitions>
+
+                <Button x:Name ="userbutton1" Height="150" Width="150" Grid.Row="1" Grid.Column="1" Click="user1_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="C:\Users\Frank\source\repos\ClinicApp\doctor.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
+
+
+                <Button x:Name ="userbutton2" Height="150" Width="150" Grid.Row="1" Grid.Column="3" Click="user2_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="C:\Users\Frank\source\repos\ClinicApp\doctor2.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <Button x:Name ="userbutton3" Height="150" Width="150" Grid.Row="1" Grid.Column="5" Click="user3_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Image Source="C:\Users\Frank\source\repos\ClinicApp\receptionist.png"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock  Grid.Row="0" Grid.Column="3" Grid.RowSpan="1" Grid.ColumnSpan="2"
+                           FontFamily="{StaticResource StandardFont}"
+                           FontSize="28" HorizontalAlignment="Center"
+                           Height="30"
+                           Margin="-100,0,0,10"
+                            
+                           >Select profile</TextBlock>
+                <TextBlock x:Name ="username1" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center"                            
+                           FontFamily="{StaticResource StandardFont}"
+                           Foreground="Black"
+                           FontSize="20"
+                           Grid.ColumnSpan="3"
+                           >Keith Lawson <LineBreak/>Doctor
+                </TextBlock>
+                <TextBlock x:Name="username2" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center"                            
+                           FontFamily="{StaticResource StandardFont}"
+                           Foreground="Black"
+                           FontSize="20"
+                           Grid.ColumnSpan="3"
+                           >Emily Hudson <LineBreak/>Doctor
+                </TextBlock>
+                <TextBlock x:Name ="username3" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Center"                            
+                           FontFamily="{StaticResource StandardFont}"
+                           Foreground="Black"
+                           FontSize="20"
+                           >Mary Mezler <LineBreak/>Receptionist
+                </TextBlock>
+
+
+                <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="3"
+                        Height="150" Width="250" HorizontalAlignment="Center" 
+                        BorderBrush="DarkGray" Background="White" BorderThickness="2" CornerRadius="30">
+                    <TextBlock FontFamily="{StaticResource StandardFont}" FontSize="25"
+                          Margin="0, 30,0,0" HorizontalAlignment="Center"
+                           >Enter Pin</TextBlock>
 
                 </Border>
-                <Grid Grid.Row="1"  Grid.Column="1">
-                    <StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,60,30,30" Background="DarkOrchid">
-                            <TextBlock  Margin="50,0,163,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Name:</TextBlock>
-                            <TextBlock  Margin="170,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">John Doe</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
-                            <TextBlock  Margin="50,0,163,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Role:</TextBlock>
-                            <TextBlock  Margin="180,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Receptionist</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
-                            <TextBlock  Margin="50,0,163,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
-                            <TextBlock  Margin="160,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
-                            <TextBlock  Margin="50,0,163,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone:</TextBlock>
-                            <TextBlock  Margin="150,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-123-4567</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="0,0,30,30" Background="DarkOrchid">
-                            <TextBlock  Margin="50,0,163,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Current Shift:</TextBlock>
-                            <TextBlock  Margin="30,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">4.5 hrs</TextBlock>
-                        </StackPanel>
-                    </StackPanel>
-                </Grid>
-
-                <Grid Grid.Row="2">
-                    <Button Margin="1200,600,-700,130" Grid.Column="1" Content="Logout" Style="{StaticResource AddButtonStyle}" Background="DarkRed"/>
-                </Grid>
+                <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" x:Name ="pbox"  Height="30" Width="130" FontSize="20" MaxLength="10"  Grid.Column="3" Grid.Row="3" Margin="0,10,0,0"></PasswordBox>
 
             </Grid>
         </Border>
