@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static ClinicApp.Views.AccountTabUC;
+
 
 namespace ClinicApp.Views
 {
@@ -20,40 +23,46 @@ namespace ClinicApp.Views
     /// </summary>
     public partial class AccountUC : UserControl
     {
-        public UserControl AccountLogUC { get; set; }
         int selectedUser = 0;
 
+        private readonly AccountTabViewModel _parentViewModel;
 
 
         String user1Password = "111111";
         String user2Password = "222222";
         String user3Password = "333333";
-
         public AccountUC()
         {
             InitializeComponent();
         }
+        public AccountUC(AccountTabViewModel parentViewModel)
+        {
+            _parentViewModel = parentViewModel;
+            InitializeComponent();
+        }
+       
 
         private void user1_Click(object sender, RoutedEventArgs e)
         {
             username1.FontSize = 24;
-            username2.FontSize = 20;
-            username3.FontSize = 20;
+            username2.FontSize = 19;
+            username3.FontSize = 19;
             selectedUser = 1;
+
         }
 
         private void user2_Click(object sender, RoutedEventArgs e)
         {
-            username1.FontSize = 20;
+            username1.FontSize = 19;
             username2.FontSize = 24;
-            username3.FontSize = 20;
+            username3.FontSize = 19;
             selectedUser = 2;
         }
 
         private void user3_Click(object sender, RoutedEventArgs e)
         {
-            username1.FontSize = 20;
-            username2.FontSize = 20;
+            username1.FontSize = 19;
+            username2.FontSize = 19;
             username3.FontSize = 24;
             selectedUser = 3;
         }
@@ -65,20 +74,21 @@ namespace ClinicApp.Views
                 case 1:
                     if (pbox.Password == user1Password)
                     {
-                        contentgrid.Children.Clear();
+                        _parentViewModel.UserLoggedIn(selectedUser);
+
                     }
                     break;
                 case 2:
                     if (pbox.Password == user2Password)
                     {
-                        contentgrid.Children.Clear();
+                        _parentViewModel.UserLoggedIn(selectedUser);
 
                     }
                     break;
                 case 3:
                     if (pbox.Password == user3Password)
                     {
-                        contentgrid.Children.Clear();
+                        _parentViewModel.UserLoggedIn(selectedUser);
                     }
                     break;
                 default:

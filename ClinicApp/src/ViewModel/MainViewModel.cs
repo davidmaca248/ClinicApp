@@ -38,7 +38,8 @@ namespace ClinicApp.ViewModel
 		private AppointmentBookingClient _AppointmentBookingClientView;
         private AppointmentBookingTime _AppointmentBookingTypeView;
         private AppointmentBookingDate _AppointmentBookingDateView;
-        private AccountUC _Accountview;
+
+        private AccountTabUC _Accountview;
 
         private AppointmentViewModel AppointmentBookVM;
         #endregion
@@ -50,7 +51,7 @@ namespace ClinicApp.ViewModel
             _AppointmentBookingClientView = new AppointmentBookingClient();
             _AppointmentBookingTypeView = new AppointmentBookingTime();
             _AppointmentBookingDateView = new AppointmentBookingDate();
-            _Accountview = new AccountUC();
+            _Accountview = new AccountTabUC();
 
 
             AppointmentBookVM = new AppointmentViewModel();

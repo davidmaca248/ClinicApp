@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,12 +17,16 @@ using System.Windows.Shapes;
 namespace ClinicApp.Views
 {
     /// <summary>
-    /// Interaction logic for TestContentUC.xaml
+    /// Interaction logic for AccountTabUC.xaml
     /// </summary>
-    public partial class TestContentUC : UserControl
+    public partial class AccountTabUC : UserControl
     {
-        public TestContentUC()
+        private AccountTabViewModel _viewModel;
+        public AccountTabUC()
         {
+            _viewModel = new AccountTabViewModel();
+            // pass the view Model the 
+            DataContext = _viewModel;
             InitializeComponent();
         }
     }

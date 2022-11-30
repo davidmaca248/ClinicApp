@@ -15,7 +15,6 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="30" Margin="10" Background="LightGray">
             <Grid x:Name ="contentgrid">
@@ -39,17 +38,25 @@
                 <Button x:Name ="userbutton1" Height="150" Width="150" Grid.Row="1" Grid.Column="1" Click="user1_Click">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="C:\Users\Frank\source\repos\ClinicApp\doctor.png"/>
+                            <Image>
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Views/doctor.png"/>
+                                </Image.Source>
+                            </Image>
                         </ControlTemplate>
                     </Button.Template>
-
                 </Button>
 
 
                 <Button x:Name ="userbutton2" Height="150" Width="150" Grid.Row="1" Grid.Column="3" Click="user2_Click">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="C:\Users\Frank\source\repos\ClinicApp\doctor2.png"/>
+                            <Image>
+                                <Image.Source>
+                                <BitmapImage UriSource="/Views/doctor2.png"/>
+                            </Image.Source>
+                             </Image>
+
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -57,7 +64,11 @@
                 <Button x:Name ="userbutton3" Height="150" Width="150" Grid.Row="1" Grid.Column="5" Click="user3_Click">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="C:\Users\Frank\source\repos\ClinicApp\receptionist.png"/>
+                            <Image>
+                                <Image.Source>
+                                    <BitmapImage UriSource="/Views/receptionist.png"/>
+                                </Image.Source>
+                            </Image>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
@@ -102,7 +113,6 @@
 
             </Grid>
         </Border>
-        <view:SideBarUC Grid.Column="1" Margin="10"/>
     </Grid>
 </UserControl>
 
