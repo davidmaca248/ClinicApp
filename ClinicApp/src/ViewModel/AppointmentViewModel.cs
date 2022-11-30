@@ -14,12 +14,47 @@ namespace ClinicApp.ViewModel
 {
     internal class AppointmentViewModel : BaseViewModel
     {
-        public List<Client> Clients { get; set; }
+        #region Propeties
+        public object CurrentContent
+        {
+            get => _currentContent;
+            set
+            {
+                _currentContent = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+        #region Members
+        private object _currentContent;
+        private AppointmentBookingClient _AppointmentBookingClient;
+        private AppointmentBookingDate _AppointmentBookingDate;
+        private AppointmentBookingTime _AppointmentBookingTime;
+        #endregion
 
         public AppointmentViewModel()
         {
-            Clients = GlobalAppointmentDataBase.Clients;
-            OnPropertyChanged();
+            //_AppointmentBookingClient = new AppointmentBookingClient();
+            //_AppointmentBookingTime = new AppointmentBookingTime();
+            //_AppointmentBookingDate = new AppointmentBookingDate();
+
+            //CurrentContent = _AppointmentBookingClient;
+        }
+
+        public void ToTime()
+        {
+            CurrentContent = _AppointmentBookingTime;
+        }
+
+        public void ToClient()
+        {
+            CurrentContent = _AppointmentBookingClient;
+        }
+
+        public void ToDate()
+        {
+            CurrentContent = _AppointmentBookingDate;
         }
     }
 }

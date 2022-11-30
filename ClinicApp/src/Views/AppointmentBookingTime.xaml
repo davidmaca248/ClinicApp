@@ -38,55 +38,137 @@
             <Label Grid.Column="0" 
                    Padding="150,50,1,1" 
                    Grid.Row="2" 
-                   Grid.ColumnSpan="2" 
                    Content="Select Service" 
                    FontFamily="{StaticResource StandardFont}" 
-                   FontSize="32"/>
+                   FontSize="32" Margin="0,0,65,0"/>
 
-            <Button Content=" 30 Minutes" 
-   
-                    HorizontalAlignment="Center" 
-                    Grid.Column="0" 
-                    Grid.Row="2" 
-                    VerticalAlignment="Top" 
-                    Grid.ColumnSpan="2" 
-                    Margin="35,120"
-                    Height="500" 
-                    Width="400" 
-                    FontSize="48" 
-                    Style="{StaticResource AppointmentBookingButton}">
-     
-            </Button>
+            <Button Grid.Column="0" 
+                   Content="Back"
+                   Padding="150,50,1,1" 
+                   Grid.Row="2" 
+                   VerticalAlignment="Top" 
+                   Height="70"
+                   Style="{StaticResource PrevNextButton}" 
+                   FontSize="32" Margin="240,650,65,0"
+                   Click="Back" RenderTransformOrigin="0.306,0.568"/>
 
-            <Button Content="60 minutes" 
-                    
-                    HorizontalAlignment="Center" 
-                    Grid.Column="1" 
-                    Grid.Row="2" 
-                    VerticalAlignment="Top" 
-                    Grid.ColumnSpan="2" 
-                    Margin="35,120"
-                    Height="500" 
-                    Width="400" 
-                    FontSize="48"
-                    Style="{StaticResource AppointmentBookingButton}">
-               
-            </Button>
+            <TabControl Margin="0,64,10,68" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="White">
+                <TabControl.Resources>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TabItem">
+                                    <Border Name="Border" BorderThickness="4" BorderBrush="DarkOrchid" CornerRadius="30" Margin="2,0">
+                                        <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,2"/>
 
-            <Button Content="90 minutes" 
-                     
-                    HorizontalAlignment="Center" 
-                    Grid.Column="2" 
-                    Grid.Row="2" 
-                    VerticalAlignment="Top" 
-                    Grid.ColumnSpan="2" 
-                    Margin="35,120"
-                    Height="500" 
-                    Width="400" 
-                    FontSize="48"
-                    Style="{StaticResource AppointmentBookingButton}">
-                
-            </Button>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="white" />
+                                            <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="DarkOrchid"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="False">
+                                            <Setter TargetName="Border" Property="Background" Value="Darkorchid" />
+                                            <Setter Property="TextElement.Foreground" TargetName="ContentSite" Value="MintCream"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
+                <TabItem Header="30 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="0,0,-13,-31">
+                    <ListView Background="LightGray" Margin="0,30,31,-72" Height="600">
+                        <StackPanel Orientation="Horizontal" Margin="60,30,0,60" Height="201" Width="814">
+                            <Button Content="Checkup" Style="{StaticResource AppointmentTypeStyle}" Click="Checkup"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Cold" Style="{StaticResource AppointmentTypeStyle}" Click="Cold" BorderThickness="4"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Muscle" Style="{StaticResource AppointmentTypeStyle}" Click="Muscle" BorderThickness="4"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="60,0,0,0" Height="201" Width="814">
+                            <Button Content="Flu Shot" Style="{StaticResource AppointmentTypeStyle}" Click="Flu"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Prescription" Style="{StaticResource AppointmentTypeStyle}" Click="Prescription"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Border Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0" CornerRadius="20">
+                                <StackPanel>
+                                    <Label Grid.Column="0" 
+                                Content="Other" 
+                                Foreground="MintCream"
+                                FontFamily="{StaticResource StandardFont}" 
+                                FontSize="24" Margin="15,20,10,0"/>
+                                    <TextBox Margin="15,0,15,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other30"
+                                             FontSize="16" TextWrapping="Wrap" Height="100"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ListView>
+                </TabItem>
+                <TabItem Header="60 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="9,0,-24,-30">
+                    <ListView Background="LightGray" Margin="0,30,31,-72" Height="600">
+                        <StackPanel Orientation="Horizontal" Margin="60,30,0,60" Height="201" Width="814">
+                            <Button Content="Consultation" Style="{StaticResource AppointmentTypeStyle}" Click="Consultation"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Diagnostics" Style="{StaticResource AppointmentTypeStyle}" Click="Diagnostics"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="physical exam" Style="{StaticResource AppointmentTypeStyle}" Click="PhysicalExam"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="60,0,0,0" Height="201" Width="814">
+                            <Button Content="X-Ray" Style="{StaticResource AppointmentTypeStyle}" Click="XRay"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Blood Test" Style="{StaticResource AppointmentTypeStyle}" Click="BloodTest"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Border Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0" CornerRadius="20">
+                                <StackPanel>
+                                    <Label Grid.Column="0" 
+                                Content="Other" 
+                                Foreground="MintCream"
+                                FontFamily="{StaticResource StandardFont}" 
+                                FontSize="24" Margin="5,20,10,0"/>
+                                    <TextBox Margin="10,0,20,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other60"
+                                             FontSize="16" TextWrapping="Wrap" Height="100"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ListView>
+                </TabItem>
+                <TabItem Header="90 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="19,0,-45,-32" >
+                    <ListView Background="LightGray" Margin="0,30,31,-72" Height="600">
+                        <StackPanel Orientation="Horizontal" Margin="60,30,0,60" Height="201" Width="814">
+                            <Button Content="Full Checkup"  Style="{StaticResource AppointmentTypeStyle}" Click="FullCheckup"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Full Diagnostic" Style="{StaticResource AppointmentTypeStyle}" Click="FullDiagnostic"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Multiple People" Style="{StaticResource AppointmentTypeStyle}" Click="MultiPeople"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="60,0,0,0" Height="201" Width="814">
+                            <Button Content="Diabetes" Style="{StaticResource AppointmentTypeStyle}" Click="Diabetes"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Button Content="Psychological" Style="{StaticResource AppointmentTypeStyle}" Click="Psychological"
+                                    Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0"/>
+                            <Border Background="DarkOrchid" Width="217" Height="202" Margin="0,0,50,0" CornerRadius="20">
+                                <StackPanel>
+                                    <Label Grid.Column="0" 
+                                Content="Other" 
+                                Foreground="MintCream"
+                                FontFamily="{StaticResource StandardFont}" 
+                                FontSize="24" Margin="5,20,10,0"/>
+                                    <TextBox Margin="10,0,20,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other90"
+                                             FontSize="16" TextWrapping="Wrap" Height="100"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ListView>
+                </TabItem>            
+            </TabControl>
 
             <RadioButton Content="Client" 
                     HorizontalAlignment="Left" 
@@ -141,7 +223,7 @@
                          Grid.ColumnSpan="2" 
                          Height="75"
                          Width="200" 
-                         Style="{StaticResource AppointmentPageUnselected}"/>
+                         Style="{StaticResource AppointmentPageUnselected}" Checked="RadioButton_Checked_1"/>
 
             <Button Grid.Column="2"
                     Content="Next" 
@@ -152,6 +234,7 @@
                     Grid.ColumnSpan="2" 
                     Height="70" 
                     Width="175"
+                    Click="Next"
                     Style="{StaticResource PrevNextButton}"/>
 
         </Grid>

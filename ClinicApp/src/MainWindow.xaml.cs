@@ -1,9 +1,11 @@
 ﻿using ClinicApp.Globals;
 using ClinicApp.Views;
+using ClinicApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,15 +24,18 @@ namespace ClinicApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        MainViewModel viewModel;
         public MainWindow()
         {
+            viewModel = new MainViewModel();
             InitializeComponent();
             Switcher.pageSwitcher = this;
         }
         
         public void Navigate(UserControl nextPage)
         {
-            (this.FindName("mainContent") as ContentControl).Content = nextPage;
+            viewModel.SwitchPage(nextPage);
+            (this.FindName("mainContent") as ContentControl).Content = viewModel.CurrentView;
         }
     }
 }

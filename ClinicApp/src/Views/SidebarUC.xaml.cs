@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClinicApp.Views.Popups;
 using ClinicApp.Model;
+using ClinicApp.Globals;
+using ClinicApp.ViewModel;
 
 namespace ClinicApp.Views
 {
@@ -38,6 +40,11 @@ namespace ClinicApp.Views
         {
             AddDoctorPopup modal = new AddDoctorPopup();
             modal.ShowDialog();
+        }
+
+        private void AddAppointmentButton(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new AppointmentBookingClient());
         }
     }
 }
