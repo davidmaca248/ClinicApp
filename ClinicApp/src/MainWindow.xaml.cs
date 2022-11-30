@@ -28,6 +28,7 @@ namespace ClinicApp
         public MainWindow()
         {
             viewModel = new MainViewModel();
+            this.DataContext = viewModel;
             InitializeComponent();
             Switcher.pageSwitcher = this;
         }
@@ -35,7 +36,7 @@ namespace ClinicApp
         public void Navigate(UserControl nextPage)
         {
             viewModel.SwitchPage(nextPage);
-            (this.FindName("mainContent") as ContentControl).Content = viewModel.CurrentView;
+            //(this.FindName("mainContent") as ContentControl).Content = viewModel.CurrentView;
         }
     }
 }

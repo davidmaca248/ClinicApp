@@ -9,10 +9,6 @@
         mc:Ignorable="d"
         Style="{StaticResource MainWindowStyle}">
 
-    <Window.DataContext>
-        <viewModel:MainViewModel/>
-    </Window.DataContext>
-    
     <Border x:Name="Splash" Background="White">
         <Grid x:Name="MainGrid">
             <Grid.RowDefinitions>
