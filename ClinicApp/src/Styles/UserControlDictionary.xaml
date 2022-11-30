@@ -363,7 +363,7 @@
                         <Binding Path="DurationMinutes"/>
                     </MultiBinding>
                 </DataTrigger.Binding>
-                <Setter Property="Background" Value="LightGray" />
+                <Setter Property="Background" Value="Gray" />
             </DataTrigger>
         </Style.Triggers>
     </Style>
