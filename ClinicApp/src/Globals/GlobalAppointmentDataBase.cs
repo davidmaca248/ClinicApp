@@ -23,11 +23,20 @@ namespace ClinicApp.Globals
             AppointmentList = new List<Appointment>()
             {
                 // Dummy Appointments
-                new Appointment("David Maca", "Checkup", new DateTime(2022,11,23,9,15,0), "Dr. Farquad"),
-                new Appointment("Alden John", "Checkup and xRay", new DateTime(2022,11,23,13,30,0), "Dr. Drake"),
-                new Appointment("Josh Richards", "Checkup and consultation", new DateTime(2022,11,23,16,15,0), "Dr. Wade"),
-                new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,11,22,16,30,0), "Dr. Tate"),
-                new Appointment("Frank Garfield", "Consultation", new DateTime(2022,11,24,18,00,0), "Dr. Shaw"),
+                new Appointment("David Maca", "Checkup", new DateTime(2022,11,30,9,15,0), 30,"Dr. Far"),
+                new Appointment("Alden John", "X-Ray", new DateTime(2022,11,30,13,30,0), 15,"Dr. Drake"),
+                new Appointment("Abe Jay", "Checkup and X-Ray", new DateTime(2022,11,30,13,30,0), 30,"Dr. Guy"),
+                new Appointment("Josh Richards", "Checkup and consultation", new DateTime(2022,11,29,16,15,0), 45,"Dr. Wade"),
+                new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,11,27,16,30,0), 30,"Dr. James"),
+                new Appointment("Frank Garfield", "Consultation", new DateTime(2022,12,01,18,00,0), 15, "Dr. Shaw"),
+
+                new Appointment("David Max", "Checkup", new DateTime(2022,11,30,12,01,0), 30,"Dr. Far"),
+                new Appointment("Alden Bay", "X-Ray", new DateTime(2022,11,30,12,30,0), 15,"Dr. Drake"),
+                new Appointment("Abe John", "Checkup and X-Ray", new DateTime(2022,11,27,14,30,0), 30,"Dr. Guy"),
+                new Appointment("Josh Rich", "Checkup and consultation", new DateTime(2022,11,28,16,15,0), 45,"Dr. Wade"),
+                new Appointment("Arhum Lino", "Checkup", new DateTime(2022,11,27,16,30,0), 30,"Dr. James"),
+                new Appointment("Frank Field", "Consultation", new DateTime(2022,12,01,18,00,0), 15, "Dr. Shaw"),
+
             };
 
             Doctors = new List<Doctor>()

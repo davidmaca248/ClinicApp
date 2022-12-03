@@ -44,7 +44,8 @@
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     CornerRadius="30" 
                     Margin="10">
-                <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                <DataGrid RowStyle="{StaticResource AppointmentRowStyle}"
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                           x:Name="HomeDataGrid"
                           ItemsSource="{Binding AppointmentList}" 
                           IsReadOnly="True"
@@ -58,6 +59,9 @@
                         <DataGridTextColumn Header="Time" 
                                                 Width="0.5*" 
                                                 Binding="{Binding Time}"/>
+                        <DataGridTextColumn Header="Duration" 
+                                                Width="*" 
+                                                Binding="{Binding DurationStr}"/>
                         <DataGridTextColumn Header="Clients" 
                                                 Width="*" 
                                                 Binding="{Binding Name}"/>

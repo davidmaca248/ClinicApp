@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\ValueConverters\AppointmentRowTimeValueConverter.cs" />
     <Compile Include="Globals\Switcher.cs" />
     <Compile Include="Globals\GlobalHomePageListDatabase.cs" />
     <Compile Include="Model\Appointment.cs" />

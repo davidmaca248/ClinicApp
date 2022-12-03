@@ -12,39 +12,40 @@
         <Border Margin="10" CornerRadius="30" Background="LightGray">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="45*"/>
-                    <ColumnDefinition Width="45*"/>
-                    <ColumnDefinition Width="45*"/>
-                    <ColumnDefinition Width="7*"/>
-                    <ColumnDefinition Width="38*"/>
-                    <ColumnDefinition Width="45*"/>
-                    <ColumnDefinition Width="45*"/>
-                    <ColumnDefinition Width="45*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
-                <RadioButton Grid.Column="0"
-                             Content="Home"
-                             IsChecked="True"
-                             Style="{StaticResource NavbarButtonStyle}"
-                             Command="{Binding HomeViewCommand}"/>
-
-                <TextBlock Grid.Column="1" 
+                <TextBlock Grid.Column="0"
                            FontFamily="{StaticResource StandardFont}"
                            Text="Clinic App"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="30"/>
 
+               
+
                 <RadioButton Grid.Column="2"
+                             Content="Home"
+                             IsChecked="True"
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding HomeViewCommand}"/>
+
+                <RadioButton Grid.Column="3"
                              Content="Calendar"
                              IsChecked="False"
                              Style="{StaticResource NavbarButtonStyle}"
                              Command="{Binding CalendarViewCommand}"/>
 
-
-                <RadioButton Grid.Column="3"
+                <RadioButton Grid.Column="4"
                              Content="Doctors"
-                             Style="{StaticResource NavbarButtonStyle}" Grid.ColumnSpan="2"/>
+                             Style="{StaticResource NavbarButtonStyle}"/>
 
                 <RadioButton Grid.Column="5"
                              Content="Clients"
@@ -57,7 +58,7 @@
                 <RadioButton Grid.Column="7"
                              Content="Account"
                              Style="{StaticResource NavbarButtonStyle}"
-                             Command="" Checked="RadioButton_Checked"/>
+                              Command="{Binding AccountViewCommand}" Checked="RadioButton_Checked"/>
             </Grid>
         </Border>
     </Grid>
