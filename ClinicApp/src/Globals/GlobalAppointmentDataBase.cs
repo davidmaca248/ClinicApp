@@ -11,6 +11,7 @@ namespace ClinicApp.Globals
     {
         // Not sure if the navbar should lock while booking appointments or not yet
         public static bool IsBooking = false;
+        public static bool Confirm = false;
         public static bool NewClient = false;
         public static List<Doctor> Doctors { get; set; }
         public static List<Client> Clients { get; set; }
@@ -42,7 +43,8 @@ namespace ClinicApp.Globals
             Doctors = new List<Doctor>()
             {
                 // Dummy Doctors
-                new Doctor("Steven", "Strange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10))
+                new Doctor("Steven", "Strange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10)),
+                new Doctor("Steven", "Notstrange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10))
             };
 
             Clients = new List<Client>()

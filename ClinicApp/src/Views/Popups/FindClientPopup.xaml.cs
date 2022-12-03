@@ -28,7 +28,6 @@ namespace ClinicApp.Views.Popups
         {
             viewModel = new FindClientViewModel();
             DataContext= viewModel;
-            viewModel.updateContent();
 
             InitializeComponent();
         }
@@ -44,5 +43,16 @@ namespace ClinicApp.Views.Popups
             // There should be error checking code here, but for now theres nothing
         }
 
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Search(object sender, RoutedEventArgs e)
+        {
+            TextBox query = sender as TextBox;
+            Console.WriteLine(query.Text);
+            viewModel.updateContent(query.Text);
+        }
     }
 }

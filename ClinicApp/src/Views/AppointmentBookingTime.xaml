@@ -42,6 +42,16 @@
                    FontFamily="{StaticResource StandardFont}" 
                    FontSize="32" Margin="0,0,65,0"/>
 
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                               Text="* Please Select a reason for visit" 
+                               FontFamily="{StaticResource StandardFont}"
+                               FontWeight="Bold"
+                               FontSize="28"
+                               Margin="0,10,417,0"
+                               Visibility="Hidden"
+                               x:Name="errormsg"
+                               Foreground="#ff0033" Grid.ColumnSpan="2"/>
+
             <Button Grid.Column="0" 
                    Content="Back"
                    Padding="150,50,1,1" 
@@ -167,7 +177,7 @@
                             </Border>
                         </StackPanel>
                     </ListView>
-                </TabItem>            
+                </TabItem>
             </TabControl>
 
             <RadioButton Content="Client" 

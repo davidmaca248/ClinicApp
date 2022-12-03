@@ -40,7 +40,8 @@ namespace ClinicApp.Views
             }
             else
             {
-                // Future error message
+                TextBlock error = this.FindName("errormsg") as TextBlock;
+                error.Visibility = Visibility.Visible;
             }
         }
 
@@ -57,7 +58,8 @@ namespace ClinicApp.Views
             }
             else
             {
-                // Future error message
+                TextBlock error = this.FindName("errormsg") as TextBlock;
+                error.Visibility = Visibility.Visible;
             }
         }
 

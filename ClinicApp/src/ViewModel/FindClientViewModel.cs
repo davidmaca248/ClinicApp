@@ -23,9 +23,10 @@ namespace ClinicApp.ViewModel
 
         private List<Client> _Clients;
 
-        public void updateContent()
+        public void updateContent(string query)
         {
-            _Clients = GlobalAppointmentDataBase.Clients;
+            _Clients = GlobalAppointmentDataBase.Clients
+                .Where(x => x.FirstName.Contains(query) || x.LastName.Contains(query)).ToList();
         }
 
         public FindClientViewModel()

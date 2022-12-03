@@ -61,6 +61,8 @@ namespace ClinicApp.Views
         {
             InitializeComponent();
             currentDate = DateTime.Now;
+            calendar = this.FindName("datePicker") as DatePicker;
+            calendar.SelectedDate = currentDate;
             // Load twice because of some weird bug (double loads the buttons so clear then load again)
             panel.Children.Clear();
             wpanel.Children.Clear();
@@ -89,8 +91,9 @@ namespace ClinicApp.Views
             {
                 GlobalAppointmentDataBase.NewAppointment.Id = GlobalAppointmentDataBase.AppointmentList.Count + 1;
                 GlobalAppointmentDataBase.AppointmentClient.Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
-                if (GlobalAppointmentDataBase.NewClient) { }
-                GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
+                if (GlobalAppointmentDataBase.NewClient) {
+                    GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
+                }
                 GlobalAppointmentDataBase.AppointmentList.Add(GlobalAppointmentDataBase.NewAppointment);
                 GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
                 GlobalAppointmentDataBase.NewClient= false;
@@ -100,7 +103,8 @@ namespace ClinicApp.Views
             }
             else
             {
-                // Error popup goes here
+                TextBlock error = this.FindName("errormsg") as TextBlock;
+                error.Visibility = Visibility.Visible;
             }
         }
 
@@ -117,9 +121,9 @@ namespace ClinicApp.Views
         private void LoadContent()
         {
             panel = (StackPanel)this.FindName("panel1");
-            wpanel = new WrapPanel();
             foreach (Doctor d in GlobalAppointmentDataBase.Doctors)
             {
+                wpanel = new WrapPanel();
                 foreach (Appointment a in d.Appointments)
                 {
                     if (a.StartTime.Date == currentDate.Date)
@@ -185,6 +189,7 @@ namespace ClinicApp.Views
                 }
                 d.Display.Clear();
                 panel.Children.Add(wpanel);
+                ResetAvailableTimes();
             }
 
         }
@@ -201,7 +206,6 @@ namespace ClinicApp.Views
             GlobalAppointmentDataBase.NewAppointment.Doctor = AppointmentDoctor;
             SetAppointmentTime((string)button.Content);
             GlobalAppointmentDataBase.NewAppointment.EndTime = GlobalAppointmentDataBase.NewAppointment.StartTime.AddMinutes(duration);
-            Console.WriteLine(button.Name);
 
             prevButton = button;
         }

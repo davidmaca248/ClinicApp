@@ -12,10 +12,6 @@
              Height="Auto"
              >
 
-    <UserControl.DataContext>
-        <viewModel:AppointmentViewModel></viewModel:AppointmentViewModel>
-    </UserControl.DataContext>
-
     <Border Background="White">
         <Grid>
 
@@ -48,6 +44,16 @@
                    Content="Select Time Slot" 
                    FontFamily="{StaticResource StandardFont}" 
                    FontSize="32"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                               Text="* Please Select a date and time" 
+                               FontFamily="{StaticResource StandardFont}"
+                               FontWeight="Bold"
+                               FontSize="28"
+                               Margin="160,60,185,0"
+                               Visibility="Hidden"
+                               x:Name="errormsg"
+                               Foreground="#ff0033" Grid.ColumnSpan="2"/>
 
             <RadioButton Content="Client" 
                     HorizontalAlignment="Left" 
@@ -128,8 +134,8 @@
                     Click="Back"
                     Style="{StaticResource PrevNextButton}"/>
 
-            <StackPanel Grid.Row="2" Margin="380,50,0,0" HorizontalAlignment="Left" Width="230" Grid.ColumnSpan="2">
-                <DatePicker x:Name="datePicker" Width="135" Height="68" SelectedDateChanged="SetDate" >
+            <StackPanel Grid.Row="2" Margin="400,50,0,0" HorizontalAlignment="Left" Width="230" Grid.ColumnSpan="2">
+                <DatePicker x:Name="datePicker" Width="170" Height="68" SelectedDateChanged="SetDate" FontSize="24">
                     <DatePicker.Style>
                         <Style TargetType="{x:Type DatePicker}">
                             <Setter Property="IsDropDownOpen" Value="False"/>

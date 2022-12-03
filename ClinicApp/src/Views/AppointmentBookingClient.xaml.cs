@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -37,7 +38,10 @@ namespace ClinicApp.Views
         {
             GlobalAppointmentDataBase.NewClient = false;
             FindClientPopup modal = new FindClientPopup();
+            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
+            Switcher.pageSwitcher.Effect = null;
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -53,7 +57,7 @@ namespace ClinicApp.Views
                 // b/c they may not complete booking
                 //GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
             }
-            if (GlobalAppointmentDataBase.AppointmentClient != new Client())
+            if (GlobalAppointmentDataBase.AppointmentClient.FirstName != string.Empty)
             { 
                 GlobalAppointmentDataBase.NewAppointment.Client = GlobalAppointmentDataBase.AppointmentClient;
                 Switcher.Switch(new AppointmentBookingTime());
@@ -61,8 +65,8 @@ namespace ClinicApp.Views
 
             else
             {
-                // For future: Popup error msg
-                Console.WriteLine("Need to select or create new client to continue");
+                TextBlock error = this.FindName("errormsg") as TextBlock;
+                error.Visibility = Visibility.Visible;
             }
         }
 
@@ -86,8 +90,8 @@ namespace ClinicApp.Views
                 
             else
             {
-                // For future: Popup error msg
-                Console.WriteLine("Need to select or create new client to continue");
+                TextBlock error = this.FindName("errormsg") as TextBlock;
+                error.Visibility = Visibility.Visible;
             }
         }
 
