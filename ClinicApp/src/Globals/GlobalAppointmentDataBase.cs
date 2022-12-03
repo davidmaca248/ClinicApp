@@ -13,6 +13,7 @@ namespace ClinicApp.Globals
         public static bool IsBooking = false;
         public static bool Confirm = false;
         public static bool NewClient = false;
+        public static bool Rescheduling = false;
         public static List<Doctor> Doctors { get; set; }
         public static List<Client> Clients { get; set; }
         public static List<Appointment> AppointmentList { get; set; }

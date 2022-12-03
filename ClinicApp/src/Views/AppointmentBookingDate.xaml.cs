@@ -87,6 +87,11 @@ namespace ClinicApp.Views
 
         private void Confirm(object sender, RoutedEventArgs e)
         {
+            if (GlobalAppointmentDataBase.Rescheduling)
+            {
+                GlobalAppointmentDataBase.Rescheduling = false;
+                return; // Should edit b/c of reference to original object (hopefully)
+            }
             if (GlobalAppointmentDataBase.NewAppointment.StartTime != new DateTime())
             {
                 GlobalAppointmentDataBase.NewAppointment.Id = GlobalAppointmentDataBase.AppointmentList.Count + 1;
@@ -94,6 +99,8 @@ namespace ClinicApp.Views
                 if (GlobalAppointmentDataBase.NewClient) {
                     GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
                 }
+                GlobalAppointmentDataBase.NewAppointment.Email = GlobalAppointmentDataBase.AppointmentClient.Email;
+                GlobalAppointmentDataBase.NewAppointment.PhoneNumber = GlobalAppointmentDataBase.AppointmentClient.PhoneNumber;
                 GlobalAppointmentDataBase.AppointmentList.Add(GlobalAppointmentDataBase.NewAppointment);
                 GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
                 GlobalAppointmentDataBase.NewClient= false;

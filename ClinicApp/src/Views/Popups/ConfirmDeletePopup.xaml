@@ -34,8 +34,8 @@
                 
                 <Grid Grid.Row="2">
               
-                    <Button Margin="30,0,130,0" Grid.Column="1" Content="no" Style="{StaticResource AddButtonStyle}"/>
-                    <Button Margin="130,0,30,0" Grid.Column="2" Content="yes" Style="{StaticResource AddButtonStyle}" Background="Gray"/>
+                    <Button Margin="30,0,130,0" Grid.Column="1" Content="no" Style="{StaticResource AddButtonStyle}" Click="No"/>
+                    <Button Margin="130,0,30,0" Grid.Column="2" Content="yes" Style="{StaticResource CloseButtonStyle}" Click="Yes"/>
 
                 </Grid>
             </Grid>

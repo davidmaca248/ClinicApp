@@ -22,6 +22,9 @@ namespace ClinicApp.Model
         public DateTime EndTime { get; set; }
         public int Duration { get; set; } = 0;
 
+        public string Email { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
+
         public double DurationMinutes { get; set; }
         public string DurationStr { get; set; }
         public string Time { get; set; }    

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicApp.Globals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,18 @@ namespace ClinicApp.Views.Popups
         public SaveChangesPopup()
         {
             InitializeComponent();
+        }
+
+        private void Yes(object sender, RoutedEventArgs e)
+        {
+            GlobalAppointmentDataBase.Confirm = true;
+            this.Close();
+        }
+
+        private void No(object sender, RoutedEventArgs e)
+        {
+            GlobalAppointmentDataBase.Confirm = false;
+            this.Close();
         }
     }
 }
