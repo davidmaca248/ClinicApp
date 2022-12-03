@@ -6,10 +6,12 @@
              xmlns:local="clr-namespace:ClinicApp.Views"
 			 xmlns:viewmodel="clr-namespace:ClinicApp.ViewModel"
 	         xmlns:properties="clr-namespace:ClinicApp.Properties"
+             xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
              mc:Ignorable="d" 
              d:DesignWidth="{x:Static SystemParameters.PrimaryScreenWidth}"
              Height="Auto"
              >
+
     <Border Background="White">
         <Grid>
 
@@ -42,6 +44,16 @@
                    Content="Select Time Slot" 
                    FontFamily="{StaticResource StandardFont}" 
                    FontSize="32"/>
+            
+            <TextBlock Grid.Row="2" Grid.Column="1"
+                               Text="* Please Select a date and time" 
+                               FontFamily="{StaticResource StandardFont}"
+                               FontWeight="Bold"
+                               FontSize="28"
+                               Margin="160,60,185,0"
+                               Visibility="Hidden"
+                               x:Name="errormsg"
+                               Foreground="#ff0033" Grid.ColumnSpan="2"/>
 
             <RadioButton Content="Client" 
                     HorizontalAlignment="Left" 
@@ -74,7 +86,7 @@
                     Grid.ColumnSpan="2" 
                     Height="75" 
                     Width="200" 
-                    Style="{StaticResource AppointmentPageUnselected}"/>
+                    Style="{StaticResource AppointmentPageUnselected}" Checked="RadioButton_Checked"/>
 
             <Label Grid.Column="3" 
                    Opacity="0.5" 
@@ -107,8 +119,82 @@
                     Grid.ColumnSpan="2" 
                     Height="70" 
                     Width="175"
+                    Click="Confirm"
                     Style="{StaticResource PrevNextButton}"/>
 
+            <Button Grid.Column="0"
+                    Content="Back" 
+                    HorizontalAlignment="Left" 
+                    Margin="250,650,0,0" 
+                    Grid.Row="2" 
+                    VerticalAlignment="Top" 
+                    Grid.ColumnSpan="2" 
+                    Height="70" 
+                    Width="175"
+                    Click="Back"
+                    Style="{StaticResource PrevNextButton}"/>
+
+            <StackPanel Grid.Row="2" Margin="400,50,0,0" HorizontalAlignment="Left" Width="230" Grid.ColumnSpan="2">
+                <DatePicker x:Name="datePicker" Width="170" Height="68" SelectedDateChanged="SetDate" FontSize="24">
+                    <DatePicker.Style>
+                        <Style TargetType="{x:Type DatePicker}">
+                            <Setter Property="IsDropDownOpen" Value="False"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="IsDropDownOpen" Value="True"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="IsDropDownOpen" Value="False"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DatePicker.Style>
+                </DatePicker>
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="2" Margin="35,150,0,0" Grid.ColumnSpan="2" Grid.Column="1" x:Name="TimeList">
+                <StackPanel Name="panel1">
+                    <StackPanel.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="DarkOrchid"/>
+                            <Setter Property="Foreground" Value="MintCream"/>
+                            <Setter Property="FontFamily" Value="{StaticResource StandardFont}"/>
+                            <Setter Property="Width" Value="100"/>
+                            <Setter Property="Height" Value="50"/>
+                            <Setter Property="Margin" Value="0,5,5,0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border VerticalAlignment="Stretch"
+                                        HorizontalAlignment="Stretch"
+                                        CornerRadius="20"
+                                        BorderBrush="DarkOrchid"
+                                        BorderThickness="4"
+                                        Background="{TemplateBinding Background}">
+                                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                        Foreground="{TemplateBinding Foreground}"
+                                        FontFamily="{StaticResource StandardFont}"
+                                        FontSize="15"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Orchid"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        <Style TargetType="Label">
+                            <Setter Property="FontFamily" Value="{StaticResource StandardFont}"/>
+                            <Setter Property="FontSize" Value="24"/>
+                        </Style>
+
+                    </StackPanel.Resources>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
 
     </Border>

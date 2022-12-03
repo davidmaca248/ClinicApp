@@ -1,4 +1,6 @@
 ﻿using ClinicApp.Globals;
+using ClinicApp.ViewModel;
+using ClinicApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +23,12 @@ namespace ClinicApp.Views.Popups
     public partial class FindClientPopup : Window
     {
         private int ClientId;
+        FindClientViewModel viewModel;
         public FindClientPopup()
         {
+            viewModel = new FindClientViewModel();
+            DataContext= viewModel;
+
             InitializeComponent();
         }
         
@@ -32,9 +38,21 @@ namespace ClinicApp.Views.Popups
             TextBlock text = panel.FindName("id") as TextBlock;
             ClientId = int.Parse(text.Text);
             GlobalAppointmentDataBase.AppointmentClient = GlobalAppointmentDataBase.Clients.Find(x => x.PersonId == ClientId);
-            Console.WriteLine(GlobalAppointmentDataBase.AppointmentClient.FirstName);
+            this.Close();
+            Switcher.Switch(new AppointmentBookingTime());
             // There should be error checking code here, but for now theres nothing
         }
 
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Search(object sender, RoutedEventArgs e)
+        {
+            TextBox query = sender as TextBox;
+            Console.WriteLine(query.Text);
+            viewModel.updateContent(query.Text);
+        }
     }
 }

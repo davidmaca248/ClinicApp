@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ClinicApp.Views.Popups;
 using ClinicApp.Model;
+using ClinicApp.Globals;
+using ClinicApp.ViewModel;
 
 namespace ClinicApp.Views
 {
@@ -31,13 +33,24 @@ namespace ClinicApp.Views
         private void addClientModal(object sender, RoutedEventArgs e)
         {
             AddClientPopup modal = new AddClientPopup();
+            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
+            Switcher.pageSwitcher.Effect = null;
         }
 
         private void addDoctorModal(object sender, RoutedEventArgs e)
         {
             AddDoctorPopup modal = new AddDoctorPopup();
+            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
+            Switcher.pageSwitcher.Effect = null;
+        }
+
+        private void AddAppointmentButton(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new AppointmentBookingClient());
         }
     }
 }

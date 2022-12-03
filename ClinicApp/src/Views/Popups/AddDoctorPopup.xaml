@@ -36,59 +36,50 @@
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,60,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">First Name(required):</TextBlock>
-                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3"
+                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3" x:Name="Fname"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,63,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Last Name(required):</TextBlock>
-                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3"
+                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3" x:Name="Lname"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
-                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3"
+                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3" x:Name="Email"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,107,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone(required):</TextBlock>
-                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3"
+                                <TextBox Text="" Width="250" FontSize="16" Margin="0,3" x:Name="Phone"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,125,5" FontSize="20"
+                                <TextBlock Grid.Column="1" Margin="30,0,0,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Date of Birth:</TextBlock>
-                                <ComboBox Width="100" Margin="10,3" Text="Month" FontSize="15"
-                                IsEditable="true"  IsReadOnly="true" 
-                                IsDropDownOpen="True">
-                                    January
-
-                                </ComboBox>
-                                <ComboBox Width="50" Margin="0,3,10,3" Text="Day" FontSize="15"
-                                IsEditable="true"  IsReadOnly="true" 
-                                IsDropDownOpen="True">
-
-                                </ComboBox>
-                                <ComboBox Width="77" Margin="0,3,10,3" Text="Year" FontSize="15"
-                                IsEditable="true"  IsReadOnly="true" 
-                                IsDropDownOpen="True">
-
-                                </ComboBox>
+                                <DatePicker Margin="133,0,0,0" Width="260" FontSize="15" x:Name="_DatePicker" CalendarOpened="_CalendarOpened"
+                                            SelectedDateChanged="SetDateOfBirth"></DatePicker>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,117,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Practitioner Id:</TextBlock>
-                                <TextBox Text="" Width="250" Margin="0,3"
+                                <TextBox Text="" Width="250" Margin="0,3" x:Name="PracId"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,49,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Taking new patients:</TextBlock>
-                                <ComboBox Width="250" Margin="10,3,10,3" Text="Yes or No" FontSize="16"
-                                IsEditable="true"  IsReadOnly="true" 
-                                IsDropDownOpen="True">
+                                <ComboBox Width="250" Margin="10,3,10,3" FontSize="16" x:Name="TakingPatients"
+                                IsReadOnly="true" >
+                                    <ComboBoxItem>
+                                        Yes
+                                    </ComboBoxItem>
+                                    <ComboBoxItem>
+                                        No
+                                    </ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
                         </StackPanel>
@@ -96,10 +87,17 @@
                 </Grid>
 
                 <Grid Grid.Row="3">
-
-                    <Button Margin="355,110,130,30" Grid.Column="1" Content="Cancel" Style="{StaticResource AddButtonStyle}" Background="Gray"/>
-                    <Button Margin="480,110,10,30" Grid.Column="2" Content="Add" Style="{StaticResource AddButtonStyle}"/>
-
+                    <TextBlock Grid.Row="1"
+                               Text="* Please fill out required fields" 
+                               FontFamily="{StaticResource StandardFont}"
+                               FontWeight="Bold"
+                               FontSize="24"
+                               Margin="10,10,0,0"
+                               Visibility="Hidden"
+                               x:Name="errormsg"
+                               Foreground="#ff0033"/>
+                    <Button Margin="355,110,130,30" Grid.Column="1" Content="Cancel" Style="{StaticResource CloseButtonStyle}" Click="Close"/>
+                    <Button Margin="480,110,10,30" Grid.Column="2" Content="Add" Style="{StaticResource AddButtonStyle}" Click="Add" />
                 </Grid>
             </Grid>
 

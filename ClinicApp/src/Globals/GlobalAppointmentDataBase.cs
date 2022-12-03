@@ -11,11 +11,14 @@ namespace ClinicApp.Globals
     {
         // Not sure if the navbar should lock while booking appointments or not yet
         public static bool IsBooking = false;
+        public static bool Confirm = false;
+        public static bool NewClient = false;
+        public static bool Rescheduling = false;
         public static List<Doctor> Doctors { get; set; }
         public static List<Client> Clients { get; set; }
         public static List<Appointment> AppointmentList { get; set; }
-        public static Appointment NewAppointment { get; set; } = null;
-        public static Client AppointmentClient { get; set; } = null;
+        public static Appointment NewAppointment { get; set; } = new Appointment();
+        public static Client AppointmentClient { get; set; } = new Client();
 
         static GlobalAppointmentDataBase()
         {
@@ -41,7 +44,8 @@ namespace ClinicApp.Globals
             Doctors = new List<Doctor>()
             {
                 // Dummy Doctors
-                new Doctor("Steven", "Strange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10))
+                new Doctor("Steven", "Strange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10)),
+                new Doctor("Steven", "Notstrange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10))
             };
 
             Clients = new List<Client>()
