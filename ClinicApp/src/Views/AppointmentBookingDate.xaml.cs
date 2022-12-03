@@ -90,7 +90,7 @@ namespace ClinicApp.Views
             if (GlobalAppointmentDataBase.Rescheduling)
             {
                 GlobalAppointmentDataBase.Rescheduling = false;
-                return; // Should edit b/c of reference to original object (hopefully)
+                Switcher.Switch(new HomeContentUC()); // Should edit b/c of reference to original object (hopefully)
             }
             if (GlobalAppointmentDataBase.NewAppointment.StartTime != new DateTime())
             {
@@ -244,11 +244,11 @@ namespace ClinicApp.Views
             {
                 GlobalAppointmentDataBase.NewAppointment.StartTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 11, 30, 0);
             }
-            else if (time == "12:00 am")
+            else if (time == "12:00 pm")
             {
                 GlobalAppointmentDataBase.NewAppointment.StartTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 12, 0, 0);
             }
-            else if (time == "12:30 am")
+            else if (time == "12:30 pm")
             {
                 GlobalAppointmentDataBase.NewAppointment.StartTime = new DateTime(currentDate.Year, currentDate.Month, currentDate.Day, 12, 30, 0);
             }
