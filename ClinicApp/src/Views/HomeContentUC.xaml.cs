@@ -1,4 +1,5 @@
-﻿using ClinicApp.Model;
+﻿using ClinicApp.Globals;
+using ClinicApp.Model;
 using ClinicApp.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -45,7 +46,7 @@ namespace ClinicApp.Views
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRow row = (DataGridRow)sender;
-            Appointment selected = (Appointment)row.Item;
+            GlobalAppointmentDataBase.SelectedAppointment = (Appointment)row.Item;
 
         }
 

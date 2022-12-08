@@ -34,14 +34,14 @@ namespace ClinicApp.ViewModel
             timer.Enabled = true;
 
             AppointmentList = GlobalAppointmentDataBase.AppointmentList.
-                Where(x => x.Datetime.Date == DateTime.Now.Date && x.Datetime.TimeOfDay >= DateTime.Now.TimeOfDay)
-                .OrderBy(o => o.Datetime).ToList();
+                Where(x => x.StartTime.Date == DateTime.Now.Date && x.StartTime.TimeOfDay >= DateTime.Now.TimeOfDay)
+                .OrderBy(o => o.StartTime).ToList();
         }
         private void TimerEvent(object source, ElapsedEventArgs e)
         {
             AppointmentList = GlobalAppointmentDataBase.AppointmentList.
-                Where(x => x.Datetime.Date == DateTime.Now.Date && x.Datetime.TimeOfDay >= DateTime.Now.TimeOfDay)
-                .OrderBy(o => o.Datetime).ToList();
+                Where(x => x.StartTime.Date == DateTime.Now.Date && x.StartTime.TimeOfDay >= DateTime.Now.TimeOfDay)
+                .OrderBy(o => o.StartTime).ToList();
         }
     }
 }

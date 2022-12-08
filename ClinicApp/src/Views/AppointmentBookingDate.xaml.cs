@@ -78,6 +78,11 @@ namespace ClinicApp.Views
             Switcher.Switch(new AppointmentBookingTime());
         }
 
+        private void To_Clients(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new AppointmentBookingClient());
+        }
+
         private void Back(object sender, RoutedEventArgs e)
         {
             panel.Children.Clear();
@@ -96,11 +101,15 @@ namespace ClinicApp.Views
             {
                 GlobalAppointmentDataBase.NewAppointment.Id = GlobalAppointmentDataBase.AppointmentList.Count + 1;
                 GlobalAppointmentDataBase.AppointmentClient.Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
+                GlobalAppointmentDataBase.NewAppointment.Name = GlobalAppointmentDataBase.AppointmentClient.FirstName + " " + GlobalAppointmentDataBase.AppointmentClient.LastName;
                 if (GlobalAppointmentDataBase.NewClient) {
                     GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
                 }
                 GlobalAppointmentDataBase.NewAppointment.Email = GlobalAppointmentDataBase.AppointmentClient.Email;
                 GlobalAppointmentDataBase.NewAppointment.PhoneNumber = GlobalAppointmentDataBase.AppointmentClient.PhoneNumber;
+                GlobalAppointmentDataBase.NewAppointment.DoctorName = "Dr. " + AppointmentDoctor.LastName;
+                GlobalAppointmentDataBase.NewAppointment.DurationStr = GlobalAppointmentDataBase.NewAppointment.Duration.ToString();
+                GlobalAppointmentDataBase.NewAppointment.Time = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("h:mm tt");
                 GlobalAppointmentDataBase.AppointmentList.Add(GlobalAppointmentDataBase.NewAppointment);
                 GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
                 GlobalAppointmentDataBase.NewClient= false;

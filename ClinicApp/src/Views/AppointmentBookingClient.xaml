@@ -189,6 +189,7 @@
                          Grid.ColumnSpan="2" 
                          Height="75" 
                          Width="200"  
+                         Checked="To_Date"
                          Style="{StaticResource AppointmentPageUnselected}"/>
 
             <Button Grid.Column="2"

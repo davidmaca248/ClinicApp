@@ -14,7 +14,7 @@ namespace ClinicApp.Model
 
         public string Description { get; set; } = string.Empty;
 
-        public DateTime Datetime { get; set; }
+        //public DateTime Datetime { get; set; }
 
         public string Date { get; set; }
 
@@ -25,7 +25,7 @@ namespace ClinicApp.Model
         public string Email { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
 
-        public double DurationMinutes { get; set; }
+        //public double DurationMinutes { get; set; }
         public string DurationStr { get; set; }
         public string Time { get; set; }    
         public string DoctorName { get; set; }
@@ -36,14 +36,15 @@ namespace ClinicApp.Model
 
         public Appointment() { }
 
-        public Appointment(string name, string description, DateTime dateTime, double duration, string doctorName)
+        public Appointment(string name, string description, DateTime dateTime, int duration, string doctorName)
         {
             Name = name;
             Description = description;
-            Datetime = dateTime;
-            DurationMinutes = duration;
-            DurationStr = DurationMinutes.ToString() + " Min";
-            Time = Datetime.ToString("h:mm tt");
+            StartTime = dateTime;
+            EndTime = StartTime.AddMinutes(duration);
+            Duration = duration;
+            DurationStr = Duration.ToString() + " Min";
+            Time = StartTime.ToString("h:mm tt");
             DoctorName = doctorName;
         }
     }
