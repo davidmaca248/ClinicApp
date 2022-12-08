@@ -43,5 +43,18 @@ namespace ClinicApp.ViewModel
                 Where(x => x.StartTime.Date == DateTime.Now.Date && x.StartTime.TimeOfDay >= DateTime.Now.TimeOfDay)
                 .OrderBy(o => o.StartTime).ToList();
         }
+
+        public void update()
+        {
+            timer = new Timer();
+            timer.Interval = 5000;
+            timer.Elapsed += TimerEvent;
+            timer.AutoReset = true;
+            timer.Enabled = true;
+
+            AppointmentList = GlobalAppointmentDataBase.AppointmentList.
+                Where(x => x.StartTime.Date == DateTime.Now.Date && x.StartTime.TimeOfDay >= DateTime.Now.TimeOfDay)
+                .OrderBy(o => o.StartTime).ToList();
+        }
     }
 }

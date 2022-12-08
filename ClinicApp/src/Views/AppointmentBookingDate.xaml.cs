@@ -16,6 +16,9 @@ using System.Windows.Shapes;
 using ClinicApp.Model;
 using System.Runtime.InteropServices.ComTypes;
 using System.Collections.ObjectModel;
+using ClinicApp.Views.Popups;
+using System.Reflection;
+using System.Windows.Media.Effects;
 
 namespace ClinicApp.Views
 {
@@ -71,6 +74,13 @@ namespace ClinicApp.Views
             panel.Children.Clear();
             wpanel.Children.Clear();
             LoadContent();
+
+            if (GlobalAppointmentDataBase.Rescheduling)
+            {
+                GlobalAppointmentDataBase.NewAppointment.Doctor = GlobalAppointmentDataBase.SelectedAppointment.Doctor;
+                GlobalAppointmentDataBase.NewAppointment.StartTime = GlobalAppointmentDataBase.SelectedAppointment.StartTime;
+                GlobalAppointmentDataBase.NewAppointment.EndTime = GlobalAppointmentDataBase.SelectedAppointment.EndTime;
+            }
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -92,30 +102,55 @@ namespace ClinicApp.Views
 
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            if (GlobalAppointmentDataBase.Rescheduling)
-            {
-                GlobalAppointmentDataBase.Rescheduling = false;
-                Switcher.Switch(new HomeContentUC()); // Should edit b/c of reference to original object (hopefully)
-            }
             if (GlobalAppointmentDataBase.NewAppointment.StartTime != new DateTime())
             {
                 GlobalAppointmentDataBase.NewAppointment.Id = GlobalAppointmentDataBase.AppointmentList.Count + 1;
-                GlobalAppointmentDataBase.AppointmentClient.Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
-                GlobalAppointmentDataBase.NewAppointment.Name = GlobalAppointmentDataBase.AppointmentClient.FirstName + " " + GlobalAppointmentDataBase.AppointmentClient.LastName;
+                GlobalAppointmentDataBase.NewAppointment.Name = GlobalAppointmentDataBase.AppointmentClient.FirstName + ' ' + GlobalAppointmentDataBase.AppointmentClient.LastName;
                 if (GlobalAppointmentDataBase.NewClient) {
                     GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
                 }
+                GlobalAppointmentDataBase.NewAppointment.Date = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("MMMM dd, yyyy");
                 GlobalAppointmentDataBase.NewAppointment.Email = GlobalAppointmentDataBase.AppointmentClient.Email;
                 GlobalAppointmentDataBase.NewAppointment.PhoneNumber = GlobalAppointmentDataBase.AppointmentClient.PhoneNumber;
                 GlobalAppointmentDataBase.NewAppointment.DoctorName = "Dr. " + AppointmentDoctor.LastName;
                 GlobalAppointmentDataBase.NewAppointment.DurationStr = GlobalAppointmentDataBase.NewAppointment.Duration.ToString();
                 GlobalAppointmentDataBase.NewAppointment.Time = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("h:mm tt");
-                GlobalAppointmentDataBase.AppointmentList.Add(GlobalAppointmentDataBase.NewAppointment);
-                GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
-                GlobalAppointmentDataBase.NewClient= false;
-                GlobalAppointmentDataBase.AppointmentClient = new Client();
-                GlobalAppointmentDataBase.NewAppointment = new Appointment();
-                Switcher.Switch(new HomeContentUC());
+                if (!GlobalAppointmentDataBase.Rescheduling)
+                {
+                    GlobalAppointmentDataBase.AppointmentList.Add(GlobalAppointmentDataBase.NewAppointment);
+                    GlobalAppointmentDataBase.AppointmentClient.Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
+                    GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
+                }
+                if (!GlobalAppointmentDataBase.Rescheduling)
+                {
+                    GlobalAppointmentDataBase.NewClient = false;
+                    GlobalAppointmentDataBase.AppointmentClient = new Client();
+                    GlobalAppointmentDataBase.NewAppointment = new Appointment();
+                    Switcher.Switch(new HomeContentUC());
+                }
+            }
+            if (GlobalAppointmentDataBase.Rescheduling)
+            {
+                GlobalAppointmentDataBase.Rescheduling = false;
+                SaveChangesPopup modal = new SaveChangesPopup();
+                modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                Switcher.pageSwitcher.Effect = new BlurEffect();
+                modal.ShowDialog();
+                Switcher.pageSwitcher.Effect = null;
+
+                if (GlobalAppointmentDataBase.Confirm)
+                {
+                    Switcher.Switch(new HomeContentUC()); // Should edit b/c of reference to original object (hopefully)
+                    GlobalAppointmentDataBase.SelectedAppointment.Description = GlobalAppointmentDataBase.NewAppointment.Description;
+                    GlobalAppointmentDataBase.SelectedAppointment.StartTime = GlobalAppointmentDataBase.NewAppointment.StartTime;
+                    GlobalAppointmentDataBase.SelectedAppointment.EndTime = GlobalAppointmentDataBase.NewAppointment.EndTime;
+                    GlobalAppointmentDataBase.SelectedAppointment.Time = GlobalAppointmentDataBase.NewAppointment.Time;
+                    GlobalAppointmentDataBase.SelectedAppointment.Date = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("MMMM dd, yyyy");
+                    GlobalAppointmentDataBase.SelectedAppointment.Doctor = GlobalAppointmentDataBase.NewAppointment.Doctor;
+                    GlobalAppointmentDataBase.SelectedAppointment.DoctorName = GlobalAppointmentDataBase.NewAppointment.DoctorName;
+                    GlobalAppointmentDataBase.SelectedAppointment.Duration = GlobalAppointmentDataBase.NewAppointment.Duration;
+                    GlobalAppointmentDataBase.SelectedAppointment.DurationStr = GlobalAppointmentDataBase.NewAppointment.DurationStr;
+                }
             }
             else
             {

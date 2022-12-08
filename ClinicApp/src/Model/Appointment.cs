@@ -41,6 +41,7 @@ namespace ClinicApp.Model
             Name = name;
             Description = description;
             StartTime = dateTime;
+            Date = StartTime.ToString("MMMM dd, yyyy");
             EndTime = StartTime.AddMinutes(duration);
             Duration = duration;
             DurationStr = Duration.ToString() + " Min";
