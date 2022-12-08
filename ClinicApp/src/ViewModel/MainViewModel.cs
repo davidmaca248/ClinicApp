@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ClinicApp.ViewModel
 {
@@ -83,5 +84,11 @@ namespace ClinicApp.ViewModel
                 CurrentView = _Accountview;
             });
         }
-	}
+
+        public void SwitchPage(UserControl uc)
+        {
+            CurrentView = uc;
+        }
+
+    }
 }

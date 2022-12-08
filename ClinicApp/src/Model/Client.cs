@@ -12,8 +12,10 @@ namespace ClinicApp.Model
         public Doctor FamilyDoctor { get; set; } = null;
         public int HealthCareNumber { get; set; }
 
+        public Client() { }
+
         // Constructor for adding an appointment
-        public Client(string firstname, string lastname, string contactinfo)
+        public Client(int id, string firstname, string lastname, string contactinfo)
         {
             if (contactinfo.Contains("@")) 
             {
@@ -25,6 +27,7 @@ namespace ClinicApp.Model
             }
             FirstName = firstname;
             LastName = lastname;
+            PersonId = id;
         }
 
         public Client(string firstname, string lastname, string email, string phonenumber, 

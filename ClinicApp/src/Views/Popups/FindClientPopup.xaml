@@ -8,7 +8,8 @@
         xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
         xmlns:common="clr-namespace:ClinicApp.Common"
         mc:Ignorable="d"
-        Title="FindClientPopup" Height="700" Width="600">
+        Title="FindClientPopup" Height="700" Width="600"
+        >
 
     <Window.DataContext>
         <viewModel:FindClientViewModel/>
@@ -38,7 +39,8 @@
                                Margin="0,10,0,0"
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
-                    <TextBox Grid.Row="2" Margin="15,12,22,17" FontSize="20" Text="Search..." TextAlignment="Left"
+                    <TextBox Grid.Row="2" Margin="15,12,22,17" FontSize="20" Style="{StaticResource placeHolder}" TextAlignment="Left"
+                             KeyUp="Search" Tag="Search by name..."
                                  ></TextBox>
 
                     <Border Grid.Row="3" CornerRadius="30" Background="LightGray" Margin="17,0,21,0">
@@ -63,84 +65,19 @@
                                 <Style TargetType="ListViewItem">
                                     <Setter Property="Foreground" Value="MintCream"/>
                                     <Setter Property="Background" Value="DarkOrchid"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Orchid"/>
+                                        </Trigger>
+                                    </Style.Triggers>
                                 </Style>
                             </ListView.ItemContainerStyle>
-                            <!--<StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="600">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Richards</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-123-4567</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid" Width="600">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">David</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Maca</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-222-3333</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email@email.com</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid" Width="600">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Alden </TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">John</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-111-2222</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Arhum</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Gambino</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-333-4444</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Frank</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Garfield</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-444-5555</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Steve</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Stevenson</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-555-6666</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">John</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="10,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Johnson</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-777-8888</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
-                            </StackPanel> -->
                         </ListView>
                     </Border>
                 </Grid>
                 <Grid Grid.Row="3">
 
-                    <Button Margin="455,110,30,30" Grid.Column="1" Content="Close" Style="{StaticResource AddButtonStyle}" Background="Gray"/>
+                    <Button Margin="455,100,30,30" Grid.Column="1" Content="Close" Style="{StaticResource CloseButtonStyle}" Click="Close"/>
                 </Grid>
             </Grid>
         </Border>
