@@ -284,7 +284,6 @@
 
     <!--Datagrid Style-->
     <Style x:Key="DataGridCellStyle" TargetType="{x:Type DataGridCell}">
-        <!--<Setter Property="Background" Value="BlueViolet"/>-->
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -321,7 +320,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DataGridStyle1"   TargetType="{x:Type DataGrid}">
+    <Style x:Key="DataGridStyle1" TargetType="{x:Type DataGrid}">
         <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="BorderBrush" Value="#FF688CAF"/>
@@ -410,26 +409,10 @@
                                               SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </theme:DataGridHeaderBorder>
-                        <!--<Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
-                        <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>-->
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style x:Key="AppointmentRowStyle" TargetType="{x:Type DataGridRow}">
-        <Style.Triggers>
-            <DataTrigger Value="True">
-                <DataTrigger.Binding>
-                    <MultiBinding Converter="{StaticResource appointmentRowConverter}">
-                        <Binding Path="Datetime"/>
-                        <Binding Path="DurationMinutes"/>
-                    </MultiBinding>
-                </DataTrigger.Binding>
-                <Setter Property="Background" Value="Gray" />
-            </DataTrigger>
-        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
