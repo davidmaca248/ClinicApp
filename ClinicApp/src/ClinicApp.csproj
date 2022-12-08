@@ -66,6 +66,8 @@
     <Compile Include="Model\Doctor.cs" />
     <Compile Include="Model\NoteListItem.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="ViewModel\AccountContentViewModel.cs" />
+    <Compile Include="ViewModel\AccountTabViewModel.cs" />
     <Compile Include="ViewModel\AppointmentViewModel.cs" />
     <Compile Include="ViewModel\CalendarContentViewModel.cs" />
     <Compile Include="ViewModel\CalendarTabViewModel.cs" />
@@ -77,6 +79,12 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\TestContentViewModel.cs" />
+    <Compile Include="Views\AccountLoggedIn.xaml.cs">
+      <DependentUpon>AccountLoggedIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AccountTabUC.xaml.cs">
+      <DependentUpon>AccountTabUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AppointmentBookingClient.xaml.cs">
       <DependentUpon>AppointmentBookingClient.xaml</DependentUpon>
     </Compile>
@@ -187,6 +195,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\UserControlDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccountLoggedIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AccountTabUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +358,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Photos\doctor.png" />
+    <Resource Include="Photos\doctor2.png" />
+    <Resource Include="Photos\receptionist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\doctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\doctor2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Views\receptionist.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
