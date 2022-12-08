@@ -32,13 +32,6 @@ namespace ClinicApp.Views
             DataContext = _viewModel;
 
             InitializeComponent();
-
-            Console.WriteLine(GlobalAppointmentDataBase.SelectedAppointment.Name);
-            Console.WriteLine(GlobalAppointmentDataBase.SelectedAppointment.Duration);
-            Console.WriteLine(GlobalAppointmentDataBase.SelectedAppointment.DoctorName);
-            Console.WriteLine(GlobalAppointmentDataBase.SelectedAppointment.Time);
-            Console.WriteLine(GlobalAppointmentDataBase.SelectedAppointment.Date);
-            Console.WriteLine(GlobalAppointmentDataBase.SelectedAppointment.Description);
         }
 
         private void PrevButtonClick(object sender, RoutedEventArgs e)
