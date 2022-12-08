@@ -28,6 +28,8 @@ namespace ClinicApp.Globals
                 new Appointment("Josh Richards", "Checkup and consultation", new DateTime(2022,11,29,16,15,0), 45,"Dr. Wade"),
                 new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,11,27,16,30,0), 30,"Dr. James"),
                 new Appointment("Frank Garfield", "Consultation", new DateTime(2022,11,29,18,00,0), 15, "Dr. Shaw"),
+                new Appointment("Frank TopG", "Consultation", new DateTime(2022,11,30,15,00,0), 15, "Dr. Keith"),
+                new Appointment("John Cena", "Xray, potential surgery is needed where we cannot see the patient", new DateTime(2022,12,01,10,00,0), 15, "Dr. Hudson"),
             };
 
             Doctors = new List<Doctor>()
