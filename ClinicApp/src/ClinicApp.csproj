@@ -178,6 +178,15 @@
     <Compile Include="Views\TestContentUC.xaml.cs">
       <DependentUpon>TestContentUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\User1.xaml.cs">
+      <DependentUpon>User1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User2.xaml.cs">
+      <DependentUpon>User2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User3.xaml.cs">
+      <DependentUpon>User3.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -330,6 +339,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\User1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\User2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\User3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -362,15 +383,6 @@
     <Resource Include="Photos\doctor.png" />
     <Resource Include="Photos\doctor2.png" />
     <Resource Include="Photos\receptionist.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Views\doctor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Views\doctor2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Views\receptionist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

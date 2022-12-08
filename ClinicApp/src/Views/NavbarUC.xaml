@@ -27,7 +27,7 @@
                            Text="Clinic App"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           FontSize="30"/>
+                           FontSize="30" Margin="8,0,0,0"/>
 
                
 
