@@ -140,6 +140,7 @@ namespace ClinicApp.Views
 
                 if (GlobalAppointmentDataBase.Confirm)
                 {
+                    GlobalAppointmentDataBase.Confirm = false;
                     Switcher.Switch(new HomeContentUC()); // Should edit b/c of reference to original object (hopefully)
                     GlobalAppointmentDataBase.SelectedAppointment.Description = GlobalAppointmentDataBase.NewAppointment.Description;
                     GlobalAppointmentDataBase.SelectedAppointment.StartTime = GlobalAppointmentDataBase.NewAppointment.StartTime;

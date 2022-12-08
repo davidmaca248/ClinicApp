@@ -1,5 +1,6 @@
 ﻿using ClinicApp.Globals;
 using ClinicApp.Model;
+using ClinicApp.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,8 +23,11 @@ namespace ClinicApp.Views.Popups
     /// </summary>
     public partial class AppointmentDetailsPopup : Window
     {
+        AppointmentDetailsViewModel viewModel;
         public AppointmentDetailsPopup()
         {
+            viewModel = new AppointmentDetailsViewModel();
+            DataContext = viewModel;
             InitializeComponent();
         }
 
@@ -46,6 +50,14 @@ namespace ClinicApp.Views.Popups
             Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
             Switcher.pageSwitcher.Effect = null;
+            if (GlobalAppointmentDataBase.Rescheduling)
+                this.Close();
+            if (GlobalAppointmentDataBase.Confirm)
+            {
+                GlobalAppointmentDataBase.Confirm = false;
+                this.Close();
+            }
+            viewModel.update();
         }
     }
 }
