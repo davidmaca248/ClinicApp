@@ -49,6 +49,7 @@ namespace ClinicApp.Views.Calendar
             Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
             Switcher.pageSwitcher.Effect = null;
+            ViewModel.UpdateContent();
         }
     }
 }

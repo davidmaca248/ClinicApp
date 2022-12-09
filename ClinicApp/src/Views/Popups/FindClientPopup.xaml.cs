@@ -50,7 +50,7 @@ namespace ClinicApp.Views.Popups
         private void Search(object sender, RoutedEventArgs e)
         {
             TextBox query = sender as TextBox;
-            vm.updateContent(query.Text);
+            vm.updateContent(query.Text.ToUpper());
             
         }
     }

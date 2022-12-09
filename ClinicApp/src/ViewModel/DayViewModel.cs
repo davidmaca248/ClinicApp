@@ -56,7 +56,7 @@ namespace ClinicApp.ViewModel
         /// <summary>
         /// Updates Todo, Notes, and Appointment Table based on the displayed date
         /// </summary>
-        private void UpdateContent()
+        public void UpdateContent()
         {
             AppointmentList = GlobalAppointmentDataBase.AppointmentList
                 .Where(x => x.StartTime.Date == DisplayedDay.Date).OrderBy(o => o.StartTime).ToList();

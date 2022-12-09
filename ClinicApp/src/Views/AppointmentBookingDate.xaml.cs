@@ -112,8 +112,9 @@ namespace ClinicApp.Views
                 GlobalAppointmentDataBase.NewAppointment.Date = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("MMMM dd, yyyy");
                 GlobalAppointmentDataBase.NewAppointment.Email = GlobalAppointmentDataBase.AppointmentClient.Email;
                 GlobalAppointmentDataBase.NewAppointment.PhoneNumber = GlobalAppointmentDataBase.AppointmentClient.PhoneNumber;
+                GlobalAppointmentDataBase.NewAppointment.Status = "Upcoming";
                 GlobalAppointmentDataBase.NewAppointment.DoctorName = "Dr. " + AppointmentDoctor.LastName;
-                GlobalAppointmentDataBase.NewAppointment.DurationStr = GlobalAppointmentDataBase.NewAppointment.Duration.ToString();
+                GlobalAppointmentDataBase.NewAppointment.DurationStr = GlobalAppointmentDataBase.NewAppointment.Duration.ToString() + " " + "Min";
                 GlobalAppointmentDataBase.NewAppointment.Time = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("h:mm tt");
                 if (!GlobalAppointmentDataBase.Rescheduling)
                 {

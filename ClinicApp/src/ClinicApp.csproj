@@ -75,6 +75,7 @@
     <Compile Include="ViewModel\DayViewModel.cs" />
     <Compile Include="ViewModel\DoctorsListViewModel.cs" />
     <Compile Include="ViewModel\FindClientViewModel.cs" />
+    <Compile Include="ViewModel\HistoryViewModel.cs" />
     <Compile Include="ViewModel\SideBarViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />

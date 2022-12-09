@@ -52,8 +52,10 @@ namespace ClinicApp.Views.Popups
             this.Effect = null;
             if (GlobalAppointmentDataBase.Confirm)
             {
-                // Hardcoded, need to figure out how appointment details will be displayed first. 
                 GlobalAppointmentDataBase.AppointmentList.RemoveAll(x => x.Id == GlobalAppointmentDataBase.SelectedAppointment.Id);
+                GlobalAppointmentDataBase.SelectedAppointment.Id = GlobalAppointmentDataBase.PastAppointments.Count + 1;
+                GlobalAppointmentDataBase.SelectedAppointment.Status = "Canceled";
+                GlobalAppointmentDataBase.PastAppointments.Add(GlobalAppointmentDataBase.SelectedAppointment);
                 this.Close();
             }
         }

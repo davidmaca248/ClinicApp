@@ -29,6 +29,7 @@ namespace ClinicApp.Model
         public string DurationStr { get; set; }
         public string Time { get; set; }    
         public string DoctorName { get; set; }
+        public string Status { get; set; }
 
         // Should be storing Foreign Keys, possibly change for the future
         public Doctor Doctor { get; set; } = new Doctor();
