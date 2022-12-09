@@ -1,9 +1,11 @@
-﻿using ClinicApp.Model;
+﻿using ClinicApp.Globals;
+using ClinicApp.Model;
 using ClinicApp.ViewModel;
+using ClinicApp.Views.Popups;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-
+using System.Windows.Media.Effects;
 
 namespace ClinicApp.Views.Calendar
 {
@@ -41,8 +43,12 @@ namespace ClinicApp.Views.Calendar
         private void RowDoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRow row = (DataGridRow)sender;
-            Appointment selected = (Appointment)row.Item;
-
+            GlobalAppointmentDataBase.SelectedAppointment = (Appointment)row.Item;
+            AppointmentDetailsPopup modal = new AppointmentDetailsPopup();
+            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Switcher.pageSwitcher.Effect = new BlurEffect();
+            modal.ShowDialog();
+            Switcher.pageSwitcher.Effect = null;
         }
     }
 }

@@ -25,8 +25,11 @@ namespace ClinicApp.Views
     /// </summary>
     public partial class SideBarUC : UserControl
     {
+        SideBarViewModel viewModel;
         public SideBarUC()
         {
+            viewModel = new SideBarViewModel();
+            DataContext = viewModel;
             InitializeComponent();
         }
 
@@ -51,6 +54,20 @@ namespace ClinicApp.Views
         private void AddAppointmentButton(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new AppointmentBookingClient());
+        }
+
+        private void ShowAppointmentDetails(object sender, RoutedEventArgs e)
+        {
+            StackPanel row = (StackPanel)sender;
+            TextBlock name = row.FindName("Name") as TextBlock;
+            TextBlock doctorName = row.FindName("DoctorName") as TextBlock;
+            GlobalAppointmentDataBase.SelectedAppointment = GlobalAppointmentDataBase.AppointmentList.Find(x => x.Name == name.Text && x.DoctorName == doctorName.Text);
+            AppointmentDetailsPopup modal = new AppointmentDetailsPopup();
+            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            Switcher.pageSwitcher.Effect = new BlurEffect();
+            modal.ShowDialog();
+            Switcher.pageSwitcher.Effect = null;
+            Switcher.Switch(new HomeContentUC());
         }
     }
 }

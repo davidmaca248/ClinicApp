@@ -68,6 +68,7 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel\AccountContentViewModel.cs" />
     <Compile Include="ViewModel\AccountTabViewModel.cs" />
+    <Compile Include="ViewModel\AppointmentDetailsViewModel.cs" />
     <Compile Include="ViewModel\AppointmentViewModel.cs" />
     <Compile Include="ViewModel\CalendarContentViewModel.cs" />
     <Compile Include="ViewModel\CalendarTabViewModel.cs" />
@@ -123,15 +124,6 @@
     </Compile>
     <Compile Include="Views\NavbarUC.xaml.cs">
       <DependentUpon>NavbarUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\30minPopup.xaml.cs">
-      <DependentUpon>30minPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\60minPopup.xaml.cs">
-      <DependentUpon>60minPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\90minPopup.xaml.cs">
-      <DependentUpon>90minPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\AddClientPopup.xaml.cs">
       <DependentUpon>AddClientPopup.xaml</DependentUpon>
@@ -264,18 +256,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NavbarUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\30minPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\60minPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\90minPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -19,6 +19,9 @@ namespace ClinicApp.Globals
         public static List<Appointment> AppointmentList { get; set; }
         public static Appointment NewAppointment { get; set; } = new Appointment();
         public static Client AppointmentClient { get; set; } = new Client();
+        public static Appointment SelectedAppointment { get; set; } = new Appointment();
+        public static Client SelectedClient { get; set; } = new Client();
+        public static Doctor SelectedDoctor { get; set; } = new Doctor();
 
         static GlobalAppointmentDataBase()
         {

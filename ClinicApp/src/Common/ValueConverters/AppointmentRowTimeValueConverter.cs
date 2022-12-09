@@ -13,16 +13,16 @@ namespace ClinicApp.Common.ValueConverters
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            DateTime val = (DateTime)values[0];
-            double duration = (double)values[1];
+            //DateTime val = (DateTime)values[0];
+            //double duration = (double)values[1];
 
-            val.AddMinutes(duration);
+            //val.AddMinutes(duration);
 
-            if (val < DateTime.Now)
-            {
+            //if (val < DateTime.Now)
+            //{
                 return true;
-            }
-            return false;
+            //}
+            //return false;
         }
 
 
