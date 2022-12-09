@@ -3,6 +3,7 @@ using ClinicApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,9 +23,13 @@ namespace ClinicApp.Views.Popups
     /// </summary>
     public partial class EditClientPopup : Window
     {
+        Client ModifiedClient = new Client();
         public EditClientPopup()
         {
             InitializeComponent();
+
+            ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.SelectedClient.FamilyDoctor;
+            ModifiedClient.DateOfBirth = GlobalAppointmentDataBase.SelectedClient.DateOfBirth;
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -56,15 +61,38 @@ namespace ClinicApp.Views.Popups
             this.Effect = null;
             if (GlobalAppointmentDataBase.Confirm)
             {
-                // Hardcoded, need to figure out how appointment details will be displayed first. 
-                /*Appointment app = GlobalAppointmentDataBase.SelectedAppointment;
-                if (_Email != app.Email || _PhoneNumber != app.PhoneNumber)
+                ModifiedClient.PersonId = GlobalAppointmentDataBase.SelectedClient.PersonId;
+                TextBox Firstname = this.FindName("Fname") as TextBox;
+                TextBox Lastname = this.FindName("Lname") as TextBox;
+                TextBox email = this.FindName("email") as TextBox;
+                TextBox phone = this.FindName("phone") as TextBox;
+                TextBox hcnum = this.FindName("HCNum") as TextBox;
+
+                ModifiedClient.FirstName = Firstname.Text;
+                ModifiedClient.LastName = Lastname.Text;
+                ModifiedClient.Email = email.Text;
+                ModifiedClient.PhoneNumber= phone.Text;
+                ModifiedClient.HealthCareNumber = Int32.Parse(hcnum.Text);
+
+                if (ModifiedClient != GlobalAppointmentDataBase.SelectedClient)
                 {
-                    app.PhoneNumber = _PhoneNumber;
-                    app.Email = _Email;
-                }*/
+                    foreach (Appointment app in GlobalAppointmentDataBase.SelectedClient.Appointments) {
+                        app.Name = ModifiedClient.FirstName + " " + ModifiedClient.LastName;
+                        app.Email = ModifiedClient.Email;
+                        app.PhoneNumber = ModifiedClient.PhoneNumber;
+                    }
+                }
+
+                GlobalAppointmentDataBase.SelectedClient = ModifiedClient;
                 this.Close();
             }
         }
+
+        private void SetFamilyDoctor(object sender, RoutedEventArgs e)
+        {
+            ComboBox familydoc = sender as ComboBox;
+            ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoc.Text);
+        }
+
     }
 }

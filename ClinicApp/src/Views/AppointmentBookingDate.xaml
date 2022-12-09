@@ -153,7 +153,7 @@
                 </DatePicker>
             </StackPanel>
 
-            <ScrollViewer Grid.Row="2" Margin="35,150,0,0" Grid.ColumnSpan="2" Grid.Column="1" x:Name="TimeList">
+            <ScrollViewer Grid.Row="2" Margin="35,150,0,89" Grid.ColumnSpan="2" Grid.Column="1" x:Name="TimeList">
                 <StackPanel Name="panel1">
                     <StackPanel.Resources>
                         <Style TargetType="Button">
