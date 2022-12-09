@@ -57,14 +57,14 @@
                                   ScrollViewer.CanContentScroll="false">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
+                                    <StackPanel MouseLeftButtonDown="ShowAppointmentDetails">
                                         <TextBlock Text="{Binding Time}"
                                                Style="{StaticResource ListItemTextStyle}"/>
-                                        <TextBlock Text="{Binding Name}"
+                                        <TextBlock Text="{Binding Name}" x:Name="Name"
                                                Style="{StaticResource ListItemTextStyle}"/>
                                         <TextBlock Text="{Binding Description}"
                                                Style="{StaticResource ListItemTextStyle}"/>
-                                        <TextBlock Text="{Binding DoctorName}"
+                                        <TextBlock Text="{Binding DoctorName}" x:Name="DoctorName"
                                                Style="{StaticResource ListItemTextStyle}"/>
                                     </StackPanel>
                                 </DataTemplate>

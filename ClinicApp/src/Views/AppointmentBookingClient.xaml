@@ -103,8 +103,8 @@
                     Margin="40,20,10,0"
                     FontFamily="{StaticResource StandardFont}" 
                     FontSize="32"/>
-                    <TextBox x:Name="ContactInfo" Width="450" FontSize="32" Margin="45, 10, 35, 0" Background="White"
-                                              Grid.Column="1" FontFamily="{StaticResource StandardFont}"/>
+                    <TextBox x:Name="ContactInfo" Width="450" FontSize="24" Height="45" Margin="45, 10, 35, 0" Background="White" Tag="403-123-4567 or email@email.com"
+                              Style="{StaticResource placeHolder}" Grid.Column="1" FontFamily="{StaticResource StandardFont}"/>
                 </StackPanel>
 
             </Border>
@@ -189,6 +189,7 @@
                          Grid.ColumnSpan="2" 
                          Height="75" 
                          Width="200"  
+                         Checked="To_Date"
                          Style="{StaticResource AppointmentPageUnselected}"/>
 
             <Button Grid.Column="2"

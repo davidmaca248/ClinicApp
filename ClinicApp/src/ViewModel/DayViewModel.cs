@@ -59,7 +59,7 @@ namespace ClinicApp.ViewModel
         private void UpdateContent()
         {
             AppointmentList = GlobalAppointmentDataBase.AppointmentList
-                .Where(x => x.Datetime.Date == DisplayedDay.Date).OrderBy(o => o.Datetime).ToList();
+                .Where(x => x.StartTime.Date == DisplayedDay.Date).OrderBy(o => o.StartTime).ToList();
         }
     }
 }

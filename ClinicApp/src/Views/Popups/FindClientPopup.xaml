@@ -12,7 +12,7 @@
         >
 
     <Window.DataContext>
-        <viewModel:FindClientViewModel/>
+        <viewModel:FindClientViewModel x:Name="vm"/>
     </Window.DataContext>
 
     <Grid>

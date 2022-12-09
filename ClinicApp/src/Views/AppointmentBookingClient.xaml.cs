@@ -70,6 +70,14 @@ namespace ClinicApp.Views
             }
         }
 
+        private void To_Date(object sender, RoutedEventArgs e)
+        {
+            if (GlobalAppointmentDataBase.NewAppointment.Duration != 0)
+            {
+                Switcher.Switch(new AppointmentBookingDate());
+            }
+        }
+
         private void NextPage(object sender, RoutedEventArgs e)
         {
             FirstName = (this.FindName("Fname") as TextBox).Text;
