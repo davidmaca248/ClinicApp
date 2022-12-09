@@ -87,7 +87,7 @@
                 <Border Grid.Row="4" Grid.ColumnSpan="2" 
                         CornerRadius="30" 
                         Padding="20">
-                    <DataGrid RowStyle="{StaticResource AppointmentRowStyle}"
+                    <DataGrid 
                               ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                               x:Name="HomeDataGrid"
                               ItemsSource="{Binding AppointmentList}" 
@@ -118,6 +118,17 @@
                         <DataGrid.ItemContainerStyle>
                             <Style TargetType="DataGridRow">
                                 <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                                <Style.Triggers>
+                                    <DataTrigger Value="True">
+                                        <DataTrigger.Binding>
+                                            <MultiBinding Converter="{StaticResource appointmentRowConverter}">
+                                                <Binding Path="Datetime"/>
+                                                <Binding Path="DurationMinutes"/>
+                                            </MultiBinding>
+                                        </DataTrigger.Binding>
+                                        <Setter Property="Background" Value="Gray" />
+                                    </DataTrigger>
+                                </Style.Triggers>
                             </Style>
                         </DataGrid.ItemContainerStyle>
                     </DataGrid>

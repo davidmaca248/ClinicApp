@@ -1,5 +1,4 @@
 ﻿using ClinicApp.ViewModel;
-using ClinicApp.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,43 +13,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Windows.Controls.Primitives;
-using static System.Net.Mime.MediaTypeNames;
-using Image = System.Windows.Controls.Image;
 
 namespace ClinicApp.Views
 {
     /// <summary>
-    /// Interaction logic for AccountLoggedIn.xaml
+    /// Interaction logic for User1.xaml
     /// </summary>
-    public partial class AccountLoggedIn : UserControl
+    public partial class User1 : UserControl
     {
         public AccountContentViewModel ViewModel;
         private readonly AccountTabViewModel _parentViewModel;
 
-       
-
-        public AccountLoggedIn(AccountTabViewModel parentViewModel)
+        public User1(AccountTabViewModel parentViewModel)
         {
             _parentViewModel = parentViewModel;
             ViewModel = new AccountContentViewModel();
             DataContext = ViewModel;
-            
-
-           
-        
 
             InitializeComponent();
-
-
         }
-
         private void logOut(object sender, RoutedEventArgs e)
         {
             _parentViewModel.UserLoggedOut();
-            
-        }
 
-        
+        }
     }
 }
