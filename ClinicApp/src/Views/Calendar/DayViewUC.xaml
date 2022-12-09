@@ -44,7 +44,7 @@
             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                     CornerRadius="30" 
                     Margin="10">
-                <DataGrid RowStyle="{StaticResource AppointmentRowStyle}"
+                <DataGrid 
                           ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                           x:Name="HomeDataGrid"
                           ItemsSource="{Binding AppointmentList}" 
@@ -75,37 +75,21 @@
                     <DataGrid.ItemContainerStyle>
                         <Style TargetType="DataGridRow">
                             <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                            <Style.Triggers>
+                                <DataTrigger Value="True">
+                                    <DataTrigger.Binding>
+                                        <MultiBinding Converter="{StaticResource appointmentRowConverter}">
+                                            <Binding Path="Datetime"/>
+                                            <Binding Path="DurationMinutes"/>
+                                        </MultiBinding>
+                                    </DataTrigger.Binding>
+                                    <Setter Property="Background" Value="Gray" />
+                                </DataTrigger>
+                            </Style.Triggers>
                         </Style>
                     </DataGrid.ItemContainerStyle>
                 </DataGrid>
             </Border>
-            <!--<DataGrid Name="dgSimple" 
-                      Grid.Row="2" Grid.ColumnSpan="5"
-                      Grid.Column="0" Grid.RowSpan="5"
-                      AlternatingRowBackground = "LightGray"  
-                      AlternationCount = "2" 
-                      Height="415"  
-                      HeadersVisibility="All" 
-                      IsReadOnly="True" 
-                      HorizontalAlignment="Center" 
-                      VerticalAlignment="Stretch" 
-                      HorizontalScrollBarVisibility="Visible"
-                      VerticalScrollBarVisibility="Hidden"
-                      MinWidth="200" 
-                      FontStretch="Expanded" 
-                      FontSize="20"
-                      Margin="0, -80, 0,0">
-                <DataGrid.ColumnHeaderStyle>
-                    <Style TargetType="{x:Type DataGridColumnHeader}">
-                        <Setter Property="FontWeight" Value="Bold"/>
-                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                        <Setter Property="FontSize" Value="24"/>
-
-                    </Style>
-
-                </DataGrid.ColumnHeaderStyle>
-            </DataGrid>-->
         </Grid>
     </Border>
 </UserControl>
