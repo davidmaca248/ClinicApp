@@ -53,7 +53,8 @@
 
                 <RadioButton Grid.Column="6"
                              Content="History"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding HistoryViewCommand}"/>
 
                 <RadioButton Grid.Column="7"
                              Content="Account"

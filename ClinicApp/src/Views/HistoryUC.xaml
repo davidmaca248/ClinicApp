@@ -4,9 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ClinicApp.Views"
+             xmlns:view="clr-namespace:ClinicApp.Views"
+             xmlns:properties="clr-namespace:ClinicApp.Properties" 
+             xmlns:viewModel="clr-namespace:ClinicApp.ViewModel" d:DataContext="{d:DesignInstance Type=viewModel:HistoryViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <viewModel:HistoryViewModel x:Name="_viewModel"/>
+    </UserControl.DataContext>
+
     <Grid>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition Width="400"/>
@@ -17,7 +26,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"/>
                     <RowDefinition Height="35"/>
-                    <RowDefinition Height="800"/>
+                    <RowDefinition Height="680"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <TextBlock Grid.Row="1"
@@ -28,323 +37,65 @@
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
                 </Grid>
-                <TextBox Grid.Row="1" Margin="45,0,200,0" FontSize="20" Text="David" TextAlignment="Left"
-                                 ></TextBox>
+                <TextBox Grid.Row="1" Margin="45,0,200,0" FontSize="20" Tag="Search by name..." TextAlignment="Left" Style="{StaticResource placeHolder}"
+                          KeyUp="Search"       ></TextBox>
                 <Border Grid.Row="2" 
                         Background="LightGray" 
-                        Padding="30,0,0,0" HorizontalAlignment="Left" Width="1331">
-                    <ListView Background="LightGray" Margin="-3,0,10,0">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="40,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">No.</TextBlock>
-                            <TextBlock Margin="60,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">Date</TextBlock>
-                            <TextBlock Margin="90,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">Duration</TextBlock>
-                            <TextBlock Margin="60,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">Reason</TextBlock>
-                            <TextBlock Margin="60,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">Doctor</TextBlock>
-                            <TextBlock Margin="60,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">Client</TextBlock>
-                            <TextBlock Margin="60,0,0,0" FontSize="30"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="DarkOrchid">Status</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">1</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="40,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">October 24, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">60 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Consultation</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">David Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="25,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Canceled</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">2</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">3</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">4</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">5</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">6</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">7</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">8</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">9</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="37,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">10</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="39,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">11</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="36,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">12</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="35,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">13</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="35,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">14</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="34,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">15</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="33,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">16</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">1</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="10,0,0,13" Height="30" Background="DarkOrchid" Width="1086">
-                            <TextBlock Margin="45,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">1</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 23, 2022</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="50,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">30 mins</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="100,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="80,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="60,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh Richards</TextBlock>
-                            <TextBlock Grid.Column="1" Margin="30,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Complete</TextBlock>
-                        </StackPanel>
-                    </ListView>
+                        Padding="30,0,0,0" HorizontalAlignment="Left" Width="1331" Margin="0,30,0,0">
+                    <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
+                              x:Name="HistoryDataGrid"
+                              IsReadOnly="True"
+                              AutoGenerateColumns="False"
+                              CellStyle="{StaticResource DataGridCellStyle}"
+                              CanUserReorderColumns="False"
+                              CanUserSortColumns="False"
+                              Style="{StaticResource DataGridStyle1}" ItemsSource="{Binding PastAppointments}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="No." 
+                                                Width="0.5*" 
+                                                Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Date" 
+                                                Width="*" 
+                                                Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="Duration" 
+                                                Width="*" 
+                                                Binding="{Binding DurationStr}"/>
+                            <DataGridTextColumn Header="Reason" 
+                                                Width="*" 
+                                                Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Doctor" 
+                                                Width="2*" 
+                                                Binding="{Binding DoctorName}"/>
+                            <DataGridTextColumn Header="Client" 
+                                                Width="2*" 
+                                                Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Status" 
+                                                Width="2*" 
+                                                Binding="{Binding Status}"/>
+                        </DataGrid.Columns>
+                        <DataGrid.ItemContainerStyle>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="RowDoubleClick"/>
+                                <Style.Triggers>
+                                    <DataTrigger Value="True">
+                                        <DataTrigger.Binding>
+                                            <MultiBinding Converter="{StaticResource appointmentRowConverter}">
+                                                <Binding Path="Datetime"/>
+                                                <Binding Path="DurationMinutes"/>
+                                            </MultiBinding>
+                                        </DataTrigger.Binding>
+                                        <Setter Property="Background" Value="Gray" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.ItemContainerStyle>
+                    </DataGrid>
 
 
                 </Border>
 
             </Grid>
         </Border>
-        <!--<view:SideBarUC Grid.Column="1" Margin="10"/>-->
+        <view:SideBarUC Grid.Column="1" Margin="10"/>
     </Grid>
 </UserControl>

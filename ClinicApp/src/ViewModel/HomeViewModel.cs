@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
+using Timer = System.Timers.Timer;
 
 namespace ClinicApp.ViewModel
 {
@@ -65,17 +67,38 @@ namespace ClinicApp.ViewModel
         private List<NoteListItem> _todoList;
         private DateTime _displayedDay;
         private string _displayedDayString;
+        private static Timer timer;
 
         public HomeViewModel()
         {
+            timer = new Timer();
+            timer.Interval = 5000;
+            timer.Elapsed += TimerEvent;
+            timer.AutoReset = true;
+            timer.Enabled = true;
             DisplayedDay = DateTime.Now;
+        }
+
+        private void TimerEvent(object source, ElapsedEventArgs e)
+        {
+            List<Appointment> finishedApps = GlobalAppointmentDataBase.AppointmentList.Where(x => x.EndTime <= DateTime.Now).ToList();
+            GlobalAppointmentDataBase.AppointmentList.RemoveAll(x => x.EndTime <= DateTime.Now);
+            foreach (Appointment app in finishedApps)
+            {
+                app.Id = GlobalAppointmentDataBase.PastAppointments.Count + 1;
+                app.Status = "Completed";
+                GlobalAppointmentDataBase.PastAppointments.Add(app);
+
+            }
+            AppointmentList = GlobalAppointmentDataBase.AppointmentList;
+            updateContent();
         }
 
 
         /// <summary>
         /// Updates Todo, Notes, and Appointment Table based on the displayed date
         /// </summary>
-        private void updateContent()
+        public void updateContent()
         {
             AppointmentList = GlobalAppointmentDataBase.AppointmentList
                 .Where(x => x.StartTime.Date == DisplayedDay.Date).OrderBy(o => o.StartTime).ToList();

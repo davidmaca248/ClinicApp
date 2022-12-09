@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClinicApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,19 @@ namespace ClinicApp.Views
     {
         public HistoryUC()
         {
+            _viewModel = new HistoryViewModel();
             InitializeComponent();
+        }
+
+        private void RowDoubleClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Search(object sender, RoutedEventArgs e)
+        {
+            TextBox query = sender as TextBox;
+            _viewModel.updateContent(query.Text.ToUpper());
         }
     }
 }

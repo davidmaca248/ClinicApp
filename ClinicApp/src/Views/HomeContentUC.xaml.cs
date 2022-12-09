@@ -53,6 +53,7 @@ namespace ClinicApp.Views
             Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
             Switcher.pageSwitcher.Effect = null;
+            _viewModel.updateContent();
         }
 
     }

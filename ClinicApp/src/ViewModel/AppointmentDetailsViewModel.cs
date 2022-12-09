@@ -25,12 +25,12 @@ namespace ClinicApp.ViewModel
 
         public AppointmentDetailsViewModel()
         {
-            _app = GlobalAppointmentDataBase.SelectedAppointment;
+            app = GlobalAppointmentDataBase.SelectedAppointment;
         }
 
         public void update()
         {
-            _app = GlobalAppointmentDataBase.SelectedAppointment;
+            app = GlobalAppointmentDataBase.SelectedAppointment;
         }
     }
 }
