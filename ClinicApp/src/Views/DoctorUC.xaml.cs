@@ -60,7 +60,7 @@ namespace ClinicApp.Views
             StackPanel panel = this.FindName("panel1") as StackPanel;
             panel.Children.Clear();
             WrapPanel wpanel = new WrapPanel();
-            Console.WriteLine(panel.Name);
+            //Console.WriteLine(panel.Name);
             foreach (Doctor d in doctors)
             {
                 Border b = new Border();
@@ -84,7 +84,8 @@ namespace ClinicApp.Views
                 panel2.Children.Add(tb);
                 tb = new TextBlock();
                 tb.Foreground = Brushes.MintCream;
-                tb.Text = d.AcceptingPatients;
+                tb.Text = "Accepting New Patients: " + d.AcceptingPatients;
+                tb.FontSize = 20;
                 panel2.Children.Add(tb);
                 tb = new TextBlock();
                 tb.Foreground = Brushes.MintCream;

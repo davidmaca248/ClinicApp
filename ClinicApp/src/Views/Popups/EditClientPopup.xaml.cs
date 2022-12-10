@@ -74,7 +74,7 @@ namespace ClinicApp.Views.Popups
                 ModifiedClient.Email = email.Text;
                 ModifiedClient.PhoneNumber= phone.Text;
                 ModifiedClient.HealthCareNumber = hcnum.Text;
-                Console.WriteLine(familydoctor.Text);
+                //Console.WriteLine(familydoctor.Text);
                 ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoctor.Text);
 
                 if (ModifiedClient != GlobalAppointmentDataBase.SelectedClient)

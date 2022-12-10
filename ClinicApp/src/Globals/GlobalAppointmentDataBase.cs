@@ -35,14 +35,14 @@ namespace ClinicApp.Globals
             AppointmentList = new List<Appointment>()
             {
                 // Dummy Appointments
-                new Appointment("David Maca", "Checkup", new DateTime(2022,12,day1,9,15,0), 30,"Dr. Far"),
+                new Appointment("Davis Mark", "Checkup", new DateTime(2022,12,day1,9,15,0), 30,"Dr. Far"),
                 new Appointment("Alden John", "X-Ray", new DateTime(2022,12,day1,13,30,0), 15,"Dr. Drake"),
                 new Appointment("Abe Jay", "Checkup and X-Ray", new DateTime(2022,12,day2,13,30,0), 30,"Dr. Guy"),
                 new Appointment("Josh Richards", "Checkup and consultation", new DateTime(2022,12,day2,16,15,0), 45,"Dr. Wade"),
                 new Appointment("Arhum Gambino", "Checkup", new DateTime(2022,12,day2,16,30,0), 30,"Dr. James"),
                 new Appointment("Frank Garfield", "Consultation", new DateTime(2022,12,day3,18,00,0), 15, "Dr. Shaw"),
 
-                new Appointment("David Max", "Checkup", new DateTime(2022,12,day4,12,01,0), 30,"Dr. Far"),
+                new Appointment("Dave Max", "Checkup", new DateTime(2022,12,day4,12,01,0), 30,"Dr. Far"),
                 new Appointment("Alden Bay", "X-Ray", new DateTime(2022,12,day1,12,30,0), 15,"Dr. Drake"),
                 new Appointment("Abe John", "Checkup and X-Ray", new DateTime(2022,12,day3,14,30,0), 30,"Dr. Guy"),
                 new Appointment("Josh Rich", "Checkup and consultation", new DateTime(2022,12,day4,16,15,0), 45,"Dr. Wade"),
@@ -62,15 +62,15 @@ namespace ClinicApp.Globals
             Doctors = new List<Doctor>()
             {
                 // Dummy Doctors
-                new Doctor("Steven", "Strange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10)),
-                new Doctor("Steven", "Notstrange", "steveS@email.com", "403-123-4567", "yes", new DateTime(1980,05,10))
+                new Doctor("Steven", "Strange", "steveS@gmail.ca", "403-133-4557", "yes", new DateTime(1980,05,10)),
+                new Doctor("Will", "Range", "WRange@gmail.com", "403-113-4565", "yes", new DateTime(1980,05,10))
             };
 
             Clients = new List<Client>()
             {
                 // Dummy Clients
-                new Client("Josh", "Richards", "jrichards@email.com", "403-123-1234", "12345678", Doctors[0], new DateTime(1990, 10, 10), 1),
-                new Client("David", "Maca", "Dmaca@email.com", "403-123-1234", "12345678", Doctors[0], new DateTime(1992, 10, 10), 2)
+                new Client("Josh", "Richards", "jrich@email.com", "403-154-1324", "12345678", Doctors[0], new DateTime(1990, 10, 10), 1),
+                new Client("David", "Maca", "Dmaca@email.com", "587-131-1312", "87654321", Doctors[0], new DateTime(1992, 10, 10), 2)
             };
 
         }
