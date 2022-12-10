@@ -67,12 +67,15 @@ namespace ClinicApp.Views.Popups
                 TextBox email = this.FindName("email") as TextBox;
                 TextBox phone = this.FindName("phone") as TextBox;
                 TextBox hcnum = this.FindName("HCNum") as TextBox;
+                ComboBox familydoctor = this.FindName("FamilyDoctor") as ComboBox;
 
                 ModifiedClient.FirstName = Firstname.Text;
                 ModifiedClient.LastName = Lastname.Text;
                 ModifiedClient.Email = email.Text;
                 ModifiedClient.PhoneNumber= phone.Text;
                 ModifiedClient.HealthCareNumber = hcnum.Text;
+                Console.WriteLine(familydoctor.Text);
+                ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoctor.Text);
 
                 if (ModifiedClient != GlobalAppointmentDataBase.SelectedClient)
                 {
@@ -84,14 +87,15 @@ namespace ClinicApp.Views.Popups
                 }
 
                 GlobalAppointmentDataBase.SelectedClient = ModifiedClient;
+                GlobalAppointmentDataBase.SelectedClient.FamilyDoctor = ModifiedClient.FamilyDoctor;
                 this.Close();
             }
         }
 
         private void SetFamilyDoctor(object sender, RoutedEventArgs e)
         {
-            ComboBox familydoc = sender as ComboBox;
-            ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoc.Text);
+            //ComboBox familydoc = sender as ComboBox;
+            //ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoc.Text);
         }
 
     }

@@ -17,25 +17,20 @@ using System.Windows.Shapes;
 namespace ClinicApp.Views.Popups
 {
     /// <summary>
-    /// Interaction logic for ClientDetailsPopup.xaml
+    /// Interaction logic for DoctorUpcomingApps.xaml
     /// </summary>
-    public partial class ClientDetailsPopup : Window
+    public partial class DoctorUpcomingApps : Window
     {
-        public ClientDetailsPopup()
+        public DoctorUpcomingApps()
         {
+            vm = new ViewModel.AppointmentDetailsViewModel();
             InitializeComponent();
         }
 
-        private void Edit(object sender, RoutedEventArgs e)
+        private void Search(object sender, RoutedEventArgs e)
         {
-            EditClientPopup modal = new EditClientPopup();
-            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            modal.ShowDialog();
-            if (GlobalAppointmentDataBase.Confirm)
-            {
-                this.Close();
-                Switcher.Switch(new ClientUC());
-            }
+            TextBox query = sender as TextBox;
+            vm.updateDocContent(query.Text.ToUpper());
         }
 
         private void Close(object sender, RoutedEventArgs e)
@@ -43,9 +38,12 @@ namespace ClinicApp.Views.Popups
             this.Close();
         }
 
-        private void UpcomingAppointments(object sender, RoutedEventArgs e)
+        private void Click(object sender, RoutedEventArgs e)
         {
-            ClientUpcomingAppointment modal = new ClientUpcomingAppointment();
+            StackPanel panel = sender as StackPanel;
+            int id = Int32.Parse(panel.Tag.ToString());
+            GlobalAppointmentDataBase.SelectedAppointment = GlobalAppointmentDataBase.AppointmentList.Find(x => x.Id == id);
+            AppointmentDetailsPopup modal = new AppointmentDetailsPopup();
             modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             modal.ShowDialog();
         }

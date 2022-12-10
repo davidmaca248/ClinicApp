@@ -53,6 +53,7 @@ namespace ClinicApp.Views
 
         private void AddAppointmentButton(object sender, RoutedEventArgs e)
         {
+            GlobalAppointmentDataBase.Rescheduling = false;
             Switcher.Switch(new AppointmentBookingClient());
         }
 

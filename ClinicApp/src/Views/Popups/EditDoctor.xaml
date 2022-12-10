@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClinicApp.Views.Popups"
         xmlns:properties="clr-namespace:ClinicApp.Properties"
+        xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
         mc:Ignorable="d"
         Title="EditDoctor" Height="700" Width="600">
+    <Window.DataContext>
+        <viewModel:AppointmentDetailsViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>
@@ -31,43 +36,43 @@
                                Margin="0,10,0,0"
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
-                    <Button Margin="10,10,470,15" Grid.Row="1" Content="Delete" Style="{StaticResource AddButtonStyle}" Background="DarkRed" Click="Delete"/>
+                    <Button Margin="10,10,470,15" Grid.Row="1" Content="Delete" Style="{StaticResource DeleteButtonStyle}" Click="Delete"/>
                     <Border Grid.Row="2" CornerRadius="30" Background="LightGray">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,163,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">First Name:</TextBlock>
-                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Fname"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Fname" Text="{Binding Doctor.FirstName}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,167,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Last Name:</TextBlock>
-                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Lname"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Lname" Text="{Binding Doctor.LastName}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
-                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Email"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Email" Text="{Binding Doctor.Email}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone:</TextBlock>
-                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Phone"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Phone" Text="{Binding Doctor.PhoneNumber}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,150,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Date of birth:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
+                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"  Text="{Binding DoctorDoB}"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,118,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Practitioner Id:</TextBlock>
-                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="PracId"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="PracId" Text="{Binding Doctor.PractionerId}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Background="DarkOrchid" Height="30">

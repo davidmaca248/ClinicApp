@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClinicApp.Views.Popups"
         xmlns:properties="clr-namespace:ClinicApp.Properties"
+        xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
         mc:Ignorable="d"
         Title="ClientDetailsPopup" Height="700" Width="600">
+    <Window.DataContext>
+        <viewModel:AppointmentDetailsViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>
@@ -30,58 +35,58 @@
                                Margin="0,10,0,0"
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
-                    <Border Grid.Row="2" CornerRadius="30" Background="LightGray">
-                        <StackPanel>
+                    <Border Grid.Row="1" CornerRadius="30" Background="LightGray" Margin="0,68,0,-25" Grid.RowSpan="2">
+                        <ItemsControl ItemsSource="{Binding Client}">
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,163,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">First Name:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="30,0,60,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="30,0,60,0" FontSize="20" Text="{Binding Client.FirstName}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,167,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Last Name:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="30,0,64,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Richards</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="30,0,64,0" FontSize="20" Text="{Binding Client.LastName}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">SomeEmail@email.com</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20" Text="{Binding Client.Email}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">403-123-4567</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20" Text="{Binding Client.PhoneNumber}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,35,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Date of birth:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="130,0,0,5" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">October 24, 1988</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="130,0,0,5" FontSize="20" Text="{Binding ClientDoB}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,17,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Healthcare number:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="90,0,87,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">123456789</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="30,0,21,5" FontSize="20"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Healthcare Number:</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="90,0,49,5" FontSize="20" Text="{Binding Client.HealthCareNumber}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,89,5" FontSize="20"
+                                <TextBlock Grid.Column="1" Margin="30,0,35,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Family Doctor:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="70,0,49,5" FontSize="18"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">None</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="130,0,0,5" FontSize="18" Text="{Binding familydoctor}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
-                            <Button Margin="10,0,360,0" Height="40" Content="Appointments" Style="{StaticResource AddButtonStyle}" Background="#622082"/>
-                        </StackPanel>
+                            <Button Margin="10,0,360,0" Height="50" Content="Appointments" Style="{StaticResource AppointmentsButtonStyle}" Click="UpcomingAppointments"/>
+                        </ItemsControl>
                     </Border>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <Button Margin="355,110,130,30" Grid.Column="1" Content="Close" Style="{StaticResource AddButtonStyle}" Background="Gray"/>
-                    <Button Margin="480,110,20,30" Grid.Column="2" Content="Edit" Style="{StaticResource AddButtonStyle}"/>
+                    <Button Margin="475,110,10,10" Content="Close" Style="{StaticResource CloseButtonStyle}" Click="Close"/>
+                    <Button Margin="10,110,490,10" Content="Edit" Style="{StaticResource AddButtonStyle}" Click="Edit"/>
 
                 </Grid>
             </Grid>
