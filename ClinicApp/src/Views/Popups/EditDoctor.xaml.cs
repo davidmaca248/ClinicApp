@@ -57,7 +57,7 @@ namespace ClinicApp.Views.Popups
                 ModifiedDoctor.LastName = Lastname.Text;
                 ModifiedDoctor.Email = email.Text;
                 ModifiedDoctor.PhoneNumber = phone.Text;
-                ModifiedDoctor.PractionerId = Int32.Parse(pracId.Text);
+                ModifiedDoctor.PractionerId = pracId.Text;
 
                 if (ModifiedDoctor != GlobalAppointmentDataBase.SelectedDoctor)
                 {

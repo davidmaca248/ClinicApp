@@ -8,7 +8,7 @@ namespace ClinicApp.Model
 {
     public class Doctor : Person
     {
-        public int PractionerId { get; set; }
+        public string PractionerId { get; set; } = string.Empty;
 
         // Only assigned yes or no depending on a dropdown menu
         public string AcceptingPatients { get; set; }

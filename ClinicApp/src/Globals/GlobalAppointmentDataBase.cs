@@ -57,8 +57,8 @@ namespace ClinicApp.Globals
             Clients = new List<Client>()
             {
                 // Dummy Clients
-                new Client("Josh", "Richards", "jrichards@email.com", "403-123-1234", 12345678, Doctors[0], new DateTime(1990, 10, 10), 1),
-                new Client("David", "Maca", "Dmaca@email.com", "403-123-1234", 12345678, Doctors[0], new DateTime(1992, 10, 10), 2)
+                new Client("Josh", "Richards", "jrichards@email.com", "403-123-1234", "12345678", Doctors[0], new DateTime(1990, 10, 10), 1),
+                new Client("David", "Maca", "Dmaca@email.com", "403-123-1234", "12345678", Doctors[0], new DateTime(1992, 10, 10), 2)
             };
 
         }
