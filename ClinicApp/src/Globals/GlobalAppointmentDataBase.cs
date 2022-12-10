@@ -10,7 +10,7 @@ namespace ClinicApp.Globals
     public static class GlobalAppointmentDataBase
     {
         // Not sure if the navbar should lock while booking appointments or not yet
-        public static bool IsBooking = false;
+        public static bool IsDoctor = false;
         public static bool Confirm = false;
         public static bool NewClient = false;
         public static bool Rescheduling = false;

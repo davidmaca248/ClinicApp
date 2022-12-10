@@ -73,6 +73,7 @@
     <Compile Include="ViewModel\CalendarContentViewModel.cs" />
     <Compile Include="ViewModel\CalendarTabViewModel.cs" />
     <Compile Include="ViewModel\DayViewModel.cs" />
+    <Compile Include="ViewModel\DoctorDetailedViewModel.cs" />
     <Compile Include="ViewModel\DoctorsListViewModel.cs" />
     <Compile Include="ViewModel\FindClientViewModel.cs" />
     <Compile Include="ViewModel\HistoryViewModel.cs" />
@@ -141,11 +142,17 @@
     <Compile Include="Views\Popups\ClientDetailsPopup.xaml.cs">
       <DependentUpon>ClientDetailsPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\ClientUpcomingAppointment.xaml.cs">
+      <DependentUpon>ClientUpcomingAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\ConfirmDeletePopup.xaml.cs">
       <DependentUpon>ConfirmDeletePopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\DoctorDetailsPopup.xaml.cs">
       <DependentUpon>DoctorDetailsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\DoctorUpcomingApps.xaml.cs">
+      <DependentUpon>DoctorUpcomingApps.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\EditAppointmentPopup.xaml.cs">
       <DependentUpon>EditAppointmentPopup.xaml</DependentUpon>
@@ -280,11 +287,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Popups\ClientUpcomingAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Popups\ConfirmDeletePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Popups\DoctorDetailsPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\DoctorUpcomingApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

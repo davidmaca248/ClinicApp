@@ -9,7 +9,7 @@ namespace ClinicApp.Model
 {
     public class Client : Person
     {
-        public Doctor FamilyDoctor { get; set; } = null;
+        public Doctor FamilyDoctor { get; set; } = new Doctor();
         public string HealthCareNumber { get; set; } = string.Empty;
 
         public Client() { }

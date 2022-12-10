@@ -20,6 +20,8 @@ namespace ClinicApp.ViewModel
         public RelayCommand AppointmentTypeViewCommand { get; set; }
         public RelayCommand HistoryViewCommand { get; set; }
         public RelayCommand AccountViewCommand { get; set; }
+        public RelayCommand ClientViewCommand { get; set; }
+        public RelayCommand DoctorViewCommand { get; set; }
 
         public object CurrentView
         {
@@ -89,6 +91,16 @@ namespace ClinicApp.ViewModel
             HistoryViewCommand = new RelayCommand(o =>
             {
                 CurrentView = new HistoryUC();
+            });
+
+            ClientViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = new ClientUC();
+            });
+
+            DoctorViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = new DoctorUC();
             });
         }
 
