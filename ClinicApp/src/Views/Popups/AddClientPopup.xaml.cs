@@ -64,7 +64,7 @@ namespace ClinicApp.Views.Popups
             NewClient.Email = email.Text;
             NewClient.PhoneNumber = phone.Text;
             if (hcnum.Text != string.Empty)
-                NewClient.HealthCareNumber = Int32.Parse(hcnum.Text);
+                NewClient.HealthCareNumber = hcnum.Text;
             NewClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoctor.Text);
 
             if (NewClient.FirstName != string.Empty && NewClient.LastName != string.Empty && NewClient.PhoneNumber != string.Empty)

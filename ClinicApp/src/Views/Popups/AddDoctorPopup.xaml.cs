@@ -58,7 +58,7 @@ namespace ClinicApp.Views.Popups
             NewDoctor.Email = email.Text;
             NewDoctor.PhoneNumber = phone.Text;
             if (PracNum.Text != string.Empty)
-                NewDoctor.PractionerId = Int32.Parse(PracNum.Text);
+                NewDoctor.PractionerId = PracNum.Text;
 
             if (NewDoctor.FirstName != string.Empty && NewDoctor.LastName != string.Empty && NewDoctor.PhoneNumber != string.Empty)
             {

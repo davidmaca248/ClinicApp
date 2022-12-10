@@ -47,9 +47,7 @@ namespace ClinicApp.Views.Popups
         {
             EditAppointmentPopup modal = new EditAppointmentPopup();
             modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            Switcher.pageSwitcher.Effect = new BlurEffect();
             modal.ShowDialog();
-            Switcher.pageSwitcher.Effect = null;
             if (GlobalAppointmentDataBase.Rescheduling)
                 this.Close();
             if (GlobalAppointmentDataBase.Confirm)

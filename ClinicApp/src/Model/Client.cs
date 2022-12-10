@@ -10,7 +10,7 @@ namespace ClinicApp.Model
     public class Client : Person
     {
         public Doctor FamilyDoctor { get; set; } = null;
-        public int HealthCareNumber { get; set; }
+        public string HealthCareNumber { get; set; } = string.Empty;
 
         public Client() { }
 
@@ -31,7 +31,7 @@ namespace ClinicApp.Model
         }
 
         public Client(string firstname, string lastname, string email, string phonenumber, 
-            int healcarenum, Doctor familyDoctor, DateTime DoB, int id) 
+            string healcarenum, Doctor familyDoctor, DateTime DoB, int id) 
         { 
             PersonId = id;
             FirstName= firstname;

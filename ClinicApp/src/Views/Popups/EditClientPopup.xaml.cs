@@ -72,7 +72,7 @@ namespace ClinicApp.Views.Popups
                 ModifiedClient.LastName = Lastname.Text;
                 ModifiedClient.Email = email.Text;
                 ModifiedClient.PhoneNumber= phone.Text;
-                ModifiedClient.HealthCareNumber = Int32.Parse(hcnum.Text);
+                ModifiedClient.HealthCareNumber = hcnum.Text;
 
                 if (ModifiedClient != GlobalAppointmentDataBase.SelectedClient)
                 {
