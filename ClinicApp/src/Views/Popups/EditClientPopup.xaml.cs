@@ -23,11 +23,11 @@ namespace ClinicApp.Views.Popups
     /// </summary>
     public partial class EditClientPopup : Window
     {
-        Client ModifiedClient = new Client();
+        Client ModifiedClient;
         public EditClientPopup()
         {
             InitializeComponent();
-
+            ModifiedClient = new Client();
             ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.SelectedClient.FamilyDoctor;
             ModifiedClient.DateOfBirth = GlobalAppointmentDataBase.SelectedClient.DateOfBirth;
         }
@@ -74,9 +74,6 @@ namespace ClinicApp.Views.Popups
                 ModifiedClient.Email = email.Text;
                 ModifiedClient.PhoneNumber= phone.Text;
                 ModifiedClient.HealthCareNumber = hcnum.Text;
-                Console.WriteLine(familydoctor.Text);
-                ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoctor.Text);
-
                 if (ModifiedClient != GlobalAppointmentDataBase.SelectedClient)
                 {
                     foreach (Appointment app in GlobalAppointmentDataBase.SelectedClient.Appointments) {
@@ -86,7 +83,11 @@ namespace ClinicApp.Views.Popups
                     }
                 }
 
-                GlobalAppointmentDataBase.SelectedClient = ModifiedClient;
+                GlobalAppointmentDataBase.SelectedClient.FirstName = ModifiedClient.FirstName;
+                GlobalAppointmentDataBase.SelectedClient.LastName = ModifiedClient.LastName;
+                GlobalAppointmentDataBase.SelectedClient.Email = ModifiedClient.Email;
+                GlobalAppointmentDataBase.SelectedClient.PhoneNumber = ModifiedClient.PhoneNumber;
+                GlobalAppointmentDataBase.SelectedClient.HealthCareNumber = ModifiedClient.HealthCareNumber;
                 GlobalAppointmentDataBase.SelectedClient.FamilyDoctor = ModifiedClient.FamilyDoctor;
                 this.Close();
             }
@@ -94,8 +95,9 @@ namespace ClinicApp.Views.Popups
 
         private void SetFamilyDoctor(object sender, RoutedEventArgs e)
         {
-            //ComboBox familydoc = sender as ComboBox;
-            //ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoc.Text);
+            ComboBox familydoc = sender as ComboBox;
+            Doctor item = familydoc.SelectedItem as Doctor;
+            ModifiedClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x == item);
         }
 
     }
