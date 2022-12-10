@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ClinicApp.Views.Popups"
         xmlns:properties="clr-namespace:ClinicApp.Properties"
         mc:Ignorable="d"
-        Title="EnterPinPopup" Height="150" Width="250">
+        Title="Pin Entry" Height="150" Width="250">
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>

@@ -7,7 +7,7 @@
         xmlns:properties="clr-namespace:ClinicApp.Properties"
         xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
         mc:Ignorable="d"
-        Title="AppointmentDetailsPopup" Height="700" Width="600">
+        Title="Appointment Details" Height="700" Width="600">
     <Window.DataContext>
         <viewModel:AppointmentDetailsViewModel/>
     </Window.DataContext>
