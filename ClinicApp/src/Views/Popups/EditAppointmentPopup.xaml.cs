@@ -23,9 +23,24 @@ namespace ClinicApp.Views.Popups
     /// </summary>
     public partial class EditAppointmentPopup : Window
     {
+        string _Email, _PhoneNumber;
         public EditAppointmentPopup()
         {
+            _Email = GlobalAppointmentDataBase.SelectedAppointment.Email;
+            _PhoneNumber = GlobalAppointmentDataBase.SelectedAppointment.PhoneNumber;
             InitializeComponent();
+        }
+
+        private void ChangePhone(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            _PhoneNumber= tb.Text;
+        }
+
+        private void ChangeEmail(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            _Email = tb.Text;
         }
 
         private void Delete(object sender, RoutedEventArgs e)
@@ -37,9 +52,10 @@ namespace ClinicApp.Views.Popups
             this.Effect = null;
             if (GlobalAppointmentDataBase.Confirm)
             {
-                GlobalAppointmentDataBase.Confirm= false;
-                // Hardcoded, need to figure out how appointment details will be displayed first. 
-                GlobalAppointmentDataBase.AppointmentList.RemoveAll(x => x.Id == 0);
+                GlobalAppointmentDataBase.AppointmentList.RemoveAll(x => x.Id == GlobalAppointmentDataBase.SelectedAppointment.Id);
+                GlobalAppointmentDataBase.SelectedAppointment.Id = GlobalAppointmentDataBase.PastAppointments.Count + 1;
+                GlobalAppointmentDataBase.SelectedAppointment.Status = "Canceled";
+                GlobalAppointmentDataBase.PastAppointments.Add(GlobalAppointmentDataBase.SelectedAppointment);
                 this.Close();
             }
         }
@@ -58,15 +74,12 @@ namespace ClinicApp.Views.Popups
             this.Effect = null;
             if (GlobalAppointmentDataBase.Confirm)
             {
-                GlobalAppointmentDataBase.Confirm = false;
                 // Hardcoded, need to figure out how appointment details will be displayed first. 
-                Appointment app = GlobalAppointmentDataBase.AppointmentList.Find(x => x.Id == 0);
-                TextBox email = this.FindName("Email") as TextBox;
-                TextBox phone = this.FindName("Phone") as TextBox;
-                if (email.Text != app.Email || phone.Text != app.PhoneNumber)
+                Appointment app = GlobalAppointmentDataBase.SelectedAppointment;
+                if (_Email != app.Email || _PhoneNumber != app.PhoneNumber)
                 {
-                    app.PhoneNumber = phone.Text;
-                    app.Email = email.Text;
+                    app.PhoneNumber = _PhoneNumber;
+                    app.Email = _Email;
                 }
                 this.Close();
             }
@@ -75,9 +88,8 @@ namespace ClinicApp.Views.Popups
 
         private void Reschedule(object sender, RoutedEventArgs e)
         {
-            GlobalAppointmentDataBase.NewAppointment = GlobalAppointmentDataBase.AppointmentList.Find(x => x.Id == 0);
             GlobalAppointmentDataBase.Rescheduling = true;
-            // Go to step 2 of add client
+            this.Close();
             Switcher.Switch(new AppointmentBookingTime());
         }
     }

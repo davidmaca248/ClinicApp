@@ -10,32 +10,26 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace ClinicApp.Views.Popups
 {
     /// <summary>
-    /// Interaction logic for ClientDetailsPopup.xaml
+    /// Interaction logic for ClientUpcomingAppointment.xaml
     /// </summary>
-    public partial class ClientDetailsPopup : Window
+    public partial class ClientUpcomingAppointment : Window
     {
-        public ClientDetailsPopup()
+        public ClientUpcomingAppointment()
         {
+            vm = new ViewModel.AppointmentDetailsViewModel();
             InitializeComponent();
         }
 
-        private void Edit(object sender, RoutedEventArgs e)
+        private void Search(object sender, RoutedEventArgs e)
         {
-            EditClientPopup modal = new EditClientPopup();
-            modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            modal.ShowDialog();
-            if (GlobalAppointmentDataBase.Confirm)
-            {
-                this.Close();
-                Switcher.Switch(new ClientUC());
-            }
+            TextBox query = sender as TextBox;
+            vm.updateClientContent(query.Text.ToUpper());
         }
 
         private void Close(object sender, RoutedEventArgs e)
@@ -43,9 +37,12 @@ namespace ClinicApp.Views.Popups
             this.Close();
         }
 
-        private void UpcomingAppointments(object sender, RoutedEventArgs e)
+        private void Click(object sender, RoutedEventArgs e)
         {
-            ClientUpcomingAppointment modal = new ClientUpcomingAppointment();
+            StackPanel panel = sender as StackPanel;
+            int id = Int32.Parse(panel.Tag.ToString());
+            GlobalAppointmentDataBase.SelectedAppointment = GlobalAppointmentDataBase.AppointmentList.Find(x => x.Id == id);
+            AppointmentDetailsPopup modal = new AppointmentDetailsPopup();
             modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             modal.ShowDialog();
         }

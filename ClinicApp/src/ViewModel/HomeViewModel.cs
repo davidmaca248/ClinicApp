@@ -2,10 +2,7 @@
 using ClinicApp.Model;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClinicApp.ViewModel
 {
@@ -71,14 +68,13 @@ namespace ClinicApp.ViewModel
             DisplayedDay = DateTime.Now;
         }
 
-
         /// <summary>
         /// Updates Todo, Notes, and Appointment Table based on the displayed date
         /// </summary>
-        private void updateContent()
+        public void updateContent()
         {
             AppointmentList = GlobalAppointmentDataBase.AppointmentList
-                .Where(x => x.Datetime.Date == DisplayedDay.Date).OrderBy(o => o.Datetime).ToList();
+                .Where(x => x.StartTime.Date == DisplayedDay.Date).OrderBy(o => o.StartTime).ToList();
             TodoList = GlobalHomePageListDatabase.TodoList.Where(x => x.Date.Date == DisplayedDay.Date).ToList();
             NotesList = GlobalHomePageListDatabase.NotesList.Where(x => x.Date.Date == DisplayedDay.Date).ToList();
         }

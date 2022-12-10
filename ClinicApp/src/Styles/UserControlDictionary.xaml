@@ -74,6 +74,37 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="AppointmentsButtonStyle" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Background" Value="#622082"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Orchid"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}">
         <Style.Setters>
             <Setter Property="Background" Value="Gray"/>
@@ -101,6 +132,67 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#A9A9A9"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="RescheduleButtonStyle" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Background" Value="#A7C7E7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#A9A9A9"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DeleteButtonStyle" TargetType="{x:Type Button}">
+        <Style.Setters>
+            <Setter Property="Background" Value="darkred"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border VerticalAlignment="Stretch"
+                                HorizontalAlignment="Stretch"
+                                CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+                            <TextBlock Text="{TemplateBinding Property=Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontFamily="{StaticResource StandardFont}"
+                                       FontSize="{Binding Source={x:Static properties:Settings.Default}, Path=DefaultFontSize}"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style.Setters>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FFB13838"/>
             </Trigger>
         </Style.Triggers>
     </Style>

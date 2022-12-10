@@ -43,6 +43,7 @@ namespace ClinicApp.Views
         private void user1_Click(object sender, RoutedEventArgs e)
         {
             username1.FontSize = 24;
+
             username2.FontSize = 20;
             username3.FontSize = 20;
 
@@ -54,11 +55,12 @@ namespace ClinicApp.Views
             userbutton3.Width = 150;
 
             selectedUser = 1;
+
         }
 
         private void user2_Click(object sender, RoutedEventArgs e)
         {
-            username1.FontSize = 20;
+            username1.FontSize = 19;
             username2.FontSize = 24;
             username3.FontSize = 20;
 
@@ -68,14 +70,13 @@ namespace ClinicApp.Views
             userbutton2.Width = 160;
             userbutton3.Height = 150;
             userbutton3.Width = 150;
-
             selectedUser = 2;
         }
 
         private void user3_Click(object sender, RoutedEventArgs e)
         {
-            username1.FontSize = 20;
-            username2.FontSize = 20;
+            username1.FontSize = 19;
+            username2.FontSize = 19;
             username3.FontSize = 24;
 
             userbutton1.Height = 150;
@@ -98,6 +99,7 @@ namespace ClinicApp.Views
                 case 1:
                     if (pbox.Password == user1Password)
                     {
+
                         _parentViewModel.UserLoggedIn(1);
                     }
                     else
@@ -108,6 +110,7 @@ namespace ClinicApp.Views
                 case 2:
                     if (pbox.Password == user2Password)
                     {
+
                         _parentViewModel.UserLoggedIn(2);
                     }
                     else

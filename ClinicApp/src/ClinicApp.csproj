@@ -68,12 +68,15 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="ViewModel\AccountContentViewModel.cs" />
     <Compile Include="ViewModel\AccountTabViewModel.cs" />
+    <Compile Include="ViewModel\AppointmentDetailsViewModel.cs" />
     <Compile Include="ViewModel\AppointmentViewModel.cs" />
     <Compile Include="ViewModel\CalendarContentViewModel.cs" />
     <Compile Include="ViewModel\CalendarTabViewModel.cs" />
     <Compile Include="ViewModel\DayViewModel.cs" />
+    <Compile Include="ViewModel\DoctorDetailedViewModel.cs" />
     <Compile Include="ViewModel\DoctorsListViewModel.cs" />
     <Compile Include="ViewModel\FindClientViewModel.cs" />
+    <Compile Include="ViewModel\HistoryViewModel.cs" />
     <Compile Include="ViewModel\SideBarViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
@@ -124,15 +127,6 @@
     <Compile Include="Views\NavbarUC.xaml.cs">
       <DependentUpon>NavbarUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Popups\30minPopup.xaml.cs">
-      <DependentUpon>30minPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\60minPopup.xaml.cs">
-      <DependentUpon>60minPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Popups\90minPopup.xaml.cs">
-      <DependentUpon>90minPopup.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Popups\AddClientPopup.xaml.cs">
       <DependentUpon>AddClientPopup.xaml</DependentUpon>
     </Compile>
@@ -148,11 +142,17 @@
     <Compile Include="Views\Popups\ClientDetailsPopup.xaml.cs">
       <DependentUpon>ClientDetailsPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Popups\ClientUpcomingAppointment.xaml.cs">
+      <DependentUpon>ClientUpcomingAppointment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Popups\ConfirmDeletePopup.xaml.cs">
       <DependentUpon>ConfirmDeletePopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\DoctorDetailsPopup.xaml.cs">
       <DependentUpon>DoctorDetailsPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Popups\DoctorUpcomingApps.xaml.cs">
+      <DependentUpon>DoctorUpcomingApps.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Popups\EditAppointmentPopup.xaml.cs">
       <DependentUpon>EditAppointmentPopup.xaml</DependentUpon>
@@ -267,18 +267,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Popups\30minPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\60minPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Popups\90minPopup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Popups\AddClientPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -299,11 +287,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Popups\ClientUpcomingAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Popups\ConfirmDeletePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Popups\DoctorDetailsPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Popups\DoctorUpcomingApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

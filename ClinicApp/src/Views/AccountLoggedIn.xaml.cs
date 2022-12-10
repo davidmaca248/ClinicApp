@@ -28,17 +28,11 @@ namespace ClinicApp.Views
         public AccountContentViewModel ViewModel;
         private readonly AccountTabViewModel _parentViewModel;
 
-       
-
         public AccountLoggedIn(AccountTabViewModel parentViewModel)
         {
             _parentViewModel = parentViewModel;
             ViewModel = new AccountContentViewModel();
             DataContext = ViewModel;
-            
-
-           
-        
 
             InitializeComponent();
 

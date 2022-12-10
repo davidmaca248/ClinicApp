@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media.Effects;
 
 namespace ClinicApp.Views.Popups
 {
@@ -23,11 +24,9 @@ namespace ClinicApp.Views.Popups
     public partial class FindClientPopup : Window
     {
         private int ClientId;
-        FindClientViewModel viewModel;
         public FindClientPopup()
         {
-            viewModel = new FindClientViewModel();
-            DataContext= viewModel;
+            vm = new FindClientViewModel();
 
             InitializeComponent();
         }
@@ -51,8 +50,8 @@ namespace ClinicApp.Views.Popups
         private void Search(object sender, RoutedEventArgs e)
         {
             TextBox query = sender as TextBox;
-            Console.WriteLine(query.Text);
-            viewModel.updateContent(query.Text);
+            vm.updateContent(query.Text.ToUpper());
+            
         }
     }
 }

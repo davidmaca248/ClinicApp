@@ -21,6 +21,7 @@ namespace ClinicApp.ViewModel
             }
         }
 
+
         public int currUser {
             get => curruser;
             set
@@ -30,15 +31,18 @@ namespace ClinicApp.ViewModel
         }
 
         private int curruser;
+
         #endregion
 
         #region Members
         private object _currentContent;
         private AccountLoggedIn _AccountLoggedView;
         private AccountUC _AccountContentView;
+
         private User1 user1;
         private User2 user2;
         private User3 user3;
+
 
         #endregion
         public AccountTabViewModel()

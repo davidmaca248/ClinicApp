@@ -79,8 +79,8 @@
                                 <DataTrigger Value="True">
                                     <DataTrigger.Binding>
                                         <MultiBinding Converter="{StaticResource appointmentRowConverter}">
-                                            <Binding Path="Datetime"/>
-                                            <Binding Path="DurationMinutes"/>
+                                            <Binding Path="StartTime"/>
+                                            <Binding Path="Duration"/>
                                         </MultiBinding>
                                     </DataTrigger.Binding>
                                     <Setter Property="Background" Value="Gray" />

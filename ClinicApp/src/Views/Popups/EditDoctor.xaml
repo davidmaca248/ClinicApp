@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClinicApp.Views.Popups"
         xmlns:properties="clr-namespace:ClinicApp.Properties"
+        xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
         mc:Ignorable="d"
         Title="EditDoctor" Height="700" Width="600">
+    <Window.DataContext>
+        <viewModel:AppointmentDetailsViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>
@@ -31,51 +36,56 @@
                                Margin="0,10,0,0"
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
-                    <Button Margin="10,10,470,15" Grid.Row="1" Content="Delete" Style="{StaticResource AddButtonStyle}" Background="DarkRed"/>
+                    <Button Margin="10,10,470,15" Grid.Row="1" Content="Delete" Style="{StaticResource DeleteButtonStyle}" Click="Delete"/>
                     <Border Grid.Row="2" CornerRadius="30" Background="LightGray">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,163,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">First Name:</TextBlock>
-                                <TextBox Text="Steven" Width="250" FontSize="16" Margin="0, 3, 0, 3"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Fname" Text="{Binding Doctor.FirstName}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,167,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Last Name:</TextBlock>
-                                <TextBox Text="Wade" Width="250" FontSize="16" Margin="0, 3, 0, 3"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Lname" Text="{Binding Doctor.LastName}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
-                                <TextBox Text="SomeEmail@email.com" Width="250" FontSize="16" Margin="0, 3, 0, 3"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Email" Text="{Binding Doctor.Email}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone:</TextBlock>
-                                <TextBox Text="403-123-4567" Width="250" FontSize="16" Margin="0, 3, 0, 3"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Phone" Text="{Binding Doctor.PhoneNumber}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,150,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Date of birth:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 13, 1980</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"  Text="{Binding DoctorDoB}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,118,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Practitioner Id:</TextBlock>
-                                <TextBox Text="123456789" Width="250" FontSize="16" Margin="0, 3, 0, 3"
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="PracId" Text="{Binding Doctor.PractionerId}"
                                               Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Background="DarkOrchid" Height="30">
                                 <TextBlock Grid.Column="1" Margin="30,0,48,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Taking new patients:</TextBlock>
-                                <ComboBox Width="250" Margin="10,3,10,3" Text="Yes" FontSize="16"
-                                IsEditable="true"  IsReadOnly="true" 
-                                IsDropDownOpen="True">
+                                <ComboBox Width="250" Margin="10,3,10,3" FontSize="16" x:Name="TakingPatients" SelectionChanged="SetTakingPatients"
+                                IsReadOnly="true" >
+                                    <ComboBoxItem>
+                                        Yes
+                                    </ComboBoxItem>
+                                    <ComboBoxItem>
+                                        No
+                                    </ComboBoxItem>
                                 </ComboBox>
                             </StackPanel>
                         </StackPanel>
@@ -83,8 +93,8 @@
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <Button Margin="355,110,130,30" Grid.Column="1" Content="Cancel" Style="{StaticResource AddButtonStyle}" Background="Gray"/>
-                    <Button Margin="480,110,20,30" Grid.Column="2" Content="Save" Style="{StaticResource AddButtonStyle}"/>
+                    <Button Margin="355,89,130,30" Content="Cancel" Style="{StaticResource CloseButtonStyle}" Click="Cancel"/>
+                    <Button Margin="480,89,20,30" Content="Save" Style="{StaticResource AddButtonStyle}" Click="Save"/>
 
                 </Grid>
             </Grid>

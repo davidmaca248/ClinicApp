@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClinicApp.Views.Popups"
         xmlns:properties="clr-namespace:ClinicApp.Properties"
+        xmlns:viewModel="clr-namespace:ClinicApp.ViewModel"
         mc:Ignorable="d"
         Title="EditAppointmentPopup" Height="700" Width="600">
+    <Window.DataContext>
+        <viewModel:AppointmentDetailsViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
             <Grid>
@@ -31,67 +36,61 @@
                                Margin="0,10,0,0"
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
-                    <Button Margin="10,10,470,15" Grid.Row="1" Content="Delete" Style="{StaticResource AddButtonStyle}" Background="DarkRed"
+                    <Button Margin="10,10,470,15" Grid.Row="1" Content="Delete" Style="{StaticResource DeleteButtonStyle}"
                             Click="Delete"/>
                     <Border Grid.Row="2" CornerRadius="30" Background="LightGray">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,163,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">First Name:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="30,0,60,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Josh</TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
-                                <TextBlock Grid.Column="1" Margin="30,0,167,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Last Name:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="30,0,64,0" FontSize="20" 
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Richards</TextBlock>
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Client Name:</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="17,0,60,0" FontSize="20"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream" Text="{Binding app.Name}"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,217,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Email:</TextBlock>
-                                <TextBox Text="SomeEmail@email.com" Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Email"
-                                              Grid.Column="1"/>
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Email" KeyUp="ChangeEmail" Style="{StaticResource placeHolder}"
+                                        Text="{Binding app.Email}"      Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Phone:</TextBlock>
-                                <TextBox Text="403-123-4567" Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Phone"
-                                              Grid.Column="1"/>
+                                <TextBox Width="250" FontSize="16" Margin="0, 3, 0, 3" Name="Phone" KeyUp="ChangePhone" Style="{StaticResource placeHolder}"
+                                         Text="{Binding app.PhoneNumber}"     Grid.Column="1"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,210,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Doctor:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Dr. Wade</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="20,0,0,0" FontSize="20" Text="{Binding app.DoctorName}" 
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Height="30" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,125,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Date:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="130,0,0,5" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">September 13, 2022</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="130,0,0,5" FontSize="20" Text="{Binding app.Date}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,117,0" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Time:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="140,0,117,0" FontSize="20"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">4:15 pm</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="140,0,117,0" FontSize="20" Text="{Binding app.Time}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="10,0,10,13" Background="DarkOrchid">
                                 <TextBlock Grid.Column="1" Margin="30,0,49,5" FontSize="20"
                                    Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Reason for visit:</TextBlock>
-                                <TextBlock Grid.Column="1" Margin="70,0,49,5" FontSize="18"
-                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream">Checkup and consultation</TextBlock>
+                                <TextBlock Grid.Column="1" Margin="80,0,49,5" FontSize="18" Text="{Binding app.Description}"
+                                   Style="{StaticResource ListItemTextStyle}" Foreground="MintCream"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                     </Border>
                 </Grid>
 
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="3"> 
                     <!-- Need to fix button styling still-->
-                    <Button Margin="20,110,410,30" Grid.Column="1" Content="Reschedule" Style="{StaticResource AddButtonStyle}" Background="#A7C7E7" Click="Reschedule"/>
-                    <Button Margin="355,110,130,30" Grid.Column="1" Content="Cancel" Style="{StaticResource CloseButtonStyle}" Click="Cancel"/>
-                    <Button Margin="480,110,20,30" Grid.Column="2" Content="Save" Style="{StaticResource AddButtonStyle}" Click="Save"/>
+                    <Button Margin="20,89,410,30" Content="Reschedule" Style="{StaticResource RescheduleButtonStyle}" Click="Reschedule"/>
+                    <Button Margin="355,89,130,30" Content="Cancel" Style="{StaticResource CloseButtonStyle}" Click="Cancel"/>
+                    <Button Margin="480,89,20,30" Content="Save" Style="{StaticResource AddButtonStyle}" Click="Save"/>
 
                 </Grid>
             </Grid>

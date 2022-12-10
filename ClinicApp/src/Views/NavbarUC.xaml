@@ -45,15 +45,18 @@
 
                 <RadioButton Grid.Column="4"
                              Content="Doctors"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding DoctorViewCommand}"/>
 
                 <RadioButton Grid.Column="5"
                              Content="Clients"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding ClientViewCommand}"/>
 
                 <RadioButton Grid.Column="6"
                              Content="History"
-                             Style="{StaticResource NavbarButtonStyle}"/>
+                             Style="{StaticResource NavbarButtonStyle}"
+                             Command="{Binding HistoryViewCommand}"/>
 
                 <RadioButton Grid.Column="7"
                              Content="Account"
