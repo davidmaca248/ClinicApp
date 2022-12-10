@@ -22,11 +22,11 @@ namespace ClinicApp.Views.Popups
     /// </summary>
     public partial class EditDoctor : Window
     {
-        Doctor ModifiedDoctor = new Doctor();
+        Doctor ModifiedDoctor;
         public EditDoctor()
         {
             InitializeComponent();
-            
+            ModifiedDoctor = new Doctor();
             ModifiedDoctor.DateOfBirth = GlobalAppointmentDataBase.SelectedDoctor.DateOfBirth;
             ModifiedDoctor.AcceptingPatients = GlobalAppointmentDataBase.SelectedDoctor.AcceptingPatients;
         }
@@ -34,7 +34,8 @@ namespace ClinicApp.Views.Popups
         private void SetTakingPatients(object sender, RoutedEventArgs e)
         {
             ComboBox takingPatients = sender as ComboBox;
-            ModifiedDoctor.AcceptingPatients = takingPatients.Text;
+            ComboBoxItem item = takingPatients.SelectedItem as ComboBoxItem;
+            ModifiedDoctor.AcceptingPatients = item.Content.ToString();
         }
 
         private void Save(object sender, RoutedEventArgs e)
@@ -69,7 +70,12 @@ namespace ClinicApp.Views.Popups
                     }
                 }
 
-                GlobalAppointmentDataBase.SelectedDoctor = ModifiedDoctor;
+                GlobalAppointmentDataBase.SelectedDoctor.FirstName = ModifiedDoctor.FirstName;
+                GlobalAppointmentDataBase.SelectedDoctor.LastName = ModifiedDoctor.LastName;
+                GlobalAppointmentDataBase.SelectedDoctor.Email = ModifiedDoctor.Email;
+                GlobalAppointmentDataBase.SelectedDoctor.PhoneNumber = ModifiedDoctor.PhoneNumber;
+                GlobalAppointmentDataBase.SelectedDoctor.PractionerId = ModifiedDoctor.PractionerId;
+                GlobalAppointmentDataBase.SelectedDoctor.AcceptingPatients = ModifiedDoctor.AcceptingPatients;
                 this.Close();
             }
         }
