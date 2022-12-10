@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClinicApp.Globals
 {
@@ -14,19 +12,25 @@ namespace ClinicApp.Globals
 
         static GlobalHomePageListDatabase()
         {
+            DateTime d = DateTime.Now;
+            int day1 = d.AddDays(-1).Day;
+            int day2 = d.Day;
+            int day3 = d.AddDays(1).Day;
+            int day4 = d.AddDays(2).Day;
+
             NotesList = new List<NoteListItem>()
             {
-                new NoteListItem("Arhum's test results came in last night", new DateTime(2022,11,23,9,15,0)),
-                new NoteListItem("Alden Hoffman canceled appointment", new DateTime(2022,11,23,9,15,0)),
-                new NoteListItem("Dan called in sick", new DateTime(2022,11,24,9,15,0)),
+                new NoteListItem("Arhum's test results came in last night", new DateTime(2022,12,day1,9,15,0)),
+                new NoteListItem("Alden Hoffman canceled appointment", new DateTime(2022,12,day2,9,15,0)),
+                new NoteListItem("Dan called in sick", new DateTime(2022,12,day3,9,15,0)),
             };
 
             TodoList = new List<NoteListItem>()
             {
-                new NoteListItem("Call David Maca to confirm appointment", new DateTime(2022,11,23,9,15,0)),
-                new NoteListItem("Let Dr. Frank know about Arhum's test results", new DateTime(2022,11,23,9,15,0)),
-                new NoteListItem("Let Dr. Josh know about Alden Hoffman's cancellation", new DateTime(2022,11,24,9,15,0)),
-                new NoteListItem("Let manager know that Dan cannot make it to work today", new DateTime(2022,11,22,9,15,0)),
+                new NoteListItem("Call David Maca to confirm appointment", new DateTime(2022,12,day1,9,15,0)),
+                new NoteListItem("Let Dr. Frank know about Arhum's test results", new DateTime(2022,12,day2,9,15,0)),
+                new NoteListItem("Let Dr. Josh know about Alden Hoffman's cancellation", new DateTime(2022,12,day3,9,15,0)),
+                new NoteListItem("Let manager know that Dan cannot make it to work today", new DateTime(2022,11,day2,9,15,0)),
             };
         }
     }
