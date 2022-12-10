@@ -51,6 +51,12 @@ namespace ClinicApp.Globals
 
             };
 
+            // Assign IDs
+            for(int i = 0; i < AppointmentList.Count; i++)
+            {
+                AppointmentList.ElementAt(i).Id = i + 1;
+            }
+
             PastAppointments.Add(AppointmentList[0]);
 
             Doctors = new List<Doctor>()

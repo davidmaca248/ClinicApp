@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
 namespace ClinicApp.ViewModel
 {
     public class HomeViewModel : BaseViewModel
