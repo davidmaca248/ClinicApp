@@ -133,5 +133,12 @@ Two Methods:
 4. Click on the purple 'EDIT' button to enter the edit popup
 5. Click the red 'DELETE' button in the top left of the edit popup
 6. Click the gray 'YES' in the confirmation popup to delete the doctor.
+#### Logging In/Out
+1. Navigate to the 'ACCOUNT' page using the top nav bar
+2. Click your profile out of the profiles listed
+3. Enter your pin in the pin text box below the profiles
+4. Press the 'ENTER' key to enter the password
+5. The account page should now display your details and all activity on the app while logged can be tracked
+6. To logout press the red 'LOG OUT' button below your account details on the account page
 #### Completing A Task In The ToDo List
 #### Adding A Task In The ToDo List
