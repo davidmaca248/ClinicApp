@@ -31,7 +31,7 @@ namespace ClinicApp.ViewModel
             if (!query.Equals(string.Empty))
             {
                 var past = GlobalAppointmentDataBase.AppointmentList.Concat(GlobalAppointmentDataBase.DeletedAppointments).
-                    Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
+                    Where(x => x.StartTime < DateTime.Now)
                     .OrderBy(o => o.StartTime).ToList();
                 var search = past.Where(x => x.Name.ToUpper().Contains(query)).ToList();
 
