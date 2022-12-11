@@ -58,14 +58,15 @@ namespace ClinicApp.Views.Popups
             TextBox phone = this.FindName("Phone") as TextBox;
             TextBox hcnum = this.FindName("HCNum") as TextBox;
             ComboBox familydoctor = this.FindName("FamilyDoctor") as ComboBox;
-
+            Doctor familydoc = familydoctor.SelectedItem as Doctor;
             NewClient.FirstName = Firstname.Text;
             NewClient.LastName = Lastname.Text;
             NewClient.Email = email.Text;
             NewClient.PhoneNumber = phone.Text;
             if (hcnum.Text != string.Empty)
                 NewClient.HealthCareNumber = hcnum.Text;
-            NewClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == familydoctor.Text);
+            NewClient.FamilyDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x == familydoc);
+            if (NewClient.FamilyDoctor == null) NewClient.FamilyDoctor = new Doctor();
 
             if (NewClient.FirstName != string.Empty && NewClient.LastName != string.Empty && NewClient.PhoneNumber != string.Empty)
             {
