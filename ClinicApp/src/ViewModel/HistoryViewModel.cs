@@ -23,13 +23,31 @@ namespace ClinicApp.ViewModel
         private List<Appointment> _PastAppointments;
 
         public HistoryViewModel() {
-            PastAppointments = GlobalAppointmentDataBase.PastAppointments;
+            updateList();
         }
 
         public void updateContent(string query)
         {
-            PastAppointments = GlobalAppointmentDataBase.PastAppointments
-                .Where(x => x.Name.ToUpper().Contains(query)).ToList();
+            if (!query.Equals(string.Empty))
+            {
+                var past = GlobalAppointmentDataBase.AppointmentList.
+                    Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
+                    .OrderBy(o => o.StartTime).ToList();
+                var search = past.Where(x => x.Name.ToUpper().Contains(query)).ToList();
+
+                PastAppointments = search.Intersect(past).ToList();
+            }
+            else
+            {
+                updateList();
+            }
+        }
+
+        public void updateList()
+        {
+            PastAppointments = GlobalAppointmentDataBase.AppointmentList.
+                Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
+                .OrderBy(o => o.StartTime).ToList();
         }
     }
 }

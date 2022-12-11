@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ClinicApp.Views.Popups"
         xmlns:properties="clr-namespace:ClinicApp.Properties"
         mc:Ignorable="d"
+        WindowStyle="None"
         Title="Add Doctor" Height="700" Width="600">
     <Grid>
         <Border CornerRadius="30" Background="LightGray" Padding="0,10,0,10">
