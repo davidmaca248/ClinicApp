@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         <Border CornerRadius="30" Margin="10,10,10,10" Background="LightGray">
 
-            <Grid>
+            <Grid HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="120"/>
                     <RowDefinition Height="35"/>
@@ -37,11 +37,11 @@
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
                 </Grid>
-                <TextBox Grid.Row="1" Margin="45,0,200,0" FontSize="20" Tag="Search by name..." TextAlignment="Left" Style="{StaticResource placeHolder}"
+                <TextBox Grid.Row="1" Margin="200,0,200,0" FontSize="20" Tag="Search by client name..." TextAlignment="Left" Style="{StaticResource placeHolder}"
                           KeyUp="Search"       ></TextBox>
                 <Border Grid.Row="2" 
                         Background="LightGray" 
-                        Padding="30,0,0,0" HorizontalAlignment="Left" Width="1331" Margin="0,30,0,0">
+                        Padding="0,0,0,0" HorizontalAlignment="Left" Width="1331" Margin="0,30,0,0">
                     <DataGrid ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}"
                               x:Name="HistoryDataGrid"
                               IsReadOnly="True"

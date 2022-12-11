@@ -47,7 +47,7 @@ namespace ClinicApp.Globals
                 new Appointment("Abe John", "Checkup and X-Ray", new DateTime(2022,12,day3,14,30,0), 30,"Dr. Guy"),
                 new Appointment("Josh Rich", "Checkup and consultation", new DateTime(2022,12,day4,16,15,0), 45,"Dr. Wade"),
                 new Appointment("Arhum Lino", "Checkup", new DateTime(2022,12,day2,16,30,0), 30,"Dr. James"),
-                new Appointment("Frank Field", "Consultation", new DateTime(2022,12,day1,18,00,0), 15, "Dr. Shaw"),
+                new Appointment("Frank Field", "Consultation", new DateTime(2022,12,day1,18,00,0), 15, "Dr. Shaw    "),
 
             };
 
