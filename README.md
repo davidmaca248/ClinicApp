@@ -3,7 +3,7 @@
 ## Group 4
 Our Names
 
-###### Displays best on 1920x1080 resolution
+###### Displays best on 1920x1080 resolution displays
 
 ### Installation Instructions
 #### With Visual Studio
