@@ -57,6 +57,9 @@
                             <DataGridTextColumn Header="Date" 
                                                 Width="*" 
                                                 Binding="{Binding Date}"/>
+                            <DataGridTextColumn Header="Time" 
+                                                Width="*" 
+                                                Binding="{Binding Time}"/>
                             <DataGridTextColumn Header="Duration" 
                                                 Width="*" 
                                                 Binding="{Binding DurationStr}"/>

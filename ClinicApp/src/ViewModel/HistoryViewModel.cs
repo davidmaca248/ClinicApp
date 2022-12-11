@@ -45,8 +45,10 @@ namespace ClinicApp.ViewModel
 
         public void updateList()
         {
+            GlobalAppointmentDataBase.AppointmentList.
+                Where(x => x.EndTime < DateTime.Now).ToList().ForEach(y => y.Status = "Completed");
             PastAppointments = GlobalAppointmentDataBase.AppointmentList.
-                Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
+                Where(x => x.EndTime < DateTime.Now)
                 .OrderBy(o => o.StartTime).ToList();
         }
     }
