@@ -6,6 +6,10 @@ Our Names
 ###### Displays best on 1920x1080 resolution
 
 ### Installation Instructions
+#### With Visual Studio
+1. Open the ClinicApp.sln solution with Visual Studio
+2. Build the program (CTRL + B)
+3. Use Visual Studios player to run the app (green start button at the top)
 
 ### User Instructions
 #### Adding an Appointment 
@@ -129,4 +133,5 @@ Two Methods:
 4. Click on the purple 'EDIT' button to enter the edit popup
 5. Click the red 'DELETE' button in the top left of the edit popup
 6. Click the gray 'YES' in the confirmation popup to delete the doctor.
-
+#### Completing A Task In The ToDo List
+#### Adding A Task In The ToDo List
