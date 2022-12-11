@@ -17,7 +17,6 @@ namespace ClinicApp.Globals
         public static List<Doctor> Doctors { get; set; }
         public static List<Client> Clients { get; set; }
         public static List<Appointment> AppointmentList { get; set; }
-        public static List<Appointment> PastAppointments { get; set; } = new List<Appointment>();
         public static Appointment NewAppointment { get; set; } = new Appointment();
         public static Client AppointmentClient { get; set; } = new Client();
         public static Appointment SelectedAppointment { get; set; } = new Appointment();
@@ -56,8 +55,6 @@ namespace ClinicApp.Globals
             {
                 AppointmentList.ElementAt(i).Id = i + 1;
             }
-
-            //PastAppointments.Add(AppointmentList[0]);
 
             Doctors = new List<Doctor>()
             {
