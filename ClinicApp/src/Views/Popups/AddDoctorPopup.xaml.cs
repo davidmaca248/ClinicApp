@@ -52,7 +52,9 @@ namespace ClinicApp.Views.Popups
             TextBox phone = this.FindName("Phone") as TextBox;
             TextBox PracNum = this.FindName("PracId") as TextBox;
             ComboBox takingpatients = this.FindName("TakingPatients") as ComboBox;
+            ComboBoxItem item = takingpatients.SelectedItem as ComboBoxItem;
 
+            NewDoctor.AcceptingPatients = item.Content.ToString();
             NewDoctor.FirstName = Firstname.Text;
             NewDoctor.LastName = Lastname.Text;
             NewDoctor.Email = email.Text;
