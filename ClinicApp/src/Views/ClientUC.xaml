@@ -29,9 +29,9 @@
                                Foreground="DarkOrchid"
                                HorizontalAlignment="Center"/>
                 </Grid>
-                <TextBox Grid.Row="1" Margin="45,0,47,0" FontSize="20" Tag="Search by name..." TextAlignment="Left" Style="{StaticResource placeHolder}"
+                <TextBox Grid.Row="1" Margin="200,0,200,0" FontSize="20" Tag="Search by name..." TextAlignment="Left" Style="{StaticResource placeHolder}"
                           KeyUp="Search"       ></TextBox>
-                <ScrollViewer Grid.Row="2" Margin="-210,10,0,30" Grid.ColumnSpan="2" Grid.Column="1" x:Name="DoctorList">
+                <ScrollViewer Grid.Row="2" Margin="20" Grid.ColumnSpan="2" Grid.Column="1" x:Name="DoctorList">
                     <StackPanel x:Name="panel1" Width="1224">
                         <StackPanel.Resources>
                             <Style TargetType="Border">
