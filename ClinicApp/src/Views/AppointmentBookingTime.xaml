@@ -91,7 +91,7 @@
                         </Setter>
                     </Style>
                 </TabControl.Resources>
-                <TabItem Header="30 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="0,0,-13,-31">
+                <TabItem Header="30 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="0,0,-7,-31">
                     <ListView Background="LightGray" Margin="0,30,31,-72" Height="600">
                         <StackPanel Orientation="Horizontal" Margin="60,30,0,60" Height="201" Width="814">
                             <Button Content="Checkup" Style="{StaticResource AppointmentTypeStyle}" Click="Checkup"
@@ -120,7 +120,7 @@
                         </StackPanel>
                     </ListView>
                 </TabItem>
-                <TabItem Header="60 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="9,0,-24,-30">
+                <TabItem Header="60 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="20,0,-27,-30">
                     <ListView Background="LightGray" Margin="0,30,31,-72" Height="600">
                         <StackPanel Orientation="Horizontal" Margin="60,30,0,60" Height="201" Width="814">
                             <Button Content="Consultation" Style="{StaticResource AppointmentTypeStyle}" Click="Consultation"
@@ -141,15 +141,15 @@
                                 Content="Other" 
                                 Foreground="MintCream"
                                 FontFamily="{StaticResource StandardFont}" 
-                                FontSize="24" Margin="5,20,10,0"/>
-                                    <TextBox Margin="10,0,20,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other60"
+                                FontSize="24" Margin="15,20,10,0"/>
+                                    <TextBox Margin="15,0,15,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other60"
                                              FontSize="16" TextWrapping="Wrap" Height="100"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>
                     </ListView>
                 </TabItem>
-                <TabItem Header="90 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="19,0,-45,-32" >
+                <TabItem Header="90 Minutes" FontFamily="{StaticResource StandardFont}" FontSize="30" Margin="40,0,-47,-32" >
                     <ListView Background="LightGray" Margin="0,30,31,-72" Height="600">
                         <StackPanel Orientation="Horizontal" Margin="60,30,0,60" Height="201" Width="814">
                             <Button Content="Full Checkup"  Style="{StaticResource AppointmentTypeStyle}" Click="FullCheckup"
@@ -170,8 +170,8 @@
                                 Content="Other" 
                                 Foreground="MintCream"
                                 FontFamily="{StaticResource StandardFont}" 
-                                FontSize="24" Margin="5,20,10,0"/>
-                                    <TextBox Margin="10,0,20,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other90"
+                                FontSize="24" Margin="15,20,10,0"/>
+                                    <TextBox Margin="15,0,15,0" FontFamily="{StaticResource StandardFont}" KeyUp="Other90"
                                              FontSize="16" TextWrapping="Wrap" Height="100"/>
                                 </StackPanel>
                             </Border>
