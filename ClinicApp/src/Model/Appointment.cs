@@ -56,6 +56,8 @@ namespace ClinicApp.Model
         public Appointment(Client client, string description, DateTime dateTime, int duration, Doctor doctor)
         {
             Client = GlobalAppointmentDataBase.Clients.Find(x => x == client);
+            Email = client.Email;
+            PhoneNumber = client.PhoneNumber;
             Client.Appointments.Add(this);
             Name = client.FirstName + " " + client.LastName;
             Description = description;
