@@ -57,7 +57,7 @@ namespace ClinicApp.Views.Popups
                     Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
                     .OrderBy(o => o.StartTime).ToList().Count + 1;
                 GlobalAppointmentDataBase.SelectedAppointment.Status = "Canceled";
-                //GlobalAppointmentDataBase.PastAppointments.Add(GlobalAppointmentDataBase.SelectedAppointment);
+                GlobalAppointmentDataBase.DeletedAppointments.Add(GlobalAppointmentDataBase.SelectedAppointment);
                 this.Close();
             }
         }
