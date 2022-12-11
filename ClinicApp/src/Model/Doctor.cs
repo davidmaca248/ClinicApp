@@ -41,8 +41,9 @@ namespace ClinicApp.Model
         public Doctor() { }
 
         public Doctor(string firstname, string lastname, string email, string phonenumber,
-             string acceptingPatients, DateTime DoB)
+             string acceptingPatients, DateTime DoB, int id)
         {
+            PersonId = id;
             FirstName = firstname;
             LastName = lastname;
             Email = email;
