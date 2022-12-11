@@ -50,6 +50,7 @@ namespace ClinicApp.Globals
                 new Appointment("Frank Field", "Consultation", new DateTime(2022,12,day1,18,00,0), 15, "Dr. Shaw"),
                 new Appointment("Pedro Cass", "Checkup", new DateTime(2022,12,day2,21,30,0), 30,"Dr. James"),
                 new Appointment("Paolo Gama", "Consultation", new DateTime(2022,12,day2,22,00,0), 15, "Dr. Shaw"),
+
             };
 
             // Assign IDs

@@ -8,13 +8,18 @@ namespace ClinicApp.Model
 {
     public class NoteListItem
     {
+        public int Id { get; set; }
         public string Info { get; set; }
         public DateTime Date { get; set; }
 
-        public NoteListItem(string info, DateTime date)
+        public bool IsDone { get; set; }
+
+        public NoteListItem(int id, string info, DateTime date)
         {
+            Id = id;
             Info = info;
             Date = date;
+            IsDone = false;
         }
     }
 }

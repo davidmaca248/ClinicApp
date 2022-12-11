@@ -40,97 +40,122 @@
                             Click="NextButtonClick"/>
                 </StackPanel>
                 <TextBlock Grid.Row="1" 
-                           Text="Notices:" 
+                           Text="Notes:" 
                            Style="{StaticResource HeaderTextStyle}"
                            Padding="10,0,0,0"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" 
                            Text="To-Do:"
                            Style="{StaticResource HeaderTextStyle}"/>
-                <Border Grid.Row="2" 
-                        CornerRadius="30" 
-                        Background="LightGray" 
-                        Padding="10,0,0,0">
+                <Grid Grid.Row="2" Grid.Column="0" Margin="20,0,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
                     <ListView ItemsSource="{Binding NotesList}" 
-                             DisplayMemberPath="Info"
-                             Margin="10,0,10,10"
-                             Background="White">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Margin" Value="5"/>
-                                <Setter Property="Background" Value="White"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                             Background="White"
+                             ItemContainerStyle="{StaticResource HomeListViewItemStyle}">
+                        <ListView.View>
+                            <GridView ColumnHeaderContainerStyle="{StaticResource GridListViewHeaderStyle}">
+                                <!--CheckBox-->
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox x:Name="checkBox" 
+                                                      IsChecked="{Binding IsDone, Mode=TwoWay}">
+                                                <Grid Grid.Row="1" >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="630"/>
+                                                        <ColumnDefinition Width="20"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBox x:Name="CheckText" 
+                                                             Text="{Binding Info}">
+                                                        <TextBox.Style>
+                                                            <Style >
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=checkBox, Path=IsChecked}" Value="True">
+                                                                        <Setter Property="TextBox.TextDecorations" Value="Strikethrough"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBox.Style>
+                                                    </TextBox>
+                                                    <Button Grid.Column="1" 
+                                                            Content="X" 
+                                                            VerticalAlignment="Center" 
+                                                            Tag="{Binding Id}"
+                                                            Click="DeleteNoteButtonClick"/>
+                                                </Grid>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
                     </ListView>
-                </Border>
-                <Border Grid.Row="2" Grid.Column="1" 
-                        CornerRadius="30" 
-                        Background="LightGray" 
-                        Padding="0,0,10,0">
-                    
-                    
-                    <Grid>
-                        <ListView ItemsSource ="{Binding TodoList}"
-                                  
-                                Margin="10,0,10,10"
-                                Background="White">
+                    <DockPanel Grid.Row="1" LastChildFill="True">
+                        <Button Content="Add" 
+                                Width="60" 
+                                DockPanel.Dock="Left" 
+                                Height="20"
+                                VerticalAlignment="Center" Click="AddNoteButtonClick"/>
+                        <TextBox x:Name="AddNote" Height="20" Width="Auto"/>
+                    </DockPanel>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="1" Margin="10,0,20,10" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <ListView ItemsSource ="{Binding TodoList}"
+                                  Background="White"
+                                  ItemContainerStyle="{StaticResource HomeListViewItemStyle}">
+                        <ListView.View>
+                            <GridView ColumnHeaderContainerStyle="{StaticResource GridListViewHeaderStyle}">
+                                <!--CheckBox-->
+                                <GridViewColumn>
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox x:Name="checkBox" IsChecked="{Binding IsDone, Mode=TwoWay}">
+                                                <Grid Grid.Row="1" >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="630"/>
+                                                        <ColumnDefinition Width="20"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBox x:Name="CheckText" 
+                                                             Text="{Binding Info}">
+                                                        <TextBox.Style>
+                                                            <Style >
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=checkBox, Path=IsChecked}" Value="True">
+                                                                        <Setter Property="TextBox.TextDecorations" Value="Strikethrough"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBox.Style>
+                                                    </TextBox>
+                                                    <Button Grid.Column="1" 
+                                                            Content="X" 
+                                                            VerticalAlignment="Center" 
+                                                            Tag="{Binding Id}"
+                                                            Click="DeleteTodoButtonClick"/>
+                                                </Grid>
+                                            </CheckBox>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <DockPanel Grid.Row="1" LastChildFill="True">
+                        <Button Content="Add" 
+                                Width="60" 
+                                DockPanel.Dock="Left" 
+                                Height="20"
+                                VerticalAlignment="Center" Click="AddTodoButtonClick"/>
+                        <TextBox x:Name="AddTodo" Height="20" Width="Auto"/>
+                    </DockPanel>
+                </Grid>
 
-                            <ListView.View>
-                                <GridView ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}">
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <CheckBox x:Name="checkBox">
-                                                </CheckBox>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-
-                                    <GridViewColumn>
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding Info}" Foreground="Black">
-                                                </TextBlock>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                </GridView>
-                            </ListView.View>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="Margin" Value="5"/>
-                                    <Setter Property="Background" Value="White"/>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
-                    </Grid>
-
-
-                    <!--<Grid>
-                        <ListView ItemsSource ="{Binding TodoList}"
-                                  
-                                Margin="10,0,10,10"
-                                Background="White">
-
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Info}">
-                           TextDecorations="{Binding IsChecked, ElementName=checkBox}"
-                                        </TextBlock>
-                                        <CheckBox x:Name="checkBox">
-                                        </CheckBox>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                            <ListView.ItemContainerStyle>
-                                <Style TargetType="ListViewItem">
-                                    <Setter Property="Margin" Value="5"/>
-                                    <Setter Property="Background" Value="White"/>
-                                </Style>
-                            </ListView.ItemContainerStyle>
-                        </ListView>
-                    </Grid>-->
-                </Border>
                 <TextBlock Grid.Row="3" 
                            Text="Appointments"
                            Style="{StaticResource HeaderTextStyle}"

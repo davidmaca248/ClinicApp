@@ -56,5 +56,43 @@ namespace ClinicApp.Views
             _viewModel.updateContent();
         }
 
+        private void AddTodoButtonClick(object sender, RoutedEventArgs e)
+        {
+            string text = AddTodo.Text;
+            int id = GlobalHomePageListDatabase.TodoList.Count + 1;
+            // add text to list
+            GlobalHomePageListDatabase.TodoList.Add(new NoteListItem(id, text, _viewModel.DisplayedDay));
+            _viewModel.TodoList = GlobalHomePageListDatabase.TodoList.Where(x => x.Date.Date == _viewModel.DisplayedDay.Date).ToList();
+
+            AddTodo.Text = string.Empty;
+        }
+        private void DeleteTodoButtonClick(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).Tag;
+
+
+            GlobalHomePageListDatabase.TodoList.RemoveAll(x => x.Id == id);
+            _viewModel.TodoList = GlobalHomePageListDatabase.TodoList.Where(x => x.Date.Date == _viewModel.DisplayedDay.Date).ToList();
+        }
+
+        private void AddNoteButtonClick(object sender, RoutedEventArgs e)
+        {
+            string text = AddNote.Text;
+            int id = GlobalHomePageListDatabase.NotesList.Count + 1;
+
+            GlobalHomePageListDatabase.NotesList.Add(new NoteListItem(id, text, _viewModel.DisplayedDay));
+            _viewModel.NotesList = GlobalHomePageListDatabase.NotesList.Where(x => x.Date.Date == _viewModel.DisplayedDay.Date).ToList();
+
+            AddNote.Text = string.Empty;
+        }
+
+        private void DeleteNoteButtonClick(object sender, RoutedEventArgs e)
+        {
+            int id = (int)((Button)sender).Tag;
+
+
+            GlobalHomePageListDatabase.NotesList.RemoveAll(x => x.Id == id);
+            _viewModel.NotesList = GlobalHomePageListDatabase.NotesList.Where(x => x.Date.Date == _viewModel.DisplayedDay.Date).ToList();
+        }
     }
 }

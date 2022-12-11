@@ -5,10 +5,6 @@
 
     <FontFamily x:Key="StandardFont">pack://application:,,,/ClinicApp;component/Styles/Fonts/#Lemon Days</FontFamily>
 
-    <Style x:Key="myHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
-        <Setter Property="Visibility" Value="Collapsed" />
-    </Style>
-    
     <Style x:Key="MainWindowStyle" TargetType="Window">
         <Setter Property="WindowStyle" Value="SingleBorderWindow"/>
         <Setter Property="WindowState" Value="Maximized"/>
@@ -72,5 +68,21 @@
         </Setter>
     </Style>
 
+    <Style x:Key="HomeListViewItemStyle" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
 
+    <Style x:Key="GridListViewHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Visibility" Value="Collapsed" />
+    </Style>
+
+    <!--<Style x:Key="CheckBoxStyle" TargetType="{x:Type CheckBox}">
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="Con" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>-->
 </ResourceDictionary>
