@@ -28,7 +28,7 @@
                 <TextBlock Grid.Column="0"
                            Margin="30,-5,0,0"
                            FontFamily="{StaticResource StandardFont}"
-                           Text="Clinic App"
+                           Text="FourClinic"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
                            FontSize="40"
