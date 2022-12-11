@@ -1,7 +1,7 @@
 # Clinic App
 
 ## Group 4
-Our Names
+Alden Lien, David Macababayao, Frank Ma, Joshua Kim
 
 ###### Displays best on 1920x1080 resolution displays
 
