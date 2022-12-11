@@ -1,7 +1,7 @@
 # Clinic App
 
 ## Group 4
-Our Names
+Alden Lien, David Macababayao, Frank Ma, Joshua Kim
 
 ###### Displays best on 1920x1080 resolution displays
 
@@ -9,7 +9,8 @@ Our Names
 #### With Visual Studio
 1. Open the ClinicApp.sln solution with Visual Studio
 2. Build the program (CTRL + B)
-3. Use Visual Studios player to run the app (green start button at the top)
+3. Use Visual Studios player to run the app (green start button at the top) OR
+4. Run the Application executable in ClinicApp/src/bin/Debug
 
 ### User Instructions
 #### Adding an Appointment 
@@ -140,5 +141,13 @@ Two Methods:
 4. Press the 'ENTER' key to enter the password
 5. The account page should now display your details and all activity on the app while logged can be tracked
 6. To logout press the red 'LOG OUT' button below your account details on the account page
-#### Completing A Task In The ToDo List
-#### Adding A Task In The ToDo List
+#### Completing A Task In The ToDo/Notes List
+1. Navigate to the 'HOME' page using the nav bar
+2. Check the check box beside the list item that is complete
+#### Adding A Task In The ToDo/Notes List
+1. Navigate to the 'HOME' page using the nav bar
+2. Type what you want to add into the text box below either the ToDo or Notices list (depending on which one you want to add to)
+3. Once you are done typing Click the 'Add' button to add it to the list
+#### Deleting A Task In The ToDo/Notes List
+1. Navigate to the 'HOME' page using the nav bar
+2. Click the 'X' on the right side of whichever list item you want to remove 
