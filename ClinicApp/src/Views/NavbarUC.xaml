@@ -11,6 +11,9 @@
     <Grid>
         <Border Margin="10" CornerRadius="30" Background="LightGray">
             <Grid>
+                <Grid.Effect>
+                    <DropShadowEffect Color="DarkGray"/>
+                </Grid.Effect>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -23,13 +26,24 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0"
+                           Margin="30,-5,0,0"
                            FontFamily="{StaticResource StandardFont}"
                            Text="Clinic App"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           FontSize="30" Margin="8,0,0,0"/>
+                           FontSize="40"
+                           >
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFD88BFF" Offset="0"/>
+                            <GradientStop Color="#FF951CD0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="DarkGray"/>
+                    </TextBlock.Effect>
+                </TextBlock>
 
-               
 
                 <RadioButton Grid.Column="2"
                              Content="Home"
