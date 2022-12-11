@@ -40,7 +40,7 @@
                             Click="NextButtonClick"/>
                 </StackPanel>
                 <TextBlock Grid.Row="1" 
-                           Text="Notes:" 
+                           Text="Notices:" 
                            Style="{StaticResource HeaderTextStyle}"
                            Padding="10,0,0,0"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" 
@@ -66,17 +66,70 @@
                         CornerRadius="30" 
                         Background="LightGray" 
                         Padding="0,0,10,0">
-                    <ListView ItemsSource="{Binding TodoList}" 
-                             DisplayMemberPath="Info"
-                             Margin="10,0,10,10"
-                             Background="White">
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="Margin" Value="5"/>
-                                <Setter Property="Background" Value="White"/>
-                            </Style>
-                        </ListView.ItemContainerStyle>
-                    </ListView>
+                    
+                    
+                    <Grid>
+                        <ListView ItemsSource ="{Binding TodoList}"
+                                  
+                                Margin="10,0,10,10"
+                                Background="White">
+
+                            <ListView.View>
+                                <GridView ColumnHeaderContainerStyle="{StaticResource myHeaderStyle}">
+                                    <GridViewColumn>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <CheckBox x:Name="checkBox">
+                                                </CheckBox>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+
+                                    <GridViewColumn>
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Info}" Foreground="Black">
+                                                </TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Background" Value="White"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </Grid>
+
+
+                    <!--<Grid>
+                        <ListView ItemsSource ="{Binding TodoList}"
+                                  
+                                Margin="10,0,10,10"
+                                Background="White">
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Info}">
+                           TextDecorations="{Binding IsChecked, ElementName=checkBox}"
+                                        </TextBlock>
+                                        <CheckBox x:Name="checkBox">
+                                        </CheckBox>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Background" Value="White"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                    </Grid>-->
                 </Border>
                 <TextBlock Grid.Row="3" 
                            Text="Appointments"

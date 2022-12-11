@@ -10,22 +10,29 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Choose A Day"
+        <TextBlock Text="Select Date"
                    HorizontalAlignment="Center"
-                   Style="{StaticResource HeaderTextStyle}"/>
+                   FontSize="30"
+                   Style="{StaticResource HeaderTextStyle}" Foreground="DarkOrchid">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="DarkGray"/>
+            </TextBlock.Effect>
+        </TextBlock>
 
         <!--Calendar Content-->
+
         <Viewbox Grid.Row ="1" 
-                 Width="600" 
-                 Height="560" 
-                 Stretch="UniformToFill" 
+                 Width="700" 
+                 Height="620" 
+                 Stretch="Fill" 
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center">
+
             <Calendar Name="MonthlyCalendar"
                       SelectionMode="SingleDate"
                       HorizontalAlignment="Center"  
                       VerticalAlignment="Stretch"  
-                      Background="White"
+                      Background="#FFE9D8FF"
                       MouseDoubleClick="MonthlyCalendar_MouseDoubleClick">
             </Calendar>
         </Viewbox>

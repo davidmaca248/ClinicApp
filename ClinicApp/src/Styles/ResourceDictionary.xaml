@@ -4,6 +4,10 @@
                     >
 
     <FontFamily x:Key="StandardFont">pack://application:,,,/ClinicApp;component/Styles/Fonts/#Lemon Days</FontFamily>
+
+    <Style x:Key="myHeaderStyle" TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Visibility" Value="Collapsed" />
+    </Style>
     
     <Style x:Key="MainWindowStyle" TargetType="Window">
         <Setter Property="WindowStyle" Value="SingleBorderWindow"/>

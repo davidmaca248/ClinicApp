@@ -30,7 +30,7 @@ namespace ClinicApp.ViewModel
         {
             if (!query.Equals(string.Empty))
             {
-                var past = GlobalAppointmentDataBase.AppointmentList.
+                var past = GlobalAppointmentDataBase.AppointmentList.Concat(GlobalAppointmentDataBase.DeletedAppointments).
                     Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
                     .OrderBy(o => o.StartTime).ToList();
                 var search = past.Where(x => x.Name.ToUpper().Contains(query)).ToList();
@@ -45,8 +45,10 @@ namespace ClinicApp.ViewModel
 
         public void updateList()
         {
-            PastAppointments = GlobalAppointmentDataBase.AppointmentList.
-                Where(x => x.StartTime.TimeOfDay < DateTime.Now.TimeOfDay)
+            GlobalAppointmentDataBase.AppointmentList.
+                Where(x => x.EndTime < DateTime.Now).ToList().ForEach(y => y.Status = "Completed");
+            PastAppointments = GlobalAppointmentDataBase.AppointmentList.Concat(GlobalAppointmentDataBase.DeletedAppointments).
+                Where(x => x.EndTime < DateTime.Now)
                 .OrderBy(o => o.StartTime).ToList();
         }
     }

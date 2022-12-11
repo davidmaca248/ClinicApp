@@ -322,12 +322,18 @@
                                 BorderThickness="0"
                                 BorderBrush="DarkOrchid"
                                 Background="{TemplateBinding Background}">
+
                             <TextBlock Text="{TemplateBinding Property=Content}"
                                        Foreground="{TemplateBinding Foreground}"
                                        FontFamily="{StaticResource StandardFont}"
                                        FontSize="48"
                                        VerticalAlignment="Center"
-                                       HorizontalAlignment="Center"/>
+                                       HorizontalAlignment="Center">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect Color="Purple"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
+
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
