@@ -9,7 +9,8 @@ Our Names
 #### With Visual Studio
 1. Open the ClinicApp.sln solution with Visual Studio
 2. Build the program (CTRL + B)
-3. Use Visual Studios player to run the app (green start button at the top)
+3. Use Visual Studios player to run the app (green start button at the top) OR
+4. Run the Application executable in ClinicApp/src/bin/Debug
 
 ### User Instructions
 #### Adding an Appointment 
