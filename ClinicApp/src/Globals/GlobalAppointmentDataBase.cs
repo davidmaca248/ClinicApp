@@ -41,7 +41,7 @@ namespace ClinicApp.Globals
                 new Doctor("Brandon", "James", "BJames@gmail.com", "403-111-4115", "no", new DateTime(1977,03,03), 3),
                 new Doctor("Steven", "Drake", "SDrake@gmail.com", "403-114-4535", "yes", new DateTime(1962,06,10), 4),
                 new Doctor("John", "Doe", "JDoe@gmail.com", "403-115-1565", "no", new DateTime(1987,10,12), 5),
-                new Doctor("Adam", "Smith", "ASmith@gmail.com", "403-111-4565", "yes", new DateTime(1969,11,11), 6)
+                new Doctor("Adam", "Smith", "ASmith@gmail.com", "403-111-4565", "yes", new DateTime(1969,11,11), 6) 
             };
 
             Clients = new List<Client>()
@@ -77,8 +77,8 @@ namespace ClinicApp.Globals
                 new Appointment(Clients[1], "Checkup", new DateTime(2022,12,day1,9,0,0), 30,Doctors[3]),
                 new Appointment(Clients[0], "X-Ray", new DateTime(2022,12,day1,13,30,0), 30,Doctors[2]),
                 new Appointment(Clients[0], "Checkup and X-Ray", new DateTime(2022,12,day2,13,30,0), 30,Doctors[1]),
-                new Appointment(Clients[2], "Checkup and consultation", new DateTime(2022,12,day2,16,30,0), 60,Doctors[1]),
-                new Appointment(Clients[10], "Checkup", new DateTime(2022,12,day2,16,30,0), 30,Doctors[2]),
+                new Appointment(Clients[2], "Checkup and consultation", new DateTime(2022,12,day3,11,30,0), 60,Doctors[1]),
+                new Appointment(Clients[10], "Checkup", new DateTime(2022,12,day2,18,30,0), 30,Doctors[2]),
                 new Appointment(Clients[5], "Consultation", new DateTime(2022,12,day3,18,00,0), 30, Doctors[6]),
 
                 new Appointment(Clients[6], "Checkup", new DateTime(2022,12,day4,12,00,0), 30,Doctors[5]),
@@ -86,7 +86,8 @@ namespace ClinicApp.Globals
                 new Appointment(Clients[4], "Checkup and X-Ray", new DateTime(2022,12,day3,14,30,0), 30,Doctors[0]),
                 new Appointment(Clients[21], "Checkup and consultation", new DateTime(2022,12,day4,16,30,0), 30,Doctors[4]),
                 new Appointment(Clients[17], "Checkup", new DateTime(2022,12,day2,16,30,0), 30,Doctors[2]),
-                new Appointment(Clients[3], "Consultation", new DateTime(2022,12,day1,18,00,0), 30, Doctors[4])
+                new Appointment(Clients[3], "Consultation", new DateTime(2022,12,day1,18,00,0), 30, Doctors[4]),
+                new Appointment(Clients[3], "Consultation", new DateTime(2022,12,day2,15,30,0), 30, Doctors[3])
 
             };
 
