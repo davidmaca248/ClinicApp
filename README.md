@@ -1,7 +1,7 @@
 # Clinic App
 
 ## Group 4
-Alden Lien, David Macababayao, Frank Ma, Joshua Kim
+Alden Lien, David Macababayao, Frank Ma, Joshua Kim, Arhum Ladak
 
 ###### Displays best on 1920x1080 resolution displays
 
