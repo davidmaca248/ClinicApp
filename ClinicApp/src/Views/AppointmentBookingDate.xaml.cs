@@ -107,6 +107,7 @@ namespace ClinicApp.Views
                 GlobalAppointmentDataBase.NewAppointment.Id = GlobalAppointmentDataBase.AppointmentList.Count + 1;
                 GlobalAppointmentDataBase.NewAppointment.Name = GlobalAppointmentDataBase.AppointmentClient.FirstName + ' ' + GlobalAppointmentDataBase.AppointmentClient.LastName;
                 if (GlobalAppointmentDataBase.NewClient) {
+                    GlobalAppointmentDataBase.NewClient = false;
                     GlobalAppointmentDataBase.Clients.Add(GlobalAppointmentDataBase.AppointmentClient);
                 }
                 GlobalAppointmentDataBase.NewAppointment.Date = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("MMMM dd, yyyy");
@@ -118,9 +119,9 @@ namespace ClinicApp.Views
                 GlobalAppointmentDataBase.NewAppointment.Time = GlobalAppointmentDataBase.NewAppointment.StartTime.ToString("h:mm tt");
                 if (!GlobalAppointmentDataBase.Rescheduling)
                 {
+                    GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
                     GlobalAppointmentDataBase.AppointmentList.Add(GlobalAppointmentDataBase.NewAppointment);
                     GlobalAppointmentDataBase.AppointmentClient.Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
-                    GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.NewAppointment);
                 }
                 if (!GlobalAppointmentDataBase.Rescheduling)
                 {
@@ -152,6 +153,7 @@ namespace ClinicApp.Views
                     GlobalAppointmentDataBase.SelectedAppointment.DoctorName = GlobalAppointmentDataBase.NewAppointment.DoctorName;
                     GlobalAppointmentDataBase.SelectedAppointment.Duration = GlobalAppointmentDataBase.NewAppointment.Duration;
                     GlobalAppointmentDataBase.SelectedAppointment.DurationStr = GlobalAppointmentDataBase.NewAppointment.DurationStr;
+                    GlobalAppointmentDataBase.Doctors.Find(x => x == AppointmentDoctor).Appointments.Add(GlobalAppointmentDataBase.SelectedAppointment);
                 }
             }
             else
@@ -256,6 +258,10 @@ namespace ClinicApp.Views
             button.Foreground = Brushes.DarkOrchid;
 
             AppointmentDoctor = GlobalAppointmentDataBase.Doctors.Find(x => x.LastName == button.Name);
+            if (GlobalAppointmentDataBase.Rescheduling)
+            {
+                GlobalAppointmentDataBase.Doctors.Find(x => x == GlobalAppointmentDataBase.NewAppointment.Doctor).Appointments.RemoveAll(x => x == GlobalAppointmentDataBase.SelectedAppointment);
+            }
             GlobalAppointmentDataBase.NewAppointment.Doctor = AppointmentDoctor;
             SetAppointmentTime((string)button.Content);
             GlobalAppointmentDataBase.NewAppointment.EndTime = GlobalAppointmentDataBase.NewAppointment.StartTime.AddMinutes(duration);

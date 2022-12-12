@@ -24,13 +24,12 @@ namespace ClinicApp.Views
         Button prevButton = new Button(); 
         public AppointmentBookingTime()
         {
-            InitializeComponent();
-
             if (GlobalAppointmentDataBase.Rescheduling)
             {
                 GlobalAppointmentDataBase.NewAppointment.Duration = GlobalAppointmentDataBase.SelectedAppointment.Duration;
                 GlobalAppointmentDataBase.NewAppointment.Description = GlobalAppointmentDataBase.SelectedAppointment.Description;
             }
+            InitializeComponent();
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
