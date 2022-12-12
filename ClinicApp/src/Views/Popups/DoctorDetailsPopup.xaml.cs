@@ -32,6 +32,8 @@ namespace ClinicApp.Views.Popups
             DoctorUpcomingApps modal = new DoctorUpcomingApps();
             modal.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             modal.ShowDialog();
+            if (GlobalAppointmentDataBase.Rescheduling)
+                this.Close();
         }
 
         private void Edit(object sender, RoutedEventArgs e)
