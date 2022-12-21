@@ -3,7 +3,7 @@
 ## Group 4
 Alden Lien, David Macababayao, Frank Ma, Joshua Kim, Arhum Ladak
 
-###### Displays best on 1920x1080 resolution displays
+###### Made to be used on Industry Standard Monitor Resolutions (at least 1080p)
 
 ### Installation Instructions
 #### With Visual Studio
